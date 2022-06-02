@@ -8,7 +8,7 @@
         Title="Explorer" Height="450" Width="900">
     <Grid>
         <TextBox HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211" Height="19"/>
-        <TextBox HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="425" Height="19"/>
+        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="425" Height="19"/>
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <TreeView Name="treeView" Margin="5,34,689,31" Width="206">
@@ -19,10 +19,11 @@
                 </Style>
             </TreeView.ItemContainerStyle>
         </TreeView>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="216,34,10,31" SelectionChanged="ListView_SelectionChanged_1">
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
+        <ListView x:Name="FileList" Margin="216,34,10,31" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name">
+                    <GridViewColumn x:Name="NameColumn" Header="Name">
                     </GridViewColumn>
                     <GridViewColumn Header="Type">
                     </GridViewColumn>
@@ -35,5 +36,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btnOpen"  Content="Open File" HorizontalAlignment="Left" Margin="20,7,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click"/>
+
     </Grid>
 </Window>
