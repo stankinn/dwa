@@ -1,0 +1,8 @@
+﻿@* Generator : Template TypeVisibility : Internal *@
+CREATE TABLE Entity1 ( 
+@foreach(var attribut in @Model.GetAttributes("A"))
+{@if(@attribut.DataType == "String") 
+{<text>	@attribut.Name @attribut.DataType 
+</text>}}
+	@Model.GetAttributeByName("SpecialAtttribute").Name @Model.GetAttributeByName("SpecialAtttribute").DataType 
+	)

@@ -1,0 +1,5 @@
+CREATE TABLE Entity1 ( 
+	Attribute2 String 
+	Attribute4 String 
+	SpecialAtttribute String 
+	)
