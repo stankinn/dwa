@@ -64,9 +64,13 @@ namespace WpfApp2019
 
             string templateText = File.ReadAllText("..\\..\\..\\TextFile1-NormalTemplate.txt");
             var model = new Entity("Bert");
+            model.Name = EntityName.Text;
+            model.Attributes.Add(new EntityAttribute() { Name = AttributeNames.Text, Type = AttributeType.Text, DataType = AttributeDataType.Text });
+            System.Diagnostics.Debug.WriteLine(model.Attributes);
             var resultText = Engine.Razor.RunCompile(templateText, "TextNormal", null, model);
             File.WriteAllTextAsync("..\\..\\..\\WriteText.txt", resultText);
-            Console.Write(resultText);
+            //Console.Write(resultText);
+            System.Diagnostics.Debug.WriteLine(resultText);
 
         }
     }

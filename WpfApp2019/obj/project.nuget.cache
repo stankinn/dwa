@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hRrCyX4whs6YWZWGeSB822EJmq7p8EDPxFuRpuU+U93MM+3QzLS0B5wdrXwzUQoM3tynfw4+Ie6t7KHNaHlN4g==",
+  "dgSpecHash": "2DAHIq3eFqrtbmjcPYtrrRwbtNVMjvk0yVCHyz9aCzLwtPGjtZuWxlk5jCZl4e2Q/KCeutDIJFWC/QQGnSZVRg==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Admin\\source\\repos\\WpfApp2019\\WpfApp2019.csproj",
+  "projectFilePath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",

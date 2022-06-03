@@ -23,12 +23,7 @@ namespace TemplateTestCase
         public Entity(string Name)
         {
             this.Name = Name;
-            Attributes = new List<EntityAttribute> { new EntityAttribute(){ Name = "Attribute1", Type ="A", DataType="Int" },
-                                                     new EntityAttribute(){ Name = "Attribute2", Type ="A", DataType="String"  },
-                                                     new EntityAttribute(){ Name = "Attribute3", Type ="B", DataType="Date" },
-                                                     new EntityAttribute(){ Name = "Attribute4", Type ="A", DataType="String" },
-                                                     new EntityAttribute(){ Name = "SpecialAtttribute", Type ="C", DataType="String" }
-                                             };
+            Attributes = new List<EntityAttribute> {};
         }
 
         public List<EntityAttribute> GetAttributes(string Type)

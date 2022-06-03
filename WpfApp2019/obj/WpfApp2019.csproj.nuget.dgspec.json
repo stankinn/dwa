@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Admin\\source\\repos\\WpfApp2019\\WpfApp2019.csproj": {}
+    "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Admin\\source\\repos\\WpfApp2019\\WpfApp2019.csproj": {
+    "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Admin\\source\\repos\\WpfApp2019\\WpfApp2019.csproj",
+        "projectUniqueName": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
         "projectName": "WpfApp2019",
-        "projectPath": "D:\\Users\\Admin\\source\\repos\\WpfApp2019\\WpfApp2019.csproj",
+        "projectPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Admin\\source\\repos\\WpfApp2019\\obj\\",
+        "outputPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
