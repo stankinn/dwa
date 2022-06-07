@@ -33,7 +33,7 @@
         <TextBox x:Name ="AttributeNames" HorizontalAlignment="Left" Height="64" Margin="10,118,0,0" TextWrapping="Wrap" Text="Attribute Name" VerticalAlignment="Top" Width="196"/>
         <TextBox x:Name ="AttributeType" HorizontalAlignment="Left" Height="64" Margin="10,187,0,0" TextWrapping="Wrap" Text="Attribute Type" VerticalAlignment="Top" Width="196"/>
         <TextBox x:Name ="AttributeDataType" HorizontalAlignment="Left" Height="64" Margin="10,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Text="Attribute Data Type"/>
-        <Button Content="Test" HorizontalAlignment="Left" Margin="113,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="93" Click="Button_Test_Click"/>
+        <Button Content="Add New" HorizontalAlignment="Left" Margin="113,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="93" Click="Button_Test_Click"/>
 
     </Grid>
 </Window>

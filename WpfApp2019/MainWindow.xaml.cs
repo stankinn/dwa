@@ -47,6 +47,7 @@ namespace WpfApp2019
                     foreach (var d in files)
                     {
                         FileList.Items.Add(Path.GetFileName(d));
+                        
                     }
                 }
                 catch (System.Exception excpt)
