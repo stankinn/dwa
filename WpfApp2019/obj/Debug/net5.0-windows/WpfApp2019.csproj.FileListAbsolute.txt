@@ -136,3 +136,7 @@ D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debu
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\ref\WpfApp2019.dll
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\WpfApp2019.pdb
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\WpfApp2019.genruntimeconfig.cache
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\AddEntity.g.cs
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\MainPage.g.cs
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\AddEntity.baml
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\MainPage.baml

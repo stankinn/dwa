@@ -1,3 +1,2 @@
-CREATE TABLE Name ( 
-	Vorname String 
+CREATE TABLE wd ( 
 	)
