@@ -14,15 +14,41 @@
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
-        <ListView x:Name="FileList" Margin="216,34,10,31" SelectionChanged="ListView_SelectionChanged">
+        <ListView Name="FileList" Margin="216,34,10,31" SelectionChanged="ListView_SelectionChanged">
+             <!-- x:Name="FileList -->
             <ListView.View>
                 <GridView>
+                    
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="100">
+                                <!-- x:Name="NameColumn" -->
+                        <GridViewColumnHeader Tag="Name" Click="ColumnHeader_Click">
+                            Name
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
 
-                    <GridViewColumn x:Name="NameColumn" Header="Name" Width="100"/>
-                    <GridViewColumn Header="Type" Width="100"/>
-                    <GridViewColumn Header="Modification Time" Width="100"/>
-                    <GridViewColumn Header="Owner" Width="100"/>
-                    <GridViewColumn Header="Description" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Type}" Width="100">
+                        <GridViewColumnHeader Tag="Type" Click="ColumnHeader_Click">
+                            Type
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding ModificationTime}" Width="100">
+                        <GridViewColumnHeader Tag="ModificationTime" Click="ColumnHeader_Click">
+                            Modification Time
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Owner}" Width="100">
+                        <GridViewColumnHeader Tag="Owner" Click="ColumnHeader_Click">
+                            Owner
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Width="100">
+                        <GridViewColumnHeader Tag="Description" Click="ColumnHeader_Click">
+                            Description
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
 
                 </GridView>
             </ListView.View>
