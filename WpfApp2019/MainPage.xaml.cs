@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
+﻿using System.Collections.Generic;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.IO;
+using System.Windows.Controls;
+using System.ComponentModel;
 using Path = System.IO.Path;
 using System.Windows.Forms;
+using System.Windows.Media;
+using System.Windows;
+using System.IO;
+using System;
+
 
 namespace WpfApp2019
 {
@@ -23,6 +17,9 @@ namespace WpfApp2019
     /// </summary>
     public partial class MainPage : Page
     {
+        private GridViewColumnHeader listViewSortCol = null;
+        private SortAdorner listViewSortAdorner = null;
+
         public MainPage()
         {
             InitializeComponent();
@@ -41,7 +38,9 @@ namespace WpfApp2019
 
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                FileList.Items.Clear();
+                //FileList.Items.Clear();
+                FileList.ItemsSource = new List<FileAttributes>();
+
                 string sPath = folderDialog.SelectedPath;
 
                 FilePath.Text = sPath;
@@ -50,13 +49,20 @@ namespace WpfApp2019
                 try
                 {
                     var files = Directory.EnumerateFileSystemEntries(sPath);
+                    List<FileAttributes> items = new List<FileAttributes>();
+
                     foreach (var d in files)
                     {
-                        
-                        Files data = new(Path.GetFileName(d));
-                        FileList.Items.Add(data.Name);
+                        // FileList.Items.Add(Path.GetFileName(d));
+                        items.Add(new FileAttributes(){
+                            Name = Path.GetFileName(d),
+                            Type = Path.GetExtension(d), // oder MimeMapping.MimeUtility.GetMimeMapping(Path.GetFileName(d)) -> NuGet-Paket: MimeMapping
+                            ModificationTime = Directory.GetLastWriteTime(d),
+                            Owner = "Owner",
+                            Description = "Description"});
 
                     }
+                    FileList.ItemsSource = items;
                 }
                 catch (System.Exception excpt)
                 {
@@ -76,34 +82,74 @@ namespace WpfApp2019
             this.NavigationService.Navigate(addEntityPage);
         }
 
+        public void ColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewColumnHeader column = (sender as GridViewColumnHeader);
+            string sortBy = column.Tag.ToString();
+            if (listViewSortCol != null)
+            {
+                AdornerLayer.GetAdornerLayer(listViewSortCol).Remove(listViewSortAdorner);
+                FileList.Items.SortDescriptions.Clear();
+            }
+
+            ListSortDirection newDir = ListSortDirection.Ascending;
+            if (listViewSortCol == column && listViewSortAdorner.Direction == newDir)
+                newDir = ListSortDirection.Descending;
+
+            listViewSortCol = column;
+            listViewSortAdorner = new SortAdorner(listViewSortCol, newDir);
+            AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
+            FileList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
+
+        }
+
     }
 
-    public class Files
+    class FileAttributes
     {
-        protected string name;
-        protected string type;
-        protected DateTime modifiedTime;
-        protected string owner;
-        protected string description;
-
-
-        Files(string name, string type, DateTime modifiedTime, string owner, string description)
-        {
-            this.name = name;
-            this.type = type;
-            this.modifiedTime = modifiedTime;
-            this.owner = owner;
-            this.description = description;
-        }
-        Files(string name)
-        {
-            this.name = name;
-        }
-
         public string Name { get; set; }
         public string Type { get; set; }
         public DateTime ModificationTime { get; set; }
         public string Owner { get; set; }
-        public string OwnerDescription { get; set; }
+        public string Description { get; set; }
     }
+
+    public class SortAdorner : Adorner
+    {
+        private static Geometry ascGeometry =
+            Geometry.Parse("M 0 4 L 3.5 0 L 7 4 Z");
+
+        private static Geometry descGeometry =
+            Geometry.Parse("M 0 0 L 3.5 4 L 7 0 Z");
+
+        public ListSortDirection Direction { get; private set; }
+
+        public SortAdorner(UIElement element, ListSortDirection dir)
+            : base(element)
+        {
+            this.Direction = dir;
+        }
+        protected override void OnRender(DrawingContext drawingContext)
+        {
+            base.OnRender(drawingContext);
+
+            if (AdornedElement.RenderSize.Width < 20)
+                return;
+
+            TranslateTransform transform = new TranslateTransform
+                (
+                    AdornedElement.RenderSize.Width - 15,
+                    (AdornedElement.RenderSize.Height - 5) / 2
+                );
+            drawingContext.PushTransform(transform);
+
+            Geometry geometry = ascGeometry;
+            if (this.Direction == ListSortDirection.Descending)
+                geometry = descGeometry;
+            drawingContext.DrawGeometry(Brushes.Black, null, geometry);
+
+            drawingContext.Pop();
+        }
+    }
+
 }
