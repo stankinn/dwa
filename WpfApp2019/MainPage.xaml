@@ -15,12 +15,10 @@
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
         <ListView Name="FileList" Margin="216,34,10,31" SelectionChanged="ListView_SelectionChanged">
-             <!-- x:Name="FileList -->
             <ListView.View>
                 <GridView>
                     
                     <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="100">
-                                <!-- x:Name="NameColumn" -->
                         <GridViewColumnHeader Tag="Name" Click="ColumnHeader_Click">
                             Name
                         </GridViewColumnHeader>

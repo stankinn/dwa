@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows;
 using System.IO;
 using System;
+using System.Diagnostics;
 
 
 namespace WpfApp2019
@@ -38,7 +39,6 @@ namespace WpfApp2019
 
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-                //FileList.Items.Clear();
                 FileList.ItemsSource = new List<FileAttributes>();
 
                 string sPath = folderDialog.SelectedPath;
@@ -50,17 +50,17 @@ namespace WpfApp2019
                 {
                     var files = Directory.EnumerateFileSystemEntries(sPath);
                     List<FileAttributes> items = new List<FileAttributes>();
-
                     foreach (var d in files)
                     {
-                        // FileList.Items.Add(Path.GetFileName(d));
-                        items.Add(new FileAttributes(){
+                        var accessControl = new FileInfo(d).GetAccessControl();
+                        items.Add(new FileAttributes()
+                        {
                             Name = Path.GetFileName(d),
-                            Type = Path.GetExtension(d), // oder MimeMapping.MimeUtility.GetMimeMapping(Path.GetFileName(d)) -> NuGet-Paket: MimeMapping
+                            Type = GetDataType(d),
                             ModificationTime = Directory.GetLastWriteTime(d),
-                            Owner = "Owner",
-                            Description = "Description"});
-
+                            Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
+                            Description = GetFileDescription(d)
+                        });
                     }
                     FileList.ItemsSource = items;
                 }
@@ -68,10 +68,28 @@ namespace WpfApp2019
                 {
                     Console.WriteLine(excpt.Message);
                 }
+            }
+        }
 
-                // System.Diagnostics.Debug.WriteLine(sPath);
+        private string GetDataType(string file)
+        {
+            if (Path.GetExtension(file) != "") {
+                return Path.GetExtension(file);
+            } else
+            {
+                return "Dateiordner";
+            }
+        }
 
-                //Properties.Settings.Default.Reload();
+        private string GetFileDescription(string file)
+        {
+            if (Path.GetExtension(file) != "")
+            {
+               return FileVersionInfo.GetVersionInfo(file).FileDescription;
+            }
+            else
+            {
+                return "";
             }
         }
 
@@ -105,7 +123,7 @@ namespace WpfApp2019
 
     }
 
-    class FileAttributes
+    public class FileAttributes
     {
         public string Name { get; set; }
         public string Type { get; set; }
