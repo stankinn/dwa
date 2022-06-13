@@ -52,7 +52,9 @@ namespace WpfApp2019
                     var files = Directory.EnumerateFileSystemEntries(sPath);
                     foreach (var d in files)
                     {
-                        FileList.Items.Add(Path.GetFileName(d));
+                        
+                        Files data = new(Path.GetFileName(d));
+                        FileList.Items.Add(data.Name);
 
                     }
                 }
@@ -76,8 +78,28 @@ namespace WpfApp2019
 
     }
 
-    class Files
+    public class Files
     {
+        protected string name;
+        protected string type;
+        protected DateTime modifiedTime;
+        protected string owner;
+        protected string description;
+
+
+        Files(string name, string type, DateTime modifiedTime, string owner, string description)
+        {
+            this.name = name;
+            this.type = type;
+            this.modifiedTime = modifiedTime;
+            this.owner = owner;
+            this.description = description;
+        }
+        Files(string name)
+        {
+            this.name = name;
+        }
+
         public string Name { get; set; }
         public string Type { get; set; }
         public DateTime ModificationTime { get; set; }
