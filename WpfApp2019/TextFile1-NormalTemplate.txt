@@ -1,7 +1,6 @@
 ﻿@* Generator : Template TypeVisibility : Internal *@
 CREATE TABLE @Model.Name ( 
-@foreach(var attribut in @Model.GetAttributes(""))
-{@if(@attribut.DataType == "String") 
+@foreach(var attribut in @Model.GetAllAttributes())
 {<text>	@attribut.Name @attribut.DataType 
-</text>}}
+</text>}
 	)

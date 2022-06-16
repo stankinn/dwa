@@ -35,6 +35,9 @@ namespace TemplateTestCase
             return Attributes.Where(attr => attr.Name == Name).First();
         }
 
-
+        public List<EntityAttribute> GetAllAttributes()
+        {
+            return Attributes;
+        }
     }
 }
