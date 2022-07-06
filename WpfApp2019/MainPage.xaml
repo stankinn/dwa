@@ -14,6 +14,9 @@
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
+
+        <TreeView Name="TreeViewStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="15,34,590,31" />
+
         <ListView Name="FileList" Margin="216,34,10,31" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
