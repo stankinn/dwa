@@ -37,18 +37,24 @@ namespace WpfApp2019
                 item.Items.Clear();
 
                 DirectoryInfo expandedDir = null;
-                if (item.Tag is DriveInfo)
+                if (item.Tag is DriveInfo) { 
                     expandedDir = (item.Tag as DriveInfo).RootDirectory;
-                if (item.Tag is DirectoryInfo)
-                    expandedDir = (item.Tag as DirectoryInfo);
+                
+                }
+                if (item.Tag is DirectoryInfo) {
+                    expandedDir = (item.Tag as DirectoryInfo); 
+                }
                 try
                 {
                     foreach (DirectoryInfo subDir in expandedDir.GetDirectories())
                         item.Items.Add(CreateTreeItem(subDir));
+
                 }
                 catch { }
             }
         }
+
+       
 
         private TreeViewItem CreateTreeItem(object o)
         {
@@ -57,7 +63,38 @@ namespace WpfApp2019
             item.Tag = o;
             item.Items.Add("Loading...");
             return item;
+        } 
+        
+        //Auflisten der Items bei Klick auf TreeView Objekt
+        private void SelectedItemList(object o, RoutedEventArgs e)
+        {
+            TreeViewItem item = e.Source as TreeViewItem;
+            string sPath = (string)item.Header;
+            Trace.WriteLine("Path: " + sPath);
+            try
+            {
+                var files = Directory.EnumerateFileSystemEntries(sPath);
+                List<FileAttributes> items = new List<FileAttributes>();
+                foreach (var d in files)
+                {
+                    var accessControl = new FileInfo(d).GetAccessControl();
+                    items.Add(new FileAttributes()
+                    {
+                        Name = Path.GetFileName(d),
+                        Type = GetDataType(d),
+                        ModificationTime = Directory.GetLastWriteTime(d),
+                        Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
+                        Description = GetFileDescription(d)
+                    });
+                }
+                FileList.ItemsSource = items;
+            }
+            catch (System.Exception excpt)
+            {
+                Console.WriteLine(excpt.Message);
+            }
         }
+
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
