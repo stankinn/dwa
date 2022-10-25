@@ -9,7 +9,8 @@ using System.Windows;
 using System.IO;
 using System;
 using System.Diagnostics;
-
+using ListViewItem = System.Windows.Controls.ListViewItem;
+using ListView = System.Windows.Controls.ListView;
 
 namespace WpfApp2019
 {
@@ -63,14 +64,15 @@ namespace WpfApp2019
             item.Tag = o;
             item.Items.Add("Loading...");
             return item;
-        } 
-        
+        }
+
         //Auflisten der Items bei Klick auf TreeView Objekt
         private void SelectedItemList(object o, RoutedEventArgs e)
         {
             TreeViewItem item = e.Source as TreeViewItem;
             string sPath = (string)item.Header;
-            Trace.WriteLine("Path: " + sPath);
+            //Dateipfad angezeigt
+            FilePath.Text = sPath;
             try
             {
                 var files = Directory.EnumerateFileSystemEntries(sPath);
@@ -84,7 +86,8 @@ namespace WpfApp2019
                         Type = GetDataType(d),
                         ModificationTime = Directory.GetLastWriteTime(d),
                         Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
-                        Description = GetFileDescription(d)
+                        Description = GetFileDescription(d),
+                        FilePath = Path.GetFullPath(d)
                     });
                 }
                 FileList.ItemsSource = items;
@@ -95,9 +98,42 @@ namespace WpfApp2019
             }
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //Öffnen eines Ordners in der Listview
+        private void ListViewSelection(object o, RoutedEventArgs e)
         {
 
+            var item = (o as ListView).SelectedItem;
+            if (item != null)
+            {
+                FileAttributes obj = item as FileAttributes;
+                string sPath = obj.FilePath;
+
+            //Dateipfad anzeigen
+            FilePath.Text = sPath;
+            try
+            {
+                List<FileAttributes> items = new List<FileAttributes>();
+                var files = Directory.EnumerateFileSystemEntries(sPath);
+                foreach (var d in files)
+                {
+                    var accessControl = new FileInfo(d).GetAccessControl();
+                    items.Add(new FileAttributes()
+                    {
+                        Name = Path.GetFileName(d),
+                        Type = GetDataType(d),
+                        ModificationTime = Directory.GetLastWriteTime(d),
+                        Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
+                        Description = GetFileDescription(d),
+                        FilePath = Path.GetFullPath(d)
+                    });
+                }
+                FileList.ItemsSource = items;
+            }
+            catch (System.Exception excpt)
+            {
+                Console.WriteLine(excpt.Message);
+            }
+}
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -129,7 +165,8 @@ namespace WpfApp2019
                             Type = GetDataType(d),
                             ModificationTime = Directory.GetLastWriteTime(d),
                             Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
-                            Description = GetFileDescription(d)
+                            Description = GetFileDescription(d),
+                            FilePath = Path.GetFullPath(d)
                         });
                     }
                     FileList.ItemsSource = items;
@@ -200,6 +237,7 @@ namespace WpfApp2019
         public DateTime ModificationTime { get; set; }
         public string Owner { get; set; }
         public string Description { get; set; }
+        public string FilePath { get; set; }
     }
 
     public class SortAdorner : Adorner

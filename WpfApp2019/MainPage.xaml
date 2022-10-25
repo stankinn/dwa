@@ -7,8 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
+  
 
-    <Grid>
+    <Grid>  
+        
         <TextBox HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211" Height="19"/>
         <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="425" Height="19"/>
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
@@ -18,7 +20,7 @@
         <TreeView Name="TreeViewStructure" TreeViewItem.Expanded="TreeViewItem_Expanded" Margin="15,34,590,31" TreeViewItem.Selected="SelectedItemList">
         </TreeView>
 
-        <ListView Name="FileList" Margin="216,34,10,31" SelectionChanged="ListView_SelectionChanged">
+        <ListView Name="FileList" Margin="216,34,10,31" PreviewMouseDoubleClick="ListViewSelection">
             <ListView.View>
                 <GridView>
                     
