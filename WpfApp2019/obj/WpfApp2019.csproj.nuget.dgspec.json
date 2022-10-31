@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julius\\Desktop\\PAIN\\WpfApp2019\\WpfApp2019.csproj": {}
+    "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julius\\Desktop\\PAIN\\WpfApp2019\\WpfApp2019.csproj": {
+    "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julius\\Desktop\\PAIN\\WpfApp2019\\WpfApp2019.csproj",
+        "projectUniqueName": "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
         "projectName": "WpfApp2019",
-        "projectPath": "C:\\Users\\Julius\\Desktop\\PAIN\\WpfApp2019\\WpfApp2019.csproj",
-        "packagesPath": "C:\\Users\\Julius\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julius\\Desktop\\PAIN\\WpfApp2019\\obj\\",
+        "projectPath": "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+        "packagesPath": "C:\\Users\\Tekator99\\.nuget\\packages\\",
+        "outputPath": "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Julius\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tekator99\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,24 +75,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.16, 5.0.16]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -101,7 +83,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -6,6 +6,7 @@ using Path = System.IO.Path;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows;
+using System.Windows.Input;
 using System.IO;
 using System;
 using System.Diagnostics;
@@ -228,6 +229,49 @@ namespace WpfApp2019
 
         }
 
+        private void FilePath_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        //Suchfunktion
+        public void Search_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                string filePathText = FilePath.Text;
+                string searchBarText = SearchBar.Text;
+
+                try
+                {
+                    List<FileAttributes> items = new List<FileAttributes>();
+                    var files = Directory.EnumerateFileSystemEntries(filePathText);
+                    foreach (var d in files)
+                    {
+                        if (Path.GetFileName(d).Contains(searchBarText))
+                        {
+                            var accessControl = new FileInfo(d).GetAccessControl();
+                            items.Add(new FileAttributes()
+                            {
+                                Name = Path.GetFileName(d),
+                                Type = GetDataType(d),
+                                ModificationTime = Directory.GetLastWriteTime(d),
+                                Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
+                                Description = GetFileDescription(d),
+                                FilePath = Path.GetFullPath(d)
+                            });
+                        }
+                    }
+                    FileList.ItemsSource = items;
+                }
+                catch (System.Exception excpt)
+                {
+                    Console.WriteLine(excpt.Message);
+                }
+
+            }
+        }
+
     }
 
     public class FileAttributes
@@ -277,5 +321,6 @@ namespace WpfApp2019
             drawingContext.Pop();
         }
     }
+
 
 }

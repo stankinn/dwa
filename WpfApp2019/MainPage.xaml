@@ -3,16 +3,16 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WpfApp2019"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
-  
 
-    <Grid>  
-        
-        <TextBox HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="211" Height="19"/>
-        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="425" Height="19"/>
+
+    <Grid>
+
+        <TextBox x:Name="SearchBar"  HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="116" Height="19" KeyDown="Search_KeyDown"/>
+
+        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="FilePath" VerticalAlignment="Top" Width="420" Height="19" TextChanged="FilePath_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
@@ -23,7 +23,7 @@
         <ListView Name="FileList" Margin="216,34,10,31" PreviewMouseDoubleClick="ListViewSelection">
             <ListView.View>
                 <GridView>
-                    
+
                     <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="100">
                         <GridViewColumnHeader Tag="Name" Click="ColumnHeader_Click">
                             Name
