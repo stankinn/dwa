@@ -237,7 +237,7 @@ namespace WpfApp2019
         //Suchfunktion
         public void Search_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
+            if (e.Key == Key.Return && FilePath.Text != null && SearchBar.Text != null)
             {
                 string filePathText = FilePath.Text;
                 string searchBarText = SearchBar.Text;
@@ -248,7 +248,7 @@ namespace WpfApp2019
                     var files = Directory.EnumerateFileSystemEntries(filePathText);
                     foreach (var d in files)
                     {
-                        if (Path.GetFileName(d).Contains(searchBarText))
+                        if ( Path.GetFileName(d).Contains(searchBarText)|| GetDataType(d).Contains(searchBarText)||Path.GetFullPath(d).Contains(searchBarText) || GetFileDescription(d).Contains(searchBarText))
                         {
                             var accessControl = new FileInfo(d).GetAccessControl();
                             items.Add(new FileAttributes()
