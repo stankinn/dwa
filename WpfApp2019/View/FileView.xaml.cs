@@ -12,7 +12,6 @@ using System;
 using System.Diagnostics;
 using ListViewItem = System.Windows.Controls.ListViewItem;
 using ListView = System.Windows.Controls.ListView;
-using WpfApp2019.Model;
 using WpfApp2019.ViewModel;
 
 namespace WpfApp2019.View
@@ -26,13 +25,14 @@ namespace WpfApp2019.View
         public FileView()
         {
             InitializeComponent();
-            DataContext = new FileModel();
+            DataContext = new FileViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             FileViewModel fvm = new FileViewModel();
             fvm.SearchFiles();
+            fvm.LoadObjects();
         }
 
             /* private GridViewColumnHeader listViewSortCol = null;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,10 +40,13 @@ namespace WpfApp2019.Model
 
         private void RaisePropertyChanged(string property)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+            //if (PropertyChanged != null)
+            //{
+            //    Trace.WriteLine("UPDATEEEE");
+            //    PropertyChanged(this, new PropertyChangedEventArgs(property));
+            //}
 
         }
     }
