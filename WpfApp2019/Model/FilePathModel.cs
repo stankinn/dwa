@@ -12,11 +12,39 @@ namespace WpfApp2019.Model
 {
     public class FilePathModel
     {
-        public PathText FilePathText
+       
+    }
+    public class PathText : INotifyPropertyChanged
+    {
+
+        string fPath;
+
+        public string FPath
         {
-            get;
-            set;
+            get
+            {
+                return fPath;
+            }
+            set
+            {
+                if (fPath != value)
+                {
+                    fPath = value;
+                    RaisePropertyChanged("FPath");
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+
         }
     }
-    
+
 }
