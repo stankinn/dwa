@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {}
+    "C:\\Users\\USER\\Documents\\!Sonstiges\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {
+    "C:\\Users\\USER\\Documents\\!Sonstiges\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Documents\\!Sonstiges\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
         "projectName": "WpfApp2019",
-        "projectPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\obj\\",
+        "projectPath": "C:\\Users\\USER\\Documents\\!Sonstiges\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Documents\\!Sonstiges\\data-warehouse-automation\\WpfApp2019\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -54,22 +54,22 @@
             },
             "System.CodeDom": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[4.8.4, )"
+              "version": "[4.8.5, )"
             },
             "System.Security.Principal": {
               "target": "Package",
               "version": "[4.3.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
