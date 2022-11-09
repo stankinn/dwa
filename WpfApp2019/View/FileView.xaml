@@ -8,13 +8,16 @@
       vml:ViewModelLocator.AutoHookedUpViewModel = "True" 
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
-
+    
+    <UserControl.DataContext>
+        <viewModel:FileViewModel/>
+    </UserControl.DataContext>
 
     <Grid>
 
         <TextBox x:Name="SearchBar"  HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="116" Height="19"/> <!--KeyDown="Search_KeyDown"-->
 
-        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="{Binding Path = FilePath, Mode = TwoWay}" VerticalAlignment="Top" Width="420" Height="19"/> <!--TextChanged="FilePath_TextChanged"-->
+        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="{Binding Path = FilePathText, Mode = TwoWay}" VerticalAlignment="Top" Width="420" Height="19"/> <!--TextChanged="FilePath_TextChanged"-->
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
@@ -22,7 +25,7 @@
         <TreeView Name="TreeViewStructure"  Margin="15,34,590,31" ><!--TreeViewItem.Expanded="TreeViewItem_Expanded"--> <!--TreeViewItem.Selected="SelectedItemList"-->
         </TreeView>
 
-        <ListView Name="FileList" Margin="216,34,10,31"  ItemsSource = "{Binding Path = ObjectAttributes}"> <!--PreviewMouseDoubleClick="ListViewSelection"-->
+        <ListView Name="FileList" Margin="216,34,10,31"  ItemsSource = "{Binding Path = Files, Mode=TwoWay}"> <!--PreviewMouseDoubleClick="ListViewSelection"-->
             <ListView.View>
                 <GridView>
 
