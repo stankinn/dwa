@@ -2,8 +2,6 @@
 using System.Windows.Controls;
 using System.IO;
 using TemplateTestCase;
-using RazorEngine;
-using RazorEngine.Templating;
 using System.Data.SqlClient;
 
 
@@ -15,7 +13,7 @@ namespace WpfApp2019
     public partial class AddEntity : Page
     {
         //die verbindung muss individuell angepasst sein
-        public static SqlConnection con = new SqlConnection("Data Source=DESKTOP-VD7D8FL;Initial Catalog=databaseConnection;Integrated Security=True");
+      /*    public static SqlConnection con = new SqlConnection("Data Source=DESKTOP-VD7D8FL;Initial Catalog=databaseConnection;Integrated Security=True");
 
         public AddEntity()
         {
@@ -41,7 +39,7 @@ namespace WpfApp2019
             con.Close();
         }
 
-        /*  private void Button_Go_Back(object sender, RoutedEventArgs e)
+        private void Button_Go_Back(object sender, RoutedEventArgs e)
           {
               // View Expense Report
               MainPage mainPage = new MainPage();

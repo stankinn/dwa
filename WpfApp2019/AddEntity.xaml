@@ -9,7 +9,7 @@
       Title="AddEntity">
 
     <Grid>
-        <Button Content="Add New" HorizontalAlignment="Left" Margin="13,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95" Click="Button_Add_Entity" Height="27"/>
+        <Button Content="Add New" HorizontalAlignment="Left" Margin="13,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27"/> <!--Click="Button_Add_Entity"-->
         <TextBox x:Name ="EntityName" HorizontalAlignment="Left" Height="64" Margin="10,49,0,0" TextWrapping="Wrap" Text="Entity Name" VerticalAlignment="Top" Width="196"/>
         <TextBox x:Name ="AttributeNames" HorizontalAlignment="Left" Height="64" Margin="10,118,0,0" TextWrapping="Wrap" Text="Attribute Name" VerticalAlignment="Top" Width="196"/>
         <TextBox x:Name ="AttributeType" HorizontalAlignment="Left" Height="64" Margin="10,187,0,0" TextWrapping="Wrap" Text="Attribute Type" VerticalAlignment="Top" Width="196"/>

@@ -10,7 +10,7 @@
     <Compile Update="AddEntity.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MainPage.xaml.cs">
+    <Compile Update="View\FileView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,7 +18,7 @@
     <Page Update="AddEntity.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainPage.xaml">
+    <Page Update="View\FileView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

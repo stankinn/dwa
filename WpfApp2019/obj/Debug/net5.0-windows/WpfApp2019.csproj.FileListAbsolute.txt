@@ -444,3 +444,11 @@ D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net5.
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\WpfApp2019.pdb
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\WpfApp2019.genruntimeconfig.cache
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\ref\WpfApp2019.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\View\MainPage.g.cs
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
