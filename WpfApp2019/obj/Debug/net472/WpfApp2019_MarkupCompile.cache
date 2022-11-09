@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\anne-\Documents\Schule\DWA\data-warehouse-automation\WpfApp2019\obj\Debug\net472\
+=======
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\
+>>>>>>> 0312192e5801f3863dd33bb68895f78f5b8ccf73
 WpfApp2019
 none
 false
 TRACE;DEBUG;NETFRAMEWORK;NET472;
+<<<<<<< HEAD
 C:\Users\anne-\Documents\Schule\DWA\data-warehouse-automation\WpfApp2019\App.xaml
 3-1561672492
 
 10305420516
 47-821563930
+=======
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\App.xaml
+3-1561672492
+
+10305420516
+47122539269
+>>>>>>> 0312192e5801f3863dd33bb68895f78f5b8ccf73
 AddEntity.xaml;MainWindow.xaml;View\FileView.xaml;
 
 False
