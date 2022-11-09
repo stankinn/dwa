@@ -130,4 +130,53 @@ namespace WpfApp2019.Model
             }
         }
 
+    public class Item : INotifyPropertyChanged
+    {
+        private string _Title;
+        public string Title
+        {
+            get
+            {
+                return this._Title;
+            }
+            set
+            {
+                if (this._Title != value)
+                {
+                    this._Title = value;
+                    this.OnPropertyChanged("Title");
+                }
+            }
+        }
+
+        private ObservableCollection<Item> _SubItems = new ObservableCollection<Item>();
+        public ObservableCollection<Item> SubItems
+        {
+            get
+            {
+                return this._SubItems;
+            }
+            set
+            {
+                if (this._SubItems != value)
+                {
+                    this._SubItems = value;
+                    this.OnPropertyChanged("SubItems");
+                }
+            }
+        }
+
+        #region INotifyPropertyChanged Members
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            var evt = this.PropertyChanged;
+            if (evt != null)
+                evt(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+    }
+
 }

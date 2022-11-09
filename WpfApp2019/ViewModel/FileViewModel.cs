@@ -20,6 +20,8 @@ namespace WpfApp2019.ViewModel
 
         public ObservableCollection<ObjectAttributes> Files { get; set; }
 
+        public ObservableCollection<Item> Items { get; set; }
+
         public PathText FilePathText { get; set; } 
 
         public void SearchFiles()
@@ -64,6 +66,7 @@ namespace WpfApp2019.ViewModel
             {
                 var files = Directory.EnumerateFileSystemEntries(sPath);
                 ObservableCollection<ObjectAttributes> items = new ObservableCollection<ObjectAttributes>();
+                ObservableCollection<Item> treeItems = new ObservableCollection<Item>();
                 foreach (var d in files)
                 {
                     var accessControl = new FileInfo(d).GetAccessControl();
@@ -76,8 +79,13 @@ namespace WpfApp2019.ViewModel
                         Description = GetFileDescription(d),
                         FilePath = Path.GetFullPath(d)
                     });
+                    treeItems.Add(new Item
+                    {
+                        Title = Path.GetFileName(d)
+                    });
                 }
                 Files = items;
+                Items = treeItems;
                 //FileList.ItemsSource = items;
             }
             catch (System.Exception excpt)

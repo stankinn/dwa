@@ -22,7 +22,14 @@
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
 
-        <TreeView Name="TreeViewStructure"  Margin="15,34,590,31" ><!--TreeViewItem.Expanded="TreeViewItem_Expanded"--> <!--TreeViewItem.Selected="SelectedItemList"-->
+        <!-- <TreeView Name="TreeViewStructure"  Margin="15,34,590,31" > TreeViewItem.Expanded="TreeViewItem_Expanded" TreeViewItem.Selected="SelectedItemList" </TreeView> -->
+
+        <TreeView Name="TreeViewStructure" Margin="15,34,590,31" ItemsSource="{Binding Path = Items}"> <!-- {Binding Items} -->
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding SubItems}">
+                    <TextBlock Text="{Binding Title}"/>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
         </TreeView>
 
         <ListView Name="FileList" Margin="216,34,10,31"  ItemsSource = "{Binding Path = Files, Mode=TwoWay}"> <!--PreviewMouseDoubleClick="ListViewSelection"-->
