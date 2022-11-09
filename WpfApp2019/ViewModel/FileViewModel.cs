@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Data;
+using System.ComponentModel;
 
 namespace WpfApp2019.ViewModel
 {
@@ -17,16 +18,154 @@ namespace WpfApp2019.ViewModel
             LoadObjects();
         }
 
-        public ObservableCollection<ObjectAttributes> Files
+        public class PathText : INotifyPropertyChanged
         {
-            get;
-            set;
+
+            string fPath;
+
+            public string FPath
+            {
+                get
+                {
+                    return fPath;
+                }
+                set
+                {
+                    if (fPath != value)
+                    {
+                        fPath = value;
+                        RaisePropertyChanged("FPath");
+                    }
+                }
+            }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private void RaisePropertyChanged(string property)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(property));
+                }
+
+            }
         }
 
-        public PathText FilePathText
+        public class ObjectAttributes : INotifyPropertyChanged
         {
-            get;
-            set;
+            private string name;
+            private string type;
+            private DateTime modificationTime;
+            private string owner;
+            private string description;
+            private string path;
+
+            public string Name
+            {
+                get
+                {
+                    return name;
+                }
+                set
+                {
+                    if (name != value)
+                    {
+                        name = value;
+                        RaisePropertyChanged("Name");
+                    }
+                }
+            }
+            public string Type
+            {
+                get
+                {
+                    return type;
+                }
+                set
+                {
+                    if (type != value)
+                    {
+                        type = value;
+                        RaisePropertyChanged("Type");
+                    }
+                }
+            }
+
+            public DateTime ModificationTime
+            {
+                get
+                {
+                    return modificationTime;
+                }
+                set
+                {
+                    if (modificationTime != value)
+                    {
+                        modificationTime = value;
+                        RaisePropertyChanged("ModificationTime");
+                    }
+                }
+            }
+
+            public string Owner
+            {
+                get
+                {
+                    return owner;
+                }
+                set
+                {
+                    if (owner != value)
+                    {
+                        owner = value;
+                        RaisePropertyChanged("Owner");
+                    }
+                }
+            }
+
+            public string Description
+            {
+                get
+                {
+                    return description;
+                }
+                set
+                {
+                    if (description != value)
+                    {
+                        description = value;
+                        RaisePropertyChanged("Description");
+                    }
+                }
+            }
+
+            public string FilePath
+            {
+                get
+                {
+                    return path;
+                }
+                set
+                {
+                    if (path != value)
+                    {
+                        path = value;
+                        RaisePropertyChanged("FilePath");
+                    }
+                }
+            }
+
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private void RaisePropertyChanged(string property)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(property));
+                }
+
+            }
         }
 
         public void SearchFiles()
@@ -41,10 +180,11 @@ namespace WpfApp2019.ViewModel
                 //Path wird gesetzt
 
                 string sPath = folderDialog.SelectedPath;
+
                 PathText pt = new PathText();
                 pt.FPath = sPath;
 
-                FilePathText = pt;
+                Trace.WriteLine("click: " + pt.FPath);
 
             }
         }
@@ -52,11 +192,16 @@ namespace WpfApp2019.ViewModel
         public void LoadObjects()
         {
             string sPath = "";
-            if (FilePathText.FPath != null)
+            PathText pt = new PathText();
+
+            Trace.WriteLine("LOADING...");
+
+            if (pt != null)
             {
-                sPath = FilePathText.FPath;
+                sPath = pt.FPath;
                 Trace.WriteLine("pp: " + sPath);
             }
+            
 
             try
             {
@@ -75,7 +220,6 @@ namespace WpfApp2019.ViewModel
                         FilePath = Path.GetFullPath(d)
                     });
                 }
-                Files = items;
                 //FileList.ItemsSource = items;
             }
             catch (System.Exception excpt)

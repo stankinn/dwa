@@ -33,6 +33,7 @@ namespace WpfApp2019.View
             FileViewModel fvm = new FileViewModel();
             fvm.SearchFiles();
         }
+
             /* private GridViewColumnHeader listViewSortCol = null;
             private SortAdorner listViewSortAdorner = null;
 
