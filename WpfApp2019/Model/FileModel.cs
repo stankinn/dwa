@@ -6,131 +6,120 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using static WpfApp2019.ViewModel.FileViewModel;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace WpfApp2019.Model
 {
     public class FileModel
     {
-       
+
     }
-     public class ObjectAttributes : INotifyPropertyChanged
+    public class ObjectAttributes : ObservableObject
+    {
+        private string name;
+        private string type;
+        private DateTime modificationTime;
+        private string owner;
+        private string description;
+        private string path;
+
+        public string Name
         {
-            private string name;
-            private string type;
-            private DateTime modificationTime;
-            private string owner;
-            private string description;
-            private string path;
-
-            public string Name
+            get
             {
-                get
+                return name;
+            }
+            set
+            {
+                if (name != value)
                 {
-                    return name;
-                }
-                set
-                {
-                    if (name != value)
-                    {
-                        name = value;
-                        RaisePropertyChanged("Name");
-                    }
+                    name = value;
+                    OnPropertyChanged();
                 }
             }
-            public string Type
+        }
+        public string Type
+        {
+            get
             {
-                get
-                {
-                    return type;
-                }
-                set
-                {
-                    if (type != value)
-                    {
-                        type = value;
-                        RaisePropertyChanged("Type");
-                    }
-                }
+                return type;
             }
-
-            public DateTime ModificationTime
+            set
             {
-                get
+                if (type != value)
                 {
-                    return modificationTime;
+                    type = value;
+                    OnPropertyChanged();
                 }
-                set
-                {
-                    if (modificationTime != value)
-                    {
-                        modificationTime = value;
-                        RaisePropertyChanged("ModificationTime");
-                    }
-                }
-            }
-
-            public string Owner
-            {
-                get
-                {
-                    return owner;
-                }
-                set
-                {
-                    if (owner != value)
-                    {
-                        owner = value;
-                        RaisePropertyChanged("Owner");
-                    }
-                }
-            }
-
-            public string Description
-            {
-                get
-                {
-                    return description;
-                }
-                set
-                {
-                    if (description != value)
-                    {
-                        description = value;
-                        RaisePropertyChanged("Description");
-                    }
-                }
-            }
-
-            public string FilePath
-            {
-                get
-                {
-                    return path;
-                }
-                set
-                {
-                    if (path != value)
-                    {
-                        path = value;
-                        RaisePropertyChanged("FilePath");
-                    }
-                }
-            }
-
-
-            public event PropertyChangedEventHandler PropertyChanged;
-
-            private void RaisePropertyChanged(string property)
-            {
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this, new PropertyChangedEventArgs(property));
-                }
-
             }
         }
 
-    public class Item : INotifyPropertyChanged
+        public DateTime ModificationTime
+        {
+            get
+            {
+                return modificationTime;
+            }
+            set
+            {
+                if (modificationTime != value)
+                {
+                    modificationTime = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string Owner
+        {
+            get
+            {
+                return owner;
+            }
+            set
+            {
+                if (owner != value)
+                {
+                    owner = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                if (description != value)
+                {
+                    description = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string FilePath
+        {
+            get
+            {
+                return path;
+            }
+            set
+            {
+                if (path != value)
+                {
+                    path = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+    }
+
+    public class Item : ObservableObject
     {
         private string _Title;
         public string Title
@@ -144,7 +133,7 @@ namespace WpfApp2019.Model
                 if (this._Title != value)
                 {
                     this._Title = value;
-                    this.OnPropertyChanged("Title");
+                    OnPropertyChanged();
                 }
             }
         }
@@ -161,22 +150,10 @@ namespace WpfApp2019.Model
                 if (this._SubItems != value)
                 {
                     this._SubItems = value;
-                    this.OnPropertyChanged("SubItems");
+                    OnPropertyChanged();
                 }
             }
         }
-
-        #region INotifyPropertyChanged Members
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            var evt = this.PropertyChanged;
-            if (evt != null)
-                evt(this, new PropertyChangedEventArgs(propertyName));
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
     }
 
 }

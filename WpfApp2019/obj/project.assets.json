@@ -1718,26 +1718,12 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\anne-\\.nuget\\packages\\": {}
-=======
     "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> 0312192e5801f3863dd33bb68895f78f5b8ccf73
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\anne-\\Documents\\Schule\\DWA\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
-      "projectName": "WpfApp2019",
-      "projectPath": "C:\\Users\\anne-\\Documents\\Schule\\DWA\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
-      "packagesPath": "C:\\Users\\anne-\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anne-\\Documents\\Schule\\DWA\\data-warehouse-automation\\WpfApp2019\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\anne-\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
       "projectUniqueName": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
       "projectName": "WpfApp2019",
       "projectPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
@@ -1750,7 +1736,6 @@
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 0312192e5801f3863dd33bb68895f78f5b8ccf73
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

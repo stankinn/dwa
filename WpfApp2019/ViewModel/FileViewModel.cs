@@ -31,7 +31,7 @@ namespace WpfApp2019.ViewModel
             folderDialog.RootFolder = Environment.SpecialFolder.Desktop;
             DialogResult result = folderDialog.ShowDialog();
 
-            if (result == System.Windows.Forms.DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 //Path wird gesetzt
 
@@ -42,7 +42,6 @@ namespace WpfApp2019.ViewModel
                 pt.FPath = sPath;
 
                 FilePathText = pt;
-
                 Trace.WriteLine("click: " + FilePathText.FPath);
 
             }
@@ -51,16 +50,12 @@ namespace WpfApp2019.ViewModel
         public void LoadObjects()
         {
             string sPath = "";
-            //PathText pt = new PathText();
-
-            Trace.WriteLine("LOADING...");
 
             if (FilePathText != null)
             {
                 sPath = FilePathText.FPath;
                 Trace.WriteLine("pp: " + sPath);
             }
-            
 
             try
             {

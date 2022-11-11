@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static WpfApp2019.ViewModel.FileViewModel;
+
 
 namespace WpfApp2019.Model
 {
@@ -15,10 +8,10 @@ namespace WpfApp2019.Model
     {
        
     }
-    public class PathText : INotifyPropertyChanged
+    public class PathText : ObservableObject
     {
 
-        string fPath;
+        string fPath = "path";
 
         public string FPath
         {
@@ -31,23 +24,9 @@ namespace WpfApp2019.Model
                 if (fPath != value)
                 {
                     fPath = value;
-                    RaisePropertyChanged("FPath");
+                    OnPropertyChanged();
                 }
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void RaisePropertyChanged(string property)
-        {
-
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-            //if (PropertyChanged != null)
-            //{
-            //    Trace.WriteLine("UPDATEEEE");
-            //    PropertyChanged(this, new PropertyChangedEventArgs(property));
-            //}
-
         }
     }
 

@@ -4,10 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:viewModel = "clr-namespace:WpfApp2019.ViewModel" 
-      xmlns:vml = "clr-namespace:WpfApp2019.VML" 
-      vml:ViewModelLocator.AutoHookedUpViewModel = "True" 
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800">
+      d:DesignHeight="450" d:DesignWidth="800"
+    xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase">
     
     <UserControl.DataContext>
         <viewModel:FileViewModel/>
@@ -17,14 +16,14 @@
 
         <TextBox x:Name="SearchBar"  HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="116" Height="19"/> <!--KeyDown="Search_KeyDown"-->
 
-        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="{Binding Path = FilePathText, Mode = TwoWay}" VerticalAlignment="Top" Width="420" Height="19"/> <!--TextChanged="FilePath_TextChanged"-->
+        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="{Binding FilePathText.FPath, diag:PresentationTraceSources.TraceLevel=High,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="420" Height="19"/>
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
 
         <!-- <TreeView Name="TreeViewStructure"  Margin="15,34,590,31" > TreeViewItem.Expanded="TreeViewItem_Expanded" TreeViewItem.Selected="SelectedItemList" </TreeView> -->
 
-        <TreeView Name="TreeViewStructure" Margin="15,34,590,31" ItemsSource="{Binding Path = Items}"> <!-- {Binding Items} -->
+        <TreeView Name="TreeViewStructure" Margin="15,34,590,31" ItemsSource="{Binding Items}"> <!-- {Binding Items} -->
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding SubItems}">
                     <TextBlock Text="{Binding Title}"/>
@@ -32,35 +31,35 @@
             </TreeView.ItemTemplate>
         </TreeView>
 
-        <ListView Name="FileList" Margin="216,34,10,31"  ItemsSource = "{Binding Path = Files, Mode=TwoWay}"> <!--PreviewMouseDoubleClick="ListViewSelection"-->
+        <ListView Name="FileList" Margin="216,34,10,31"  ItemsSource = "{Binding Files, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"> <!--PreviewMouseDoubleClick="ListViewSelection"-->
             <ListView.View>
                 <GridView>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Name, Mode = TwoWay}" Width="100">
+                    <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Files.Name, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
                         <GridViewColumnHeader Tag="Name" > <!--Click="ColumnHeader_Click"-->
                             Name
                         </GridViewColumnHeader>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Type, Mode = TwoWay}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Type, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
                         <GridViewColumnHeader Tag="Type" ><!--Click="ColumnHeader_Click"-->
                             Type
                         </GridViewColumnHeader>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = ModificationTime, Mode = TwoWay}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = ModificationTime, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
                         <GridViewColumnHeader Tag="ModificationTime" ><!--Click="ColumnHeader_Click"-->
                             Modification Time
                         </GridViewColumnHeader>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Owner, Mode = TwoWay}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Owner, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
                         <GridViewColumnHeader Tag="Owner" ><!--Click="ColumnHeader_Click"-->
                             Owner
                         </GridViewColumnHeader>
                     </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path =  Description, Mode = TwoWay}" Width="100">
+                    <GridViewColumn DisplayMemberBinding="{Binding Path =  Description, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
                         <GridViewColumnHeader Tag="Description" ><!--Click="ColumnHeader_Click"-->
                             Description
                         </GridViewColumnHeader>

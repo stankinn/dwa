@@ -1,32 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "SuLGS72Oj7olK5+bAKo8AZVQPY1ZUlh8PCCfkoyg3CCh1RA4l4VxJUnXoKz9Dn9V/aM9LdVnvXDKbXko7CJG1A==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\anne-\\Documents\\Schule\\DWA\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\anne-\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.1\\microsoft.aspnetcore.razor.language.6.0.1.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.2\\microsoft.codeanalysis.analyzers.3.3.2.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\microsoft.codeanalysis.common\\4.0.1\\microsoft.codeanalysis.common.4.0.1.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.0.1\\microsoft.codeanalysis.csharp.4.0.1.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\mvvmdialogs\\9.1.0\\mvvmdialogs.9.1.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\razorenginecore\\2022.8.1\\razorenginecore.2022.8.1.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.security.permissions\\7.0.0\\system.security.permissions.7.0.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.security.principal\\4.3.0\\system.security.principal.4.3.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
-    "C:\\Users\\anne-\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
-=======
   "dgSpecHash": "uMGGLLsnfvBAapSW2wZXDMAItr2kA7wR05c93nstRT/96JqP5AWCvKQzFUA69AKIn0yJWniSo/YNKjBzjlrc3Q==",
   "success": true,
   "projectFilePath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
@@ -52,7 +25,6 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
->>>>>>> 0312192e5801f3863dd33bb68895f78f5b8ccf73
   ],
   "logs": []
 }
