@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using WpfApp2019.ViewModel;
 
 namespace WpfApp2019
 {
@@ -11,15 +12,16 @@ namespace WpfApp2019
     /// </summary>
     public partial class MainWindow : Window
     {
+        public FileViewModel Fvm { get; } = new FileViewModel();
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded += new RoutedEventHandler(FileViewControl_Loaded);
         }
 
         private void FileViewControl_Loaded(object sender, RoutedEventArgs e)
         {
-            WpfApp2019.ViewModel.FileViewModel fileViewModelObject =
-               new WpfApp2019.ViewModel.FileViewModel();
+            FileViewModel fileViewModelObject = Fvm;
             Trace.WriteLine("WINDOW path: " + fileViewModelObject);
             fileViewModelObject.LoadObjects();
 
@@ -30,6 +32,8 @@ namespace WpfApp2019
             }
 
         }
+
+        
 
     }
 }

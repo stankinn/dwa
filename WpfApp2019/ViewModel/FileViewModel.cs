@@ -17,12 +17,14 @@ namespace WpfApp2019.ViewModel
         {
             LoadObjects();
         }
-
         public ObservableCollection<ObjectAttributes> Files { get; set; }
 
         public ObservableCollection<Item> Items { get; set; }
 
-        public PathText FilePathText { get; set; } 
+        public PathText FilePathText { get; set; }
+
+
+
 
         public void SearchFiles()
         {

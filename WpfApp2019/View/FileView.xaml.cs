@@ -21,25 +21,32 @@ namespace WpfApp2019.View
 
     public partial class FileView : UserControl
     {
+        public FileViewModel Fvm { get; } = new FileViewModel();
 
         public FileView()
         {
             InitializeComponent();
-            this.DataContext = new FileViewModel();
+          //  this.FilePath.DataContext = Fvm;
+            DataContextChanged += new DependencyPropertyChangedEventHandler(UserControl1_DataContextChanged);
         }
+
+
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FileViewModel fvm = new FileViewModel();
-            fvm.SearchFiles();
-            fvm.LoadObjects();
-            Binding bindingPath = new Binding("FilePathText.FPath");
-            bindingPath.Source = fvm;
-            FilePath.SetBinding(System.Windows.Controls.TextBox.TextProperty, bindingPath);
-            Trace.WriteLine("Binding: " + fvm.FilePathText.FPath);
+            Fvm.SearchFiles();
+            Fvm.LoadObjects();
+            //Binding bindingPath = new Binding("FilePathText.FPath");
+            //bindingPath.Source = fvm;
+            //FilePath.SetBinding(System.Windows.Controls.TextBox.TextProperty, bindingPath);
+            Trace.WriteLine("Binding: " + Fvm.FilePathText.FPath);
         }
 
+        void UserControl1_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Trace.WriteLine("DataContext : " + sender.ToString());
+        }
 
 
 
