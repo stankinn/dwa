@@ -12,7 +12,6 @@ namespace WpfApp2019
     /// </summary>
     public partial class MainWindow : Window
     {
-        public FileViewModel Fvm { get; } = new FileViewModel();
         public MainWindow()
         {
             InitializeComponent();
@@ -21,7 +20,7 @@ namespace WpfApp2019
 
         private void FileViewControl_Loaded(object sender, RoutedEventArgs e)
         {
-            FileViewModel fileViewModelObject = Fvm;
+            FileViewModel fileViewModelObject = new FileViewModel();
             Trace.WriteLine("WINDOW path: " + fileViewModelObject);
             fileViewModelObject.LoadObjects();
 

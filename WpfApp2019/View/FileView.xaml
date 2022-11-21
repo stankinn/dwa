@@ -3,29 +3,24 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-     xmlns:vm ="clr-namespace:WpfApp2019.ViewModel"
+      xmlns:vm ="clr-namespace:WpfApp2019.ViewModel"
       xmlns:local ="clr-namespace:WpfApp2019.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-    xmlns:debug="clr-namespace:System.Diagnostics;assembly=System"
-             
-    xmlns:vml = "clr-namespace:WpfApp2019.VML"
-vml:ViewModelLocator.AutoHookedUpViewModel = "True"
+      xmlns:debug="clr-namespace:System.Diagnostics;assembly=System"
+      xmlns:vml = "clr-namespace:WpfApp2019.VML"
+      vml:ViewModelLocator.AutoHookedUpViewModel = "True"
              >
 
-
-    <!--<UserControl.Resources>
-        <vm:FileViewModel x:Key="fileViewModel" />
-    </UserControl.Resources>
-    <UserControl.DataContext>
-        <Binding Source="{StaticResource fileViewModel}"/>
+    <!--<UserControl.DataContext>
+        <vm:FileViewModel />
     </UserControl.DataContext>-->
 
     <Grid>
 
         <TextBox x:Name="SearchBar"  HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="116" Height="19"/> <!--KeyDown="Search_KeyDown"-->
 
-        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="{Binding Path = FilePathText.FPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="420" Height="19"/>
+        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="{Binding FilePathText.FPath}" VerticalAlignment="Top" Width="420" Height="19"/> <!--{Binding SelectedPath, RelativeSource={RelativeSource AncestorType=local:FileView}}-->
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
@@ -44,7 +39,7 @@ vml:ViewModelLocator.AutoHookedUpViewModel = "True"
             <ListView.View>
                 <GridView>
 
-                    <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Files.Name, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                    <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Name, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
                         <GridViewColumnHeader Tag="Name" > <!--Click="ColumnHeader_Click"-->
                             Name
                         </GridViewColumnHeader>
@@ -77,7 +72,7 @@ vml:ViewModelLocator.AutoHookedUpViewModel = "True"
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnOpen"  Content="Open File" HorizontalAlignment="Left" Margin="20,7,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click"/>
+        <Button x:Name="btnOpen"  Content="Open File" HorizontalAlignment="Left" Margin="20,7,0,0" VerticalAlignment="Top" Width="88" Command="{Binding Path=ChangeTextCommand}"/>
 
         <Button Content="Add Entity" HorizontalAlignment="Left" Margin="113,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="93" /><!--Click="Button_Navigate_Add"-->
 

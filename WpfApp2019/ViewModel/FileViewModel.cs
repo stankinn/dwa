@@ -8,14 +8,23 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Data;
 using System.ComponentModel;
+using WpfApp2019.View;
+using static System.Net.Mime.MediaTypeNames;
+using System.Windows.Input;
 
 namespace WpfApp2019.ViewModel
 {
-    public class FileViewModel
+    internal class FileViewModel
     {
         public FileViewModel()
         {
+            Files = new ObservableCollection<ObjectAttributes>();
+            Items = new ObservableCollection<Item>();
+            FilePathText = new PathText();
+
             LoadObjects();
+
+            FilePathText.FPath = "Change me";
         }
         public ObservableCollection<ObjectAttributes> Files { get; set; }
 
@@ -23,14 +32,30 @@ namespace WpfApp2019.ViewModel
 
         public PathText FilePathText { get; set; }
 
+        private ICommand _changeTextCommand;
+        public ICommand ChangeTextCommand
+        {
+            get
+            {
+                if (_changeTextCommand == null)
+                {
+                    _changeTextCommand = new RelayCommand(
+                        param => this.SearchFiles()
+                    );
+                }
+                return _changeTextCommand;
+            }
 
-
+        }
 
         public void SearchFiles()
         {
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            folderDialog.ShowNewFolderButton = false;
-            folderDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog
+            {
+                ShowNewFolderButton = false,
+                RootFolder = Environment.SpecialFolder.Desktop
+            };
+
             DialogResult result = folderDialog.ShowDialog();
 
             if (result == DialogResult.OK)
@@ -39,11 +64,10 @@ namespace WpfApp2019.ViewModel
 
                 string sPath = folderDialog.SelectedPath;
 
-                
-                PathText pt = new PathText();
-                pt.FPath = sPath;
-
-                FilePathText = pt;
+                FilePathText = new PathText
+                {
+                    FPath = sPath
+                };
                 Trace.WriteLine("click: " + FilePathText.FPath);
 
             }
@@ -83,7 +107,6 @@ namespace WpfApp2019.ViewModel
                 }
                 Files = items;
                 Items = treeItems;
-                //FileList.ItemsSource = items;
             }
             catch (System.Exception excpt)
             {

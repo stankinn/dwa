@@ -10,7 +10,6 @@
         Title="DWA" Height="450" Width="800">
 
     <Grid >
-        
         <View:FileView x:Name = "FileViewControl" Loaded = "FileViewControl_Loaded"/> 
     </Grid>
     

@@ -15,38 +15,33 @@ using WpfApp2019.ViewModel;
 using WpfApp2019.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Data;
+using System.Windows.Forms;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace WpfApp2019.View
 {
 
     public partial class FileView : UserControl
     {
-        public FileViewModel Fvm { get; } = new FileViewModel();
 
         public FileView()
         {
             InitializeComponent();
-          //  this.FilePath.DataContext = Fvm;
-            DataContextChanged += new DependencyPropertyChangedEventHandler(UserControl1_DataContextChanged);
         }
 
+        //public static readonly DependencyProperty PathProperty =
+        //     DependencyProperty.Register(nameof(SelectedPath), typeof(string), typeof(FileView));
 
+        //public string SelectedPath
+        //{
+        //    get { return (string)GetValue(PathProperty); }
+        //    set
+        //    {
+        //        SetValue(PathProperty, value);
 
+        //    }
+        //}
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Fvm.SearchFiles();
-            Fvm.LoadObjects();
-            //Binding bindingPath = new Binding("FilePathText.FPath");
-            //bindingPath.Source = fvm;
-            //FilePath.SetBinding(System.Windows.Controls.TextBox.TextProperty, bindingPath);
-            Trace.WriteLine("Binding: " + Fvm.FilePathText.FPath);
-        }
-
-        void UserControl1_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Trace.WriteLine("DataContext : " + sender.ToString());
-        }
 
 
 
