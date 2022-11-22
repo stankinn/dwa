@@ -27,8 +27,6 @@ D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debu
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\WpfApp2019.exe
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\WpfApp2019.pdb
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MvvmDialogs.dll
-D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\FileView.g.cs
-D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\FileView.baml
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Microsoft.AspNetCore.Razor.Language.dll
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Microsoft.CodeAnalysis.dll
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Microsoft.CodeAnalysis.CSharp.dll
@@ -208,3 +206,7 @@ C:\Users\anne-\Documents\Schule\DWA\data-warehouse-automation\WpfApp2019\obj\Deb
 C:\Users\anne-\Documents\Schule\DWA\data-warehouse-automation\WpfApp2019\obj\Debug\net472\WpfApp2019.csproj.CopyComplete
 C:\Users\anne-\Documents\Schule\DWA\data-warehouse-automation\WpfApp2019\obj\Debug\net472\WpfApp2019.exe
 C:\Users\anne-\Documents\Schule\DWA\data-warehouse-automation\WpfApp2019\obj\Debug\net472\WpfApp2019.pdb
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\PathView.g.cs
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\PathView.baml
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\FileListView.g.cs
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\FileListView.baml

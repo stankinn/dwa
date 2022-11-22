@@ -1,88 +1,71 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using WpfApp2019.Model;
-using Path = System.IO.Path;
-using System.IO;
 using System.Diagnostics;
-using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Data;
-using System.ComponentModel;
-using WpfApp2019.View;
-using static System.Net.Mime.MediaTypeNames;
-using System.Windows.Input;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WpfApp2019.Model;
 
 namespace WpfApp2019.ViewModel
 {
-    internal class FileViewModel
+    internal class FileListViewModel : ObservableObject
     {
-        public FileViewModel()
+
+        public FileListViewModel()
         {
-            Files = new ObservableCollection<ObjectAttributes>();
-            Items = new ObservableCollection<Item>();
-            FilePathText = new PathText();
-
             LoadObjects();
-
-            FilePathText.FPath = "Change me";
         }
-        public ObservableCollection<ObjectAttributes> Files { get; set; }
 
         public ObservableCollection<Item> Items { get; set; }
 
-        public PathText FilePathText { get; set; }
-
-        private ICommand _changeTextCommand;
-        public ICommand ChangeTextCommand
+        //Änderung/Aktualisierung der Attribute
+        private ObjectAttributes _object = new ObjectAttributes();
+        public ObjectAttributes Object
         {
-            get
+
+            get => _object;
+            set
             {
-                if (_changeTextCommand == null)
+                if (_object != value)
                 {
-                    _changeTextCommand = new RelayCommand(
-                        param => this.SearchFiles()
-                    );
+                    _object = value;
+                    OnPropertyChanged();
+                    Trace.WriteLine("value changed");
                 }
-                return _changeTextCommand;
             }
-
         }
 
-        public void SearchFiles()
+        //Änderung/Aktualisierung der ganzen Collection
+        private ObservableCollection<ObjectAttributes> _files = new ObservableCollection<ObjectAttributes>();
+        public ObservableCollection<ObjectAttributes> Files
         {
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog
+            get => _files;
+            set
             {
-                ShowNewFolderButton = false,
-                RootFolder = Environment.SpecialFolder.Desktop
-            };
-
-            DialogResult result = folderDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                //Path wird gesetzt
-
-                string sPath = folderDialog.SelectedPath;
-
-                FilePathText = new PathText
+                if (_files != value)
                 {
-                    FPath = sPath
-                };
-                Trace.WriteLine("click: " + FilePathText.FPath);
-
+                    _files = value;
+                    OnPropertyChanged();
+                    Trace.WriteLine("value changed");
+                }
             }
         }
+
 
         public void LoadObjects()
         {
             string sPath = "";
+            Trace.WriteLine("LOADING OBJECTS");
+            PathText fpt= new PathViewModel().FilePathText;
 
-            if (FilePathText != null)
+            if (fpt != null)
             {
-                sPath = FilePathText.FPath;
-                Trace.WriteLine("pp: " + sPath);
-            }
+                sPath = fpt.FPath;
 
+            }
+            Trace.WriteLine("pp: " + sPath);
             try
             {
                 var files = Directory.EnumerateFileSystemEntries(sPath);
@@ -137,5 +120,6 @@ namespace WpfApp2019.ViewModel
                 return "";
             }
         }
+
     }
 }

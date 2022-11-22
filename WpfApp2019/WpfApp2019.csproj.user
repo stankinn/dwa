@@ -10,7 +10,7 @@
     <Compile Update="AddEntity.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\FileView.xaml.cs">
+    <Compile Update="View\PathView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,10 +18,10 @@
     <Page Update="AddEntity.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\FileView.xaml">
+    <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="View\PathView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -8,6 +8,6 @@ namespace WpfApp2019.ViewModel
 {
     internal class MainWindowVM
     {
-        public FileViewModel FileViewModel { get; set; }
+       // public FileViewModel FileViewModel { get; set; }
     }
 }

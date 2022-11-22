@@ -21,10 +21,10 @@ using UserControl = System.Windows.Controls.UserControl;
 namespace WpfApp2019.View
 {
 
-    public partial class FileView : UserControl
+    public partial class FileListView : UserControl
     {
 
-        public FileView()
+        public FileListView()
         {
             InitializeComponent();
         }

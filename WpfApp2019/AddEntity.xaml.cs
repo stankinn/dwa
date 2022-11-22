@@ -41,7 +41,7 @@ namespace WpfApp2019
         private void Button_Go_Back(object sender, RoutedEventArgs e)
         {
             // View Expense Report
-            View.FileView mainPage = new View.FileView();
+            View.FileListView mainPage = new View.FileListView();
             this.NavigationService.Navigate(mainPage);
         }
     }
