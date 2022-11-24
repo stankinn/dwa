@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\
+D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net472\
 WpfApp2019
 none
 false
 TRACE;DEBUG;NETFRAMEWORK;NET472;
-D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\App.xaml
-4-1165280726
+D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\App.xaml
+5-1904566873
 
-20-1877025662
-51-595061570
-AddEntity.xaml;MainWindow.xaml;View\FileListView.xaml;View\PathView.xaml;
+23-914900401
+511921503157
+AddEntity.xaml;MainWindow.xaml;View\AddEntityView.xaml;View\FileListView.xaml;View\PathView.xaml;
 
 True
 

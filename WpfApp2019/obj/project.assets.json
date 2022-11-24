@@ -29,14 +29,10 @@
           "System.Threading.Tasks.Extensions": "4.5.4"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {}
         },
         "resource": {
           "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.resources.dll": {
@@ -86,14 +82,10 @@
           "Microsoft.CodeAnalysis.Common": "[4.0.1]"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {}
         },
         "resource": {
           "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll": {
@@ -149,53 +141,37 @@
           "WindowsBase"
         ],
         "compile": {
-          "lib/net45/Microsoft.Xaml.Behaviors.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
         },
         "runtime": {
-          "lib/net45/Microsoft.Xaml.Behaviors.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
         }
       },
       "MvvmDialogs/9.1.0": {
         "type": "package",
         "compile": {
-          "lib/net462/MvvmDialogs.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/MvvmDialogs.dll": {}
         },
         "runtime": {
-          "lib/net462/MvvmDialogs.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/MvvmDialogs.dll": {}
         }
       },
       "MVVMLight.Messaging/1.0.0": {
         "type": "package",
         "compile": {
-          "lib/net40/MVVMLight.Messaging.dll": {
-            "related": ".xml"
-          }
+          "lib/net40/MVVMLight.Messaging.dll": {}
         },
         "runtime": {
-          "lib/net40/MVVMLight.Messaging.dll": {
-            "related": ".xml"
-          }
+          "lib/net40/MVVMLight.Messaging.dll": {}
         }
       },
       "Prism.Core/8.1.97": {
         "type": "package",
         "compile": {
-          "lib/net47/Prism.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net47/Prism.dll": {}
         },
         "runtime": {
-          "lib/net47/Prism.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net47/Prism.dll": {}
         }
       },
       "Prism.Wpf/8.1.97": {
@@ -208,14 +184,10 @@
           "System.Configuration"
         ],
         "compile": {
-          "lib/net47/Prism.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net47/Prism.Wpf.dll": {}
         },
         "runtime": {
-          "lib/net47/Prism.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net47/Prism.Wpf.dll": {}
         }
       },
       "RazorEngineCore/2022.8.1": {
@@ -237,27 +209,19 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net45/System.Buffers.dll": {
-            "related": ".xml"
-          }
+          "ref/net45/System.Buffers.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Buffers.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Buffers.dll": {}
         }
       },
       "System.CodeDom/7.0.0": {
         "type": "package",
         "compile": {
-          "lib/net462/System.CodeDom.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.CodeDom.dll": {}
         },
         "runtime": {
-          "lib/net462/System.CodeDom.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.CodeDom.dll": {}
         },
         "build": {
           "buildTransitive/net462/_._": {}
@@ -274,14 +238,10 @@
           "mscorlib"
         ],
         "compile": {
-          "lib/net461/System.Collections.Immutable.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Collections.Immutable.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Collections.Immutable.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Collections.Immutable.dll": {}
         }
       },
       "System.Configuration.ConfigurationManager/7.0.0": {
@@ -293,14 +253,10 @@
           "System.Configuration"
         ],
         "compile": {
-          "lib/net462/System.Configuration.ConfigurationManager.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.Configuration.ConfigurationManager.dll": {}
         },
         "runtime": {
-          "lib/net462/System.Configuration.ConfigurationManager.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.Configuration.ConfigurationManager.dll": {}
         },
         "build": {
           "buildTransitive/net462/_._": {}
@@ -314,14 +270,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net461/System.Data.SqlClient.dll": {
-            "related": ".xml"
-          }
+          "ref/net461/System.Data.SqlClient.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Data.SqlClient.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Data.SqlClient.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard2.0/System.Data.SqlClient.dll": {
@@ -346,14 +298,10 @@
           "mscorlib"
         ],
         "compile": {
-          "lib/net461/System.Memory.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Memory.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Memory.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Memory.dll": {}
         }
       },
       "System.Numerics.Vectors/4.5.0": {
@@ -363,14 +311,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net46/System.Numerics.Vectors.dll": {
-            "related": ".xml"
-          }
+          "ref/net46/System.Numerics.Vectors.dll": {}
         },
         "runtime": {
-          "lib/net46/System.Numerics.Vectors.dll": {
-            "related": ".xml"
-          }
+          "lib/net46/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection.Metadata/5.0.0": {
@@ -384,14 +328,10 @@
           "mscorlib"
         ],
         "compile": {
-          "lib/net461/System.Reflection.Metadata.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Reflection.Metadata.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Reflection.Metadata.dll": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {
@@ -400,14 +340,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net461/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
+          "ref/net461/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
-          "lib/net45/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
+          "lib/net45/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
       "System.Security.AccessControl/6.0.0": {
@@ -416,14 +352,10 @@
           "System.Security.Principal.Windows": "5.0.0"
         },
         "compile": {
-          "lib/net461/System.Security.AccessControl.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Security.AccessControl.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Security.AccessControl.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Security.AccessControl.dll": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/net461/System.Security.AccessControl.dll": {
@@ -447,14 +379,10 @@
           "WindowsBase"
         ],
         "compile": {
-          "lib/net462/System.Security.Permissions.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.Security.Permissions.dll": {}
         },
         "runtime": {
-          "lib/net462/System.Security.Permissions.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.Security.Permissions.dll": {}
         },
         "build": {
           "buildTransitive/net462/_._": {}
@@ -476,14 +404,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net461/System.Security.Principal.Windows.dll": {
-            "related": ".xml"
-          }
+          "ref/net461/System.Security.Principal.Windows.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Security.Principal.Windows.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Security.Principal.Windows.dll": {}
         },
         "runtimeTargets": {
           "runtimes/win/lib/net461/System.Security.Principal.Windows.dll": {
@@ -519,14 +443,10 @@
           "mscorlib"
         ],
         "compile": {
-          "lib/net461/System.Threading.Tasks.Extensions.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Threading.Tasks.Extensions.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {}
         }
       }
     },
@@ -558,14 +478,10 @@
           "System.Threading.Tasks.Extensions": "4.5.4"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {}
         },
         "resource": {
           "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.resources.dll": {
@@ -615,14 +531,10 @@
           "Microsoft.CodeAnalysis.Common": "[4.0.1]"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.dll": {}
         },
         "resource": {
           "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll": {
@@ -678,53 +590,37 @@
           "WindowsBase"
         ],
         "compile": {
-          "lib/net45/Microsoft.Xaml.Behaviors.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
         },
         "runtime": {
-          "lib/net45/Microsoft.Xaml.Behaviors.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net45/Microsoft.Xaml.Behaviors.dll": {}
         }
       },
       "MvvmDialogs/9.1.0": {
         "type": "package",
         "compile": {
-          "lib/net462/MvvmDialogs.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/MvvmDialogs.dll": {}
         },
         "runtime": {
-          "lib/net462/MvvmDialogs.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/MvvmDialogs.dll": {}
         }
       },
       "MVVMLight.Messaging/1.0.0": {
         "type": "package",
         "compile": {
-          "lib/net40/MVVMLight.Messaging.dll": {
-            "related": ".xml"
-          }
+          "lib/net40/MVVMLight.Messaging.dll": {}
         },
         "runtime": {
-          "lib/net40/MVVMLight.Messaging.dll": {
-            "related": ".xml"
-          }
+          "lib/net40/MVVMLight.Messaging.dll": {}
         }
       },
       "Prism.Core/8.1.97": {
         "type": "package",
         "compile": {
-          "lib/net47/Prism.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net47/Prism.dll": {}
         },
         "runtime": {
-          "lib/net47/Prism.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net47/Prism.dll": {}
         }
       },
       "Prism.Wpf/8.1.97": {
@@ -737,14 +633,10 @@
           "System.Configuration"
         ],
         "compile": {
-          "lib/net47/Prism.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net47/Prism.Wpf.dll": {}
         },
         "runtime": {
-          "lib/net47/Prism.Wpf.dll": {
-            "related": ".pdb;.xml"
-          }
+          "lib/net47/Prism.Wpf.dll": {}
         }
       },
       "RazorEngineCore/2022.8.1": {
@@ -766,27 +658,19 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net45/System.Buffers.dll": {
-            "related": ".xml"
-          }
+          "ref/net45/System.Buffers.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Buffers.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Buffers.dll": {}
         }
       },
       "System.CodeDom/7.0.0": {
         "type": "package",
         "compile": {
-          "lib/net462/System.CodeDom.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.CodeDom.dll": {}
         },
         "runtime": {
-          "lib/net462/System.CodeDom.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.CodeDom.dll": {}
         },
         "build": {
           "buildTransitive/net462/_._": {}
@@ -803,14 +687,10 @@
           "mscorlib"
         ],
         "compile": {
-          "lib/net461/System.Collections.Immutable.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Collections.Immutable.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Collections.Immutable.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Collections.Immutable.dll": {}
         }
       },
       "System.Configuration.ConfigurationManager/7.0.0": {
@@ -822,14 +702,10 @@
           "System.Configuration"
         ],
         "compile": {
-          "lib/net462/System.Configuration.ConfigurationManager.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.Configuration.ConfigurationManager.dll": {}
         },
         "runtime": {
-          "lib/net462/System.Configuration.ConfigurationManager.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.Configuration.ConfigurationManager.dll": {}
         },
         "build": {
           "buildTransitive/net462/_._": {}
@@ -843,14 +719,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net461/System.Data.SqlClient.dll": {
-            "related": ".xml"
-          }
+          "ref/net461/System.Data.SqlClient.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/System.Data.SqlClient.dll": {
-            "related": ".xml"
-          }
+          "runtimes/win/lib/net461/System.Data.SqlClient.dll": {}
         }
       },
       "System.Memory/4.5.4": {
@@ -865,14 +737,10 @@
           "mscorlib"
         ],
         "compile": {
-          "lib/net461/System.Memory.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Memory.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Memory.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Memory.dll": {}
         }
       },
       "System.Numerics.Vectors/4.5.0": {
@@ -882,14 +750,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net46/System.Numerics.Vectors.dll": {
-            "related": ".xml"
-          }
+          "ref/net46/System.Numerics.Vectors.dll": {}
         },
         "runtime": {
-          "lib/net46/System.Numerics.Vectors.dll": {
-            "related": ".xml"
-          }
+          "lib/net46/System.Numerics.Vectors.dll": {}
         }
       },
       "System.Reflection.Metadata/5.0.0": {
@@ -903,14 +767,10 @@
           "mscorlib"
         ],
         "compile": {
-          "lib/net461/System.Reflection.Metadata.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Reflection.Metadata.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Reflection.Metadata.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Reflection.Metadata.dll": {}
         }
       },
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {
@@ -919,14 +779,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net461/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
+          "ref/net461/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
-          "lib/net45/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
+          "lib/net45/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
       "System.Security.AccessControl/6.0.0": {
@@ -935,14 +791,10 @@
           "System.Security.Principal.Windows": "5.0.0"
         },
         "compile": {
-          "lib/net461/System.Security.AccessControl.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Security.AccessControl.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/System.Security.AccessControl.dll": {
-            "related": ".xml"
-          }
+          "runtimes/win/lib/net461/System.Security.AccessControl.dll": {}
         }
       },
       "System.Security.Permissions/7.0.0": {
@@ -960,14 +812,10 @@
           "WindowsBase"
         ],
         "compile": {
-          "lib/net462/System.Security.Permissions.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.Security.Permissions.dll": {}
         },
         "runtime": {
-          "lib/net462/System.Security.Permissions.dll": {
-            "related": ".xml"
-          }
+          "lib/net462/System.Security.Permissions.dll": {}
         },
         "build": {
           "buildTransitive/net462/_._": {}
@@ -989,14 +837,10 @@
           "mscorlib"
         ],
         "compile": {
-          "ref/net461/System.Security.Principal.Windows.dll": {
-            "related": ".xml"
-          }
+          "ref/net461/System.Security.Principal.Windows.dll": {}
         },
         "runtime": {
-          "runtimes/win/lib/net461/System.Security.Principal.Windows.dll": {
-            "related": ".xml"
-          }
+          "runtimes/win/lib/net461/System.Security.Principal.Windows.dll": {}
         }
       },
       "System.Text.Encoding.CodePages/4.5.1": {
@@ -1020,14 +864,10 @@
           "mscorlib"
         ],
         "compile": {
-          "lib/net461/System.Threading.Tasks.Extensions.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {}
         },
         "runtime": {
-          "lib/net461/System.Threading.Tasks.Extensions.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {}
         }
       }
     }
@@ -1946,24 +1786,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Tekator99\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+      "projectUniqueName": "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
       "projectName": "WpfApp2019",
-      "projectPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\obj\\",
+      "projectPath": "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+      "packagesPath": "C:\\Users\\Tekator99\\.nuget\\packages\\",
+      "outputPath": "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Tekator99\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2022,7 +1857,7 @@
             "version": "[4.3.0, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
