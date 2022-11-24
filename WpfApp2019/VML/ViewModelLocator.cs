@@ -21,16 +21,14 @@ namespace WpfApp2019.VML
             obj.SetValue(AutoHookedUpViewModelProperty, value);
         }
 
-        // Using a DependencyProperty as the backing store for AutoHookedUpViewModel. 
-
-        //This enables animation, styling, binding, etc...
+        //ermöglicht animation, styling, binding, etc...
         public static readonly DependencyProperty AutoHookedUpViewModelProperty =
            DependencyProperty.RegisterAttached("AutoHookedUpViewModel",
-           typeof(bool), typeof(ViewModelLocator), new
-           PropertyMetadata(false, AutoHookedUpViewModelChanged));
+           typeof(bool), typeof(ViewModelLocator), new PropertyMetadata(false,
+           AutoHookedUpViewModelChanged));
 
         private static void AutoHookedUpViewModelChanged(DependencyObject d,
-           DependencyPropertyChangedEventArgs e)
+        DependencyPropertyChangedEventArgs e)
         {
             if (DesignerProperties.GetIsInDesignMode(d)) return;
             var viewType = d.GetType();
@@ -44,7 +42,7 @@ namespace WpfApp2019.VML
             var viewModel = Activator.CreateInstance(viewModelType);
 
             ((FrameworkElement)d).DataContext = viewModel;
-
         }
+
     }
 }

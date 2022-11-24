@@ -5,13 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:vm ="clr-namespace:WpfApp2019.ViewModel"
       xmlns:local ="clr-namespace:WpfApp2019.View"
+             
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       xmlns:debug="clr-namespace:System.Diagnostics;assembly=System"
       xmlns:vml = "clr-namespace:WpfApp2019.VML" 
       vml:ViewModelLocator.AutoHookedUpViewModel = "True"
-      >
 
+      >
+    <!--xmlns:prism ="http://prismlibrary.com/"
+      prism:ViewModelLocator.AutoWireViewModel="True"-->
 
     <Grid>
 

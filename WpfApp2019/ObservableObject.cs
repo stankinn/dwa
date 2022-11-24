@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -16,5 +17,6 @@ namespace WpfApp2019
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }

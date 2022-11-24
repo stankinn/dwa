@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Events;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -9,15 +10,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using WpfApp2019.Model;
+using MSG = MVVMLight.Messaging;
 
 namespace WpfApp2019.ViewModel
 {
     internal class PathViewModel : ObservableObject
     {
-        
-        public PathViewModel()
+    
+        IEventAggregator _ea;
+        public PathViewModel(/*IEventAggregator ea*/)
         {
-           
+            _ea = ApplicationService.Instance.EventAggregator;
+           //_ea = ea;
         }
 
         private ICommand _changeTextCommand;
@@ -53,6 +57,7 @@ namespace WpfApp2019.ViewModel
 
         public void SearchFiles()
         {
+            Trace.WriteLine("clicked!");
             FolderBrowserDialog folderDialog = new FolderBrowserDialog
             {
                 ShowNewFolderButton = false,
@@ -63,14 +68,14 @@ namespace WpfApp2019.ViewModel
 
             if (result == DialogResult.OK)
             {
-                //Path wird gesetzt
                 string sPath = folderDialog.SelectedPath;
 
                 FilePathText = new PathText
                 {
                     FPath = sPath
                 };
-                
+
+                _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
                 Trace.WriteLine("click: " + FilePathText.FPath);
 
             }

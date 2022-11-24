@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WpfApp2019.Model;
+using Prism.Events;
 
 namespace WpfApp2019.ViewModel
 {
     internal class FileListViewModel : ObservableObject
     {
-
-        public FileListViewModel()
+        public FileListViewModel( )
         {
-            LoadObjects();
+            ApplicationService.Instance.EventAggregator.GetEvent<PathChangedEvent>().Subscribe(LoadObjects);
+            //LoadObjects();
         }
+
 
         public ObservableCollection<Item> Items { get; set; }
 
@@ -54,15 +52,14 @@ namespace WpfApp2019.ViewModel
         }
 
 
-        public void LoadObjects()
+        public void LoadObjects(PathText path)
         {
             string sPath = "";
-            Trace.WriteLine("LOADING OBJECTS");
-            PathText fpt= new PathViewModel().FilePathText;
+            //Trace.WriteLine("LOADING OBJECTS");
 
-            if (fpt != null)
+            if (path != null)
             {
-                sPath = fpt.FPath;
+                sPath = path.FPath;
 
             }
             Trace.WriteLine("pp: " + sPath);

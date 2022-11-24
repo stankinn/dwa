@@ -9,8 +9,9 @@
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:vml = "clr-namespace:WpfApp2019.VML" 
              vml:ViewModelLocator.AutoHookedUpViewModel = "True"
+             
              >
-    
+
     <Grid>
         <TextBox x:Name="SearchBar"  HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="116" Height="19"/>
         

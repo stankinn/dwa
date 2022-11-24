@@ -210,3 +210,7 @@ D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debu
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\PathView.baml
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\FileListView.g.cs
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\FileListView.baml
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Microsoft.Xaml.Behaviors.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MVVMLight.Messaging.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Prism.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Prism.Wpf.dll

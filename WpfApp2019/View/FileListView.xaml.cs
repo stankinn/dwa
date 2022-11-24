@@ -17,16 +17,17 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Data;
 using System.Windows.Forms;
 using UserControl = System.Windows.Controls.UserControl;
+using Prism.Events;
 
 namespace WpfApp2019.View
 {
 
     public partial class FileListView : UserControl
     {
-
         public FileListView()
         {
             InitializeComponent();
+            //this.DataContext = new FileListViewModel(ApplicationService.Instance.EventAggregator);
         }
 
         //public static readonly DependencyProperty PathProperty =

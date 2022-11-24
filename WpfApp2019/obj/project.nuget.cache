@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uMGGLLsnfvBAapSW2wZXDMAItr2kA7wR05c93nstRT/96JqP5AWCvKQzFUA69AKIn0yJWniSo/YNKjBzjlrc3Q==",
+  "dgSpecHash": "sb8ONLw/nmdlJ5zxcQ0Q7uN/g4J2AL1CXMAJgMoAP9WBaSvrRMzYWx7USPi1tT9MSMdABxcLjY1ZLfJlaL1bIA==",
   "success": true,
   "projectFilePath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,11 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.2\\microsoft.codeanalysis.analyzers.3.3.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.codeanalysis.common\\4.0.1\\microsoft.codeanalysis.common.4.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.0.1\\microsoft.codeanalysis.csharp.4.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\mvvmdialogs\\9.1.0\\mvvmdialogs.9.1.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\mvvmlight.messaging\\1.0.0\\mvvmlight.messaging.1.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\razorenginecore\\2022.8.1\\razorenginecore.2022.8.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
