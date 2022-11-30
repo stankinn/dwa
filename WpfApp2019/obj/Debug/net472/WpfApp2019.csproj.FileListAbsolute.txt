@@ -222,7 +222,6 @@ D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net47
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Microsoft.CodeAnalysis.CSharp.dll
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Microsoft.Xaml.Behaviors.dll
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MvvmDialogs.dll
-D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MVVMLight.Messaging.dll
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Prism.dll
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Prism.Wpf.dll
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net472\RazorEngineCore.dll

@@ -40,10 +40,6 @@
         "net472": {
           "targetAlias": "net472",
           "dependencies": {
-            "MVVMLight.Messaging": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "MvvmDialogs": {
               "target": "Package",
               "version": "[9.1.0, )"

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WpfApp2019.View
 {
     /// <summary>
@@ -23,6 +24,7 @@ namespace WpfApp2019.View
         public AddEntityView()
         {
             InitializeComponent();
+
         }
     }
 }

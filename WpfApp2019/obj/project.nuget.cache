@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HFX9DWI2CJLqjc29wmrZWJad4Q6XESc0lKpgbCP99h3bGao8ghxZ6qopZNMjD3KBf12hhtd0YEImD7LHbtZZLA==",
+  "dgSpecHash": "8np1t6olG4yLgtMfYtJdZ7mJCaTgANNYlcsLaxOoTULYoIbaeenSiNfz9JrWWAbEVJMPPln48O0rde0OxUo3tg==",
   "success": true,
   "projectFilePath": "D:\\1Studium\\PAIN\\Repository\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,6 @@
     "C:\\Users\\Tekator99\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.0.1\\microsoft.codeanalysis.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\Tekator99\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
     "C:\\Users\\Tekator99\\.nuget\\packages\\mvvmdialogs\\9.1.0\\mvvmdialogs.9.1.0.nupkg.sha512",
-    "C:\\Users\\Tekator99\\.nuget\\packages\\mvvmlight.messaging\\1.0.0\\mvvmlight.messaging.1.0.0.nupkg.sha512",
     "C:\\Users\\Tekator99\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
     "C:\\Users\\Tekator99\\.nuget\\packages\\prism.wpf\\8.1.97\\prism.wpf.8.1.97.nupkg.sha512",
     "C:\\Users\\Tekator99\\.nuget\\packages\\razorenginecore\\2022.8.1\\razorenginecore.2022.8.1.nupkg.sha512",

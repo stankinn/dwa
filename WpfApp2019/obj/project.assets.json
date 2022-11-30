@@ -156,15 +156,6 @@
           "lib/net462/MvvmDialogs.dll": {}
         }
       },
-      "MVVMLight.Messaging/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/MVVMLight.Messaging.dll": {}
-        },
-        "runtime": {
-          "lib/net40/MVVMLight.Messaging.dll": {}
-        }
-      },
       "Prism.Core/8.1.97": {
         "type": "package",
         "compile": {
@@ -603,15 +594,6 @@
         },
         "runtime": {
           "lib/net462/MvvmDialogs.dll": {}
-        }
-      },
-      "MVVMLight.Messaging/1.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net40/MVVMLight.Messaging.dll": {}
-        },
-        "runtime": {
-          "lib/net40/MVVMLight.Messaging.dll": {}
         }
       },
       "Prism.Core/8.1.97": {
@@ -1126,19 +1108,6 @@
         "lib/net6.0-windows7.0/MvvmDialogs.xml",
         "mvvmdialogs.9.1.0.nupkg.sha512",
         "mvvmdialogs.nuspec"
-      ]
-    },
-    "MVVMLight.Messaging/1.0.0": {
-      "sha512": "ppNCaUPdNeNlUNENpZlW4gz8nzq8A0xJBkOdZWOS2aSG341c94euBE8xMKMVdRVROf2Im2+/LJV4bmoEEEkIqw==",
-      "type": "package",
-      "path": "mvvmlight.messaging/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/MVVMLight.Messaging.dll",
-        "lib/net40/MVVMLight.Messaging.xml",
-        "mvvmlight.messaging.1.0.0.nupkg.sha512",
-        "mvvmlight.messaging.nuspec"
       ]
     },
     "Prism.Core/8.1.97": {
@@ -1775,7 +1744,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.7.2": [
-      "MVVMLight.Messaging >= 1.0.0",
       "MvvmDialogs >= 9.1.0",
       "Prism.Wpf >= 8.1.97",
       "RazorEngineCore >= 2022.8.1",
@@ -1824,10 +1792,6 @@
       "net472": {
         "targetAlias": "net472",
         "dependencies": {
-          "MVVMLight.Messaging": {
-            "target": "Package",
-            "version": "[1.0.0, )"
-          },
           "MvvmDialogs": {
             "target": "Package",
             "version": "[9.1.0, )"

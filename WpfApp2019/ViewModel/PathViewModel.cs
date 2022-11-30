@@ -1,7 +1,9 @@
 ﻿using Prism.Events;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -10,18 +12,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using WpfApp2019.Model;
-using MSG = MVVMLight.Messaging;
+using static WpfApp2019.ViewModel.AddEntityViewModel;
+using WpfApp2019.View;
+
 
 namespace WpfApp2019.ViewModel
 {
-    internal class PathViewModel : ObservableObject
+    internal class PathViewModel : ObservableObject, INavigationAware
     {
-    
+
+        private IContainer container;
+        private PathText _filePathText;
+        private IRegionManager regionManager;
+
         IEventAggregator _ea;
-        public PathViewModel(/*IEventAggregator ea*/)
+
+        public PathViewModel()
         {
+            this.container = ApplicationService.Instance.Container;
+            this.regionManager = ApplicationService.Instance.RegionManager;
             _ea = ApplicationService.Instance.EventAggregator;
-           //_ea = ea;
+            Trace.WriteLine(regionManager);
+            regionManager.RegisterViewWithRegion("PathViewRegion", typeof(PathView));
         }
 
         private ICommand _changeTextCommand;
@@ -40,7 +52,22 @@ namespace WpfApp2019.ViewModel
 
         }
 
-        private PathText _filePathText;
+        private ICommand _addEntityViewCommand;
+        public ICommand AddEntityViewCommand
+        {
+            get
+            {
+                if (_addEntityViewCommand == null)
+                {
+                    _addEntityViewCommand = new RelayCommand(
+                        param => this.AddEntityView()
+                    );
+                }
+                return _addEntityViewCommand;
+            }
+
+        }
+
         public PathText FilePathText
         {
 
@@ -81,9 +108,37 @@ namespace WpfApp2019.ViewModel
             }
         }
 
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            throw new NotImplementedException();
+        }
 
-       
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            throw new NotImplementedException();
+        }
 
 
+        #region Executes
+        /// <summary>
+        /// Command when ViewB button clicked
+        /// </summary>
+        public void AddEntityView()
+        {
+            Trace.WriteLine("Change View");
+
+         
+
+            regionManager.RequestNavigate("PathViewRegion", "AddEntityViewRegion");
+
+           
+        }
+
+        #endregion
     }
 }

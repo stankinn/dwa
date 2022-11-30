@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Prism.Ioc;
+using Prism.Modularity;
+
 
 namespace WpfApp2019
 {
@@ -15,6 +17,6 @@ namespace WpfApp2019
     /// </summary>
     public partial class App : Application
     {
-       
+        
     }
 }

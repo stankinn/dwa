@@ -25,7 +25,6 @@
   <ItemGroup>
     <!--<PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.9" />-->
     <PackageReference Include="MvvmDialogs" Version="9.1.0" />
-    <PackageReference Include="MVVMLight.Messaging" Version="1.0.0" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="RazorEngineCore" Version="2022.8.1" />
     <PackageReference Include="System.CodeDom" Version="7.0.0" />
