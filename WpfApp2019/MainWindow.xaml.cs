@@ -15,24 +15,7 @@ namespace WpfApp2019
         public MainWindow()
         {
             InitializeComponent();
-            //this.Loaded += new RoutedEventHandler(FileViewControl_Loaded);
         }
-
-        //private void FileViewControl_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    FileViewModel fileViewModelObject = new FileViewModel();
-        //    Trace.WriteLine("WINDOW path: " + fileViewModelObject);
-        //    fileViewModelObject.LoadObjects();
-
-        //    FileViewControl.DataContext = fileViewModelObject;
-        //    if (fileViewModelObject.FilePathText != null)
-        //    {
-        //        Trace.WriteLine("WINDOW path: " + fileViewModelObject.FilePathText.FPath);
-        //    }
-
-        //}
-
-        
 
     }
 }

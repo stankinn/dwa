@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp2019.ViewModel
+namespace WpfApp2019
 {
-    internal class MainWindowVM
+    internal interface IViewModel
     {
-       // public FileViewModel FileViewModel { get; set; }
     }
 }

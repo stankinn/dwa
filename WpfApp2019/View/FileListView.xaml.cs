@@ -1,23 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows.Documents;
-using System.Windows.Controls;
-using System.ComponentModel;
-using Path = System.IO.Path;
-using System.Windows.Media;
-using System.Windows;
-using System.Windows.Input;
-using System.IO;
-using System;
-using System.Diagnostics;
-using ListViewItem = System.Windows.Controls.ListViewItem;
-using ListView = System.Windows.Controls.ListView;
-using WpfApp2019.ViewModel;
-using WpfApp2019.Model;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Windows.Data;
-using System.Windows.Forms;
-using UserControl = System.Windows.Controls.UserControl;
-using Prism.Events;
+﻿using UserControl = System.Windows.Controls.UserControl;
 
 namespace WpfApp2019.View
 {
@@ -27,21 +8,23 @@ namespace WpfApp2019.View
         public FileListView()
         {
             InitializeComponent();
-            //this.DataContext = new FileListViewModel(ApplicationService.Instance.EventAggregator);
+            
         }
 
-        //public static readonly DependencyProperty PathProperty =
-        //     DependencyProperty.Register(nameof(SelectedPath), typeof(string), typeof(FileView));
 
-        //public string SelectedPath
-        //{
-        //    get { return (string)GetValue(PathProperty); }
-        //    set
-        //    {
-        //        SetValue(PathProperty, value);
 
-        //    }
-        //}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

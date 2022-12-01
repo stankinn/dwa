@@ -211,7 +211,6 @@ D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debu
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\FileListView.g.cs
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\FileListView.baml
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Microsoft.Xaml.Behaviors.dll
-D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MVVMLight.Messaging.dll
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Prism.dll
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Prism.Wpf.dll
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\bin\Debug\net472\WpfApp2019.exe.config
@@ -292,3 +291,11 @@ D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net47
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net472\WpfApp2019.csproj.CopyComplete
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net472\WpfApp2019.exe
 D:\1Studium\PAIN\Repository\data-warehouse-automation\WpfApp2019\obj\Debug\net472\WpfApp2019.pdb
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\JetBrains.Annotations.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\Mvvm.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MvvmNavigation.Abstractions.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MvvmNavigation.Core.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MvvmNavigation.Internal.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\bin\Debug\net472\MvvmNavigation.Wpf.dll
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\AddEntityView.g.cs
+D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\obj\Debug\net472\View\AddEntityView.baml

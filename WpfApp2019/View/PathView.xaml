@@ -16,7 +16,7 @@
         <TextBox x:Name="SearchBar"  HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="116" Height="19"/>
         
         <Button x:Name="btnOpen"  Content="Open File" HorizontalAlignment="Left" Margin="20,7,0,0" VerticalAlignment="Top" Width="88" Command="{Binding Path=ChangeTextCommand}"/>
-        <Button Content="Add Entity" HorizontalAlignment="Left" Margin="113,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="93" />
+        <Button Content="Add Entity" HorizontalAlignment="Left" Margin="113,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="93" Command="{Binding Path=Navigate}"/>
         <!--Click="Button_Navigate_Add"-->
 
         <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="420" Height="19"/>
@@ -35,6 +35,5 @@
         </TreeView>
 
         <local:FileListView/>
-        
     </Grid>
 </UserControl>

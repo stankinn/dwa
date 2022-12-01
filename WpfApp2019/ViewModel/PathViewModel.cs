@@ -1,27 +1,21 @@
 ﻿using Prism.Events;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using WpfApp2019.Model;
-using MSG = MVVMLight.Messaging;
+using WpfApp2019.Stores;
 
 namespace WpfApp2019.ViewModel
 {
-    internal class PathViewModel : ObservableObject
+    internal class PathViewModel : ObservableObject, IViewModel
     {
     
         IEventAggregator _ea;
-        public PathViewModel(/*IEventAggregator ea*/)
+        NavigationStore _navigationStore;
+        public PathViewModel()
         {
             _ea = ApplicationService.Instance.EventAggregator;
-           //_ea = ea;
         }
 
         private ICommand _changeTextCommand;
@@ -37,6 +31,31 @@ namespace WpfApp2019.ViewModel
                 }
                 return _changeTextCommand;
             }
+
+        }
+
+        private ICommand _navigate;
+        public ICommand Navigate
+        {
+            get
+            {
+                if (_navigate == null)
+                {
+                    _navigate = new RelayCommand(
+                        param => this.GoToAddEntity()
+                    );
+                }
+                return _navigate;
+            }
+
+        }
+
+        public void GoToAddEntity()
+        {
+            _navigationStore = NavigationStore.Instance;
+            
+            _navigationStore.CurrViewModel = new AddEntityViewModel();
+
 
         }
 

@@ -10,7 +10,17 @@
         Title="DWA" Height="450" Width="800">
 
     <Grid >
-        <View:PathView x:Name = "PathControl" />
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewModel:PathViewModel}">
+                <View:PathView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AddEntityViewModel}">
+                <View:AddEntityView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding ViewModel}"/>
+        <!--<View:PathView x:Name = "PathControl" />-->
     </Grid>
     
 </Window>

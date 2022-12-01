@@ -3,11 +3,10 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using WpfApp2019.Model;
-using Prism.Events;
 
 namespace WpfApp2019.ViewModel
 {
-    internal class FileListViewModel : ObservableObject
+    internal class FileListViewModel : ObservableObject, IViewModel
     {
         public FileListViewModel( )
         {
