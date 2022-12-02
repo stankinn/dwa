@@ -1,3 +1,0 @@
-CREATE TABLE Entity Name ( 
-    Attribute Name Attribute Data Type 
-    )

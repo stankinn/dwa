@@ -1,0 +1,12 @@
+﻿@* Generator : Template TypeVisibility : Internal *@
+# stg_@Model.GetType().Name
+
+## Attributes
+
+| Attribute | Datatype |
+|---|---|
+@foreach(var property in @Model.GetType().GetProperties())
+{
+<text>| @property.Name | @property.PropertyType |
+</text>
+}

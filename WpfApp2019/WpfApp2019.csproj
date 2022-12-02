@@ -13,6 +13,17 @@
 	  <TargetFramework>net472</TargetFramework>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Compile Remove="Entity.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="TemplateLegoThemeMD.txt" />
+	  <None Remove="TextFile1.txt" />
+	  <None Remove="TextFile2.txt" />
+	  <None Remove="TextFile3.txt" />
+	</ItemGroup>
+
   <ItemGroup>
     <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
       <WrapperTool>tlbimp</WrapperTool>

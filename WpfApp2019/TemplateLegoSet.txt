@@ -1,0 +1,12 @@
+﻿@* Generator : Template TypeVisibility : Internal *@
+CREATE TABLE [stg_lego_set] 
+( 
+    rcsrc nvarchar(128) @Model.rcsrc,   -- Standardspalte 
+    ldts  datetime @Model.ldts,        -- Standardspalte 
+    
+    set_num nvarchar(10) @Model.set_num,
+    name nvarchar(300)  NULL,
+    year int  NULL,
+    theme_id int  NULL,
+    num_parts int  NULL
+)

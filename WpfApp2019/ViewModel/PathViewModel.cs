@@ -100,9 +100,5 @@ namespace WpfApp2019.ViewModel
             }
         }
 
-
-       
-
-
     }
 }

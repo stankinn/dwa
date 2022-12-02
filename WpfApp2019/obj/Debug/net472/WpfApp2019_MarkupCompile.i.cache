@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETFRAMEWORK;NET472;
 D:\Users\Admin\source\repos\DWA_UI\data-warehouse-automation\WpfApp2019\App.xaml
-5-1904566873
+4657242993
 
-26-74095857
+25-86275087
 56-1361275512
-AddEntity.xaml;MainWindow.xaml;View\AddEntityView.xaml;View\FileListView.xaml;View\PathView.xaml;
+MainWindow.xaml;View\AddEntityView.xaml;View\FileListView.xaml;View\PathView.xaml;
 
-True
+False
 
