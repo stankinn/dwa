@@ -1,36 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {}
+    "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {
+    "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
-        "projectName": "WpfApp2019",
-        "projectPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Admin\\source\\repos\\DWA_UI\\data-warehouse-automation\\WpfApp2019\\obj\\",
+        "projectUniqueName": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj",
+        "projectName": "Repository",
+        "projectPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\Julius\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Julius\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net472"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net472": {
-            "targetAlias": "net472",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -41,9 +37,103 @@
         }
       },
       "frameworks": {
-        "net472": {
-          "targetAlias": "net472",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+        "projectName": "WpfApp2019",
+        "projectPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+        "packagesPath": "C:\\Users\\Julius\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Julius\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.4.355802, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Mvvm": {
               "target": "Package",
               "version": "[1.0.4, )"
@@ -64,14 +154,6 @@
               "target": "Package",
               "version": "[2022.8.1, )"
             },
-            "System.CodeDom": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
-            "System.Configuration.ConfigurationManager": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
@@ -81,12 +163,26 @@
               "version": "[4.3.0, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App": {
+              "privateAssets": "none"
+            }
+          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win7-x86": {
-          "#import": []
         }
       }
     }

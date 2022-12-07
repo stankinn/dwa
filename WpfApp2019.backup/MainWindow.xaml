@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp2019.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:View = "clr-namespace:WpfApp2019.View"
+        xmlns:viewModel = "clr-namespace:WpfApp2019.ViewModel" 
+        xmlns:local="clr-namespace:WpfApp2019.View"
+        mc:Ignorable="d"
+        Title="DWA" Height="450" Width="800">
+
+    <Grid >
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewModel:PathViewModel}">
+                <View:PathView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AddEntityViewModel}">
+                <View:AddEntityView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding ViewModel}"/>
+        <!--<View:PathView x:Name = "PathControl" />-->
+    </Grid>
+    
+</Window>

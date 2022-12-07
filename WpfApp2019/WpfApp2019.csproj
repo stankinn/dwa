@@ -1,29 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup Condition="'$(TargetFrameworkIdentifier)' == ''">
+  <PropertyGroup Condition="'$(TargetFrameworkIdentifier)' == ''">
     <OutputType>WinExe</OutputType>
-	<TargetFramework>net472</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <!--<TargetFrameworkVersion>v4.7</TargetFrameworkVersion>-->
     <UseWPF>true</UseWPF>
-	<UseWindowsForms>true</UseWindowsForms>
-	<Platforms>AnyCPU;x64;x86</Platforms>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
-
-	<PropertyGroup>
-	  <TargetFramework>net472</TargetFramework>
-	</PropertyGroup>
-
-	<ItemGroup>
-	  <Compile Remove="Entity.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="TemplateLegoThemeMD.txt" />
-	  <None Remove="TextFile1.txt" />
-	  <None Remove="TextFile2.txt" />
-	  <None Remove="TextFile3.txt" />
-	</ItemGroup>
-
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Entity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="TemplateLegoThemeMD.txt" />
+    <None Remove="TextFile1.txt" />
+    <None Remove="TextFile2.txt" />
+    <None Remove="TextFile3.txt" />
+  </ItemGroup>
   <ItemGroup>
     <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
       <WrapperTool>tlbimp</WrapperTool>
@@ -32,18 +27,25 @@
       <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
     </COMReference>
   </ItemGroup>
-
   <ItemGroup>
     <!--<PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.9" />-->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Mvvm" Version="1.0.4" />
     <PackageReference Include="MvvmDialogs" Version="9.1.0" />
     <PackageReference Include="MvvmNavigation.Wpf" Version="3.2.0" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="RazorEngineCore" Version="2022.8.1" />
-    <PackageReference Include="System.CodeDom" Version="7.0.0" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.csproj" />
+  </ItemGroup>
 </Project>

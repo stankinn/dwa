@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="WpfApp2019.View.FileListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:vm ="clr-namespace:WpfApp2019.ViewModel"
+      xmlns:local ="clr-namespace:WpfApp2019.View"
+             
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:debug="clr-namespace:System.Diagnostics;assembly=System"
+      xmlns:vml = "clr-namespace:WpfApp2019.VML" 
+      vml:ViewModelLocator.AutoHookedUpViewModel = "True"
+
+      >
+    <!--xmlns:prism ="http://prismlibrary.com/"
+      prism:ViewModelLocator.AutoWireViewModel="True"-->
+
+    <Grid>
+
+        <!--KeyDown="Search_KeyDown"-->
+
+        <ListView Name="FileList" Margin="216,34,10,31"  ItemsSource = "{Binding Path= Files}">
+            <!--PreviewMouseDoubleClick="ListViewSelection"-->
+            <ListView.View>
+                <GridView>
+
+                    <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Name , Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                        <GridViewColumnHeader Tag="Name" >
+                            <!--Click="ColumnHeader_Click"-->
+                            Name
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Type, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                        <GridViewColumnHeader Tag="Type" >
+                            <!--Click="ColumnHeader_Click"-->
+                            Type
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = ModificationTime, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                        <GridViewColumnHeader Tag="ModificationTime" >
+                            <!--Click="ColumnHeader_Click"-->
+                            Modification Time
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Owner, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                        <GridViewColumnHeader Tag="Owner" >
+                            <!--Click="ColumnHeader_Click"-->
+                            Owner
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                    <GridViewColumn DisplayMemberBinding="{Binding Path =  Description, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                        <GridViewColumnHeader Tag="Description" >
+                            <!--Click="ColumnHeader_Click"-->
+                            Description
+                        </GridViewColumnHeader>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</UserControl>
