@@ -1,5 +1,6 @@
 ﻿using RazorEngineCore;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
@@ -85,36 +86,67 @@ namespace WpfApp2019.ViewModel
                     //con.Open();
 
                     IRazorEngine razorEngine = new RazorEngine();
-                    string templateText = File.ReadAllText("..\\..\\..\\TemplateLegoSet.txt");
-                    string templateText2 = File.ReadAllText("..\\..\\..\\TemplateLegoTheme.txt");
+                    
                     string templateTextMD = File.ReadAllText("..\\..\\..\\TemplateLegoMD.txt");
 
-                    if(Path.GetFileName(d).Contains("sets"))
+                    if (Path.GetFileName(d).Contains(".csv"))
                     {
-                       var model_set = new lego_set(GetFileDescription(d), Directory.GetLastWriteTime(d), "313", "nummeroUno", 2022, 0815, 420);
+                        List<string> dataTypes = new List<string>();
+                        List<string> dataNames = new List<string>();
 
-                        IRazorEngineCompiledTemplate template = razorEngine.Compile(templateText);
-                        var resultText = template.Run(model_set);
-                        File.WriteAllText($"{sPath}\\LegoSetSql.sql", resultText);
+                        using (var reader = new StreamReader(d))
+                        {
+                            List<string> listA = new List<string>();
+                            List<string> listB = new List<string>();
+                            int j = 0;
+                            while (!reader.EndOfStream)
+                            {
+                                var line = reader.ReadLine();
+                                var values = line.Split(',');
 
-                        IRazorEngineCompiledTemplate templateMD = razorEngine.Compile(templateTextMD);
-                        var resultTextMD = templateMD.Run(model_set);
-                        File.WriteAllText($"{sPath}\\LegoSetMD.md", resultTextMD);
+                                if (j == 0)
+                                {
+                                    foreach (var item in values)
+                                    {
+                                        if (item.Contains(";"))
+                                        {
+                                            break;
+                                        }
+                                        dataNames.Add(item);
+                                        dataTypes.Add("String");
+                                    }
+                                    j++;
+                                }
+                            }
+                        }
+                        var model = new lego(GetFileDescription(d), Directory.GetLastWriteTime(d), dataTypes, dataNames);
 
+                        if (Path.GetFileName(d).Contains("themes"))
+                        {
+                            string templateText2 = File.ReadAllText("..\\..\\..\\TemplateLegoTheme.txt");
+
+                            IRazorEngineCompiledTemplate template2 = razorEngine.Compile(templateText2);
+                            var resultText2 = template2.Run(model);
+                            File.WriteAllText($"{sPath}\\LegoThemeSql.sql" , resultText2);
+
+                            IRazorEngineCompiledTemplate templateMD = razorEngine.Compile(templateTextMD);
+                            var resultTextMD = templateMD.Run(model);
+                            File.WriteAllText($"{sPath}\\LegoThemeMD.md", resultTextMD);
+                        }
+                        else if (Path.GetFileName(d).Contains("sets"))
+                        {
+                            string templateText = File.ReadAllText("..\\..\\..\\TemplateLegoSet.txt");
+
+                            IRazorEngineCompiledTemplate template = razorEngine.Compile(templateText);
+                            var resultText = template.Run(model);
+                            File.WriteAllText($"{sPath}\\LegoSetSql.sql", resultText);
+
+                            IRazorEngineCompiledTemplate templateMD = razorEngine.Compile(templateTextMD);
+                            var resultTextMD = templateMD.Run(model);
+                            File.WriteAllText($"{sPath}\\LegoSetMD.md", resultTextMD);
+                        }        
                     }
-                    if (Path.GetFileName(d).Contains("themes"))
-                    {
-                        var model_theme = new lego_theme(GetFileDescription(d), Directory.GetLastWriteTime(d), 2, "nummeroDos", 1337);
-
-                        IRazorEngineCompiledTemplate template2 = razorEngine.Compile(templateText2);
-                        var resultText2 = template2.Run(model_theme);
-                        File.WriteAllText($"{sPath}\\LegoThemeSql.sql" , resultText2);
-
-                        IRazorEngineCompiledTemplate templateMD = razorEngine.Compile(templateTextMD);
-                        var resultTextMD = templateMD.Run(model_theme);
-                        File.WriteAllText($"{sPath}\\LegoThemeMD.md", resultTextMD);
-                    }
-
+                    
                     // SqlCommand cmd = new SqlCommand("INSERT INTO USERS(username, email, phone) values ('" + EntityName.Text + "','" + AttributeType.Text + "','" + AttributeDataType.Text + "')", con);
                     // cmd.ExecuteNonQuery();
                     // con.Close();

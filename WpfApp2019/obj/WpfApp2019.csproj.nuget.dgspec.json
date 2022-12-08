@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {}
+    "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj": {
+    "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj",
+        "projectUniqueName": "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj",
-        "packagesPath": "C:\\Users\\Julius\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\obj\\",
+        "projectPath": "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\Ritsc\\.nuget\\packages\\",
+        "outputPath": "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Julius\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ritsc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,25 +79,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {
+    "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+        "projectUniqueName": "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
         "projectName": "WpfApp2019",
-        "projectPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
-        "packagesPath": "C:\\Users\\Julius\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\WpfApp2019\\obj\\",
+        "projectPath": "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\WpfApp2019\\WpfApp2019.csproj",
+        "packagesPath": "C:\\Users\\Ritsc\\.nuget\\packages\\",
+        "outputPath": "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\WpfApp2019\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Julius\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ritsc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -103,8 +111,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\Julius\\Desktop\\PAIN\\data-warehouse-automation\\Repository\\Repository.csproj"
+              "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\Repository\\Repository.csproj": {
+                "projectPath": "D:\\DataWarehouse\\NeuerOrdner\\data-warehouse-automation\\Repository\\Repository.csproj"
               }
             }
           }
@@ -182,7 +190,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
