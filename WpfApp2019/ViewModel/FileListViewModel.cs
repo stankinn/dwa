@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using System.Windows;
+using System.Windows.Input;
 using WpfApp2019.Model;
 
 namespace WpfApp2019.ViewModel
@@ -52,7 +52,81 @@ namespace WpfApp2019.ViewModel
                 }
             }
         }
+        private ICommand _openFile;
+        public ICommand OpenFile
+        {
+            get
+            {
+                if (_openFile == null)
+                {
+                    _openFile = new RelayCommand(
+                        param => this.Open(param as ObjectAttributes)
+                    );
+                }
+                return _openFile;
+            }
 
+        }
+
+        private ICommand _rename;
+        public ICommand RenameCommand
+        {
+            get
+            {
+                if (_rename == null)
+                {
+                    _rename = new RelayCommand(
+                        param => this.Rename(param as ObjectAttributes)
+                    );
+                }
+                return _rename;
+            }
+
+        }
+
+        public void Rename(ObjectAttributes obj)
+        {
+            Trace.WriteLine("Rename this" + obj.Name);
+        }
+
+        public void Open(ObjectAttributes objects)
+        {
+            string path = objects.FilePath;
+
+            //Navigation bei Dateiordnern, Dateien werden geöffnet
+            if (objects.Type == "Dateiordner")
+            {
+                var files = Directory.EnumerateFileSystemEntries(path);
+                ObservableCollection<ObjectAttributes> items = new ObservableCollection<ObjectAttributes>();
+                foreach (var d in files)
+                {
+                    var accessControl = new FileInfo(d).GetAccessControl();
+                    items.Add(new ObjectAttributes
+                    {
+                        Name = Path.GetFileName(d),
+                        Type = GetDataType(d),
+                        ModificationTime = Directory.GetLastWriteTime(d),
+                        Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
+                        Description = GetFileDescription(d),
+                        FilePath = Path.GetFullPath(d)
+                    });
+
+                }
+                Files = items;
+
+            }
+            else
+            {
+                new Process
+                {
+                    StartInfo = new ProcessStartInfo(@$"{path}")
+                    {
+                        UseShellExecute = true
+                    }
+                }.Start();
+            }
+
+        }
 
         public void LoadObjects(PathText path)
         {
