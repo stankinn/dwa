@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Windows;
 using WpfApp2019.Model;
 
 namespace WpfApp2019.ViewModel
@@ -110,13 +111,76 @@ namespace WpfApp2019.ViewModel
                                     {
                                         if (item.Contains(";"))
                                         {
-                                            break;
+                                            string itema= item.Replace(";", string.Empty);
+                                            dataNames.Add(itema);
                                         }
-                                        dataNames.Add(item);
-                                        dataTypes.Add("String");
+                                        else
+                                        {
+                                            dataNames.Add(item);
+                                        }
+                                        dataTypes.Add(" ");
                                     }
-                                    j++;
                                 }
+                                else if(j < 10)
+                                {
+                                    int k = 0;
+                                    try
+                                    {
+                                        for (int i = 0; i < values.Length; i++)
+                                        {
+                                            if(k >= dataTypes.Count) 
+                                            {
+                                                break; 
+                                            }
+                                            if (dataTypes[k] != "string" || dataTypes[k] != "double")
+                                            {
+                                                if (values[i].Contains(";"))
+                                                {
+                                                    break;
+                                                }
+                                                if(values[i] == null || values[i] == "")
+                                                {
+                                                break;
+                                                }
+                                                if (dataTypes[k] == " ")
+                                                {
+                                                    int intValue;
+                                                    double doubleValue;
+                                                    bool boolValue;
+
+                                                    if (int.TryParse(values[i], out intValue))
+                                                        dataTypes[k] = "int";
+                                                    else if (double.TryParse(values[i], out doubleValue))
+                                                        dataTypes[k] = "double";
+                                                    else if (bool.TryParse(values[i], out boolValue))
+                                                        dataTypes[k] = "bool";
+                                                    else dataTypes[k] = "string";
+                                                }
+                                                if (dataTypes[k] == "int")
+                                                {
+                                                    int intValue;
+                                                    double doubleValue;
+
+                                                    if (!int.TryParse(values[i], out intValue))
+                                                    {
+                                                        if (double.TryParse(values[i], out doubleValue))
+                                                            dataTypes[k] = "double";
+                                                    }
+                                                }
+                                            }
+                                            k++;
+                                        }
+                                    }
+                                    catch (Exception)
+                                    {
+                                        Debug.WriteLine(k + " " + j);
+                                        Debug.WriteLine(dataTypes.Count + " " + values.Length);
+                                        throw;
+                                    }
+                                    
+                                    
+                                }
+                                j++;
                             }
                         }
                         var model = new lego(GetFileDescription(d), Directory.GetLastWriteTime(d), dataTypes, dataNames);
@@ -144,9 +208,24 @@ namespace WpfApp2019.ViewModel
                             IRazorEngineCompiledTemplate templateMD = razorEngine.Compile(templateTextMD);
                             var resultTextMD = templateMD.Run(model);
                             File.WriteAllText($"{sPath}\\LegoSetMD.md", resultTextMD);
+                            
                         }        
                     }
-                    
+
+                    //if (Path.GetFileName(d).Contains(".JSON"))
+                    //{
+                    //JSONparser irgendwas was auch immer 
+                    string json = File.ReadAllText(d);
+                    //}
+                    //if (Path.GetFileName(d).Contains(".XML"))
+                    //{
+
+                    //}
+                    //if (Path.GetFileName(d).Contains(".exel"))
+                    //{
+
+                    //}
+
                     // SqlCommand cmd = new SqlCommand("INSERT INTO USERS(username, email, phone) values ('" + EntityName.Text + "','" + AttributeType.Text + "','" + AttributeDataType.Text + "')", con);
                     // cmd.ExecuteNonQuery();
                     // con.Close();
