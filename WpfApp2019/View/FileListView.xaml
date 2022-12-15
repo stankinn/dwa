@@ -18,6 +18,12 @@
 
 
         <ListView Name="FileList" Margin="216,34,10,31"  ItemsSource = "{Binding Path= Files}">
+
+            <ListView.Resources>
+                <MenuItem x:Key="RenameMenu" Header="Rename" Command="{Binding RenameCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
+            </ListView.Resources>
+            
+            
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <i:InvokeCommandAction 
@@ -26,9 +32,10 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
 
+            
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Rename" Command="{Binding RenameCommand}" CommandParameter="{Binding ElementName=FileList, Path=SelectedItem}"/>
+                    <StaticResource ResourceKey="RenameMenu"/>
                 </ContextMenu>
             </ListView.ContextMenu>
 

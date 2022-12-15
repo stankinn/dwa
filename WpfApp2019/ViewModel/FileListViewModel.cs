@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp2019.Model;
 
@@ -86,7 +87,8 @@ namespace WpfApp2019.ViewModel
 
         public void Rename(ObjectAttributes obj)
         {
-            Trace.WriteLine("Rename this" + obj.Name);
+            string name = obj.Name;
+            Trace.WriteLine("Rename this" + name);
         }
 
         public void Open(ObjectAttributes objects)
