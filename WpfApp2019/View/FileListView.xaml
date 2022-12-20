@@ -21,6 +21,7 @@
 
             <ListView.Resources>
                 <MenuItem x:Key="RenameMenu" Header="Rename" Command="{Binding RenameCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
+                <MenuItem x:Key="CreateMarkdownMenu" Header="Create .md and .sql" Command="{Binding CreateMDCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
             </ListView.Resources>
             
             
@@ -36,6 +37,7 @@
             <ListView.ContextMenu>
                 <ContextMenu>
                     <StaticResource ResourceKey="RenameMenu"/>
+                    <StaticResource ResourceKey="CreateMarkdownMenu"/>
                 </ContextMenu>
             </ListView.ContextMenu>
 
