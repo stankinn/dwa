@@ -11,10 +11,18 @@
              >
     <Grid>
         <Button Content="Back" HorizontalAlignment="Left" Margin="13,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="52"  Height="27" Command="{Binding Path=GoBackCommand}"/>
-        <Button Content="Add New" HorizontalAlignment="Left" Margin="113,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding Path=AddEntityCommand}"/>
+        <Button x:Name="AddEntity" Content="Add Entity" HorizontalAlignment="Left" Margin="223,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding Path=AddEntityCommand}" Click="AddEntity_Click" ToolTip="Add Entry with name and price"/>
         <TextBox x:Name ="EntityName" HorizontalAlignment="Left" Height="64" Margin="10,49,0,0" TextWrapping="Wrap" Text="Entity Name" VerticalAlignment="Top" Width="196"/>
         <TextBox x:Name ="AttributeNames" HorizontalAlignment="Left" Height="64" Margin="10,118,0,0" TextWrapping="Wrap" Text="Attribute Name" VerticalAlignment="Top" Width="196"/>
         <TextBox x:Name ="AttributeType" HorizontalAlignment="Left" Height="64" Margin="10,187,0,0" TextWrapping="Wrap" Text="Attribute Type" VerticalAlignment="Top" Width="196"/>
         <TextBox x:Name ="AttributeDataType" HorizontalAlignment="Left" Height="64" Margin="10,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Text="Attribute Data Type"/>
+        <Button x:Name="DeleteEntityByName" Content="Delete Entity" HorizontalAlignment="Left" Margin="223,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="DeleteEntity_Click" ToolTip="Delete by name"/>
+        <Button x:Name="AlterEntityRename" Content="Alter Entity" HorizontalAlignment="Left" Margin="223,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AlterEntityRename_Click" ToolTip="Rename product"/>
+        <Button x:Name="DeleteEntityByPrice" Content="Delete Entity" HorizontalAlignment="Left" Margin="340,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="DeleteEntityByPrice_Click" ToolTip="Delete by price"/>
+        <Button x:Name="DeleteEntityById" Content="Delete Entity" HorizontalAlignment="Left" Margin="454,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.01,-0.48" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="DeleteEntityById_Click" ToolTip="Delete by Id"/>
+        <Button x:Name="AlterEntityChangePrice" Content="Alter Entity" HorizontalAlignment="Left" Margin="340,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AlterEntityChangePrice_Click" ToolTip="Change price"/>
+        <Button x:Name="AlterEntityChangeCalories" Content="Alter Entity" HorizontalAlignment="Left" Margin="454,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AlterEntityChangeCalories_Click" ToolTip="Change calories"/>
+        <Button x:Name="AlterEntityChangeDiameter_Copy" Content="Alter Entity" HorizontalAlignment="Left" Margin="568,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AlterEntityChangeDiameter_Click" ToolTip="Change diameter"/>
+        <Button x:Name="AddEntityAll" Content="Add Entity" HorizontalAlignment="Left" Margin="340,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AddEntityAll_Click" ToolTip="Add entry with name, price, calories and diameter"/>
     </Grid>
 </UserControl>
