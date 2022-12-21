@@ -11,9 +11,19 @@
     <TargetFramework>net6.0-windows</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+    <Page Remove="Resources\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Remove="Entity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Images\drive.png" />
+    <None Remove="Images\file.png" />
+    <None Remove="Images\folder-closed.png" />
+    <None Remove="Images\folder-open.png" />
     <None Remove="TemplateLegoThemeMD.txt" />
     <None Remove="TextFile1.txt" />
     <None Remove="TextFile2.txt" />
@@ -47,5 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\drive.png" />
+    <Resource Include="Images\file.png" />
+    <Resource Include="Images\folder-closed.png" />
+    <Resource Include="Images\folder-open.png" />
   </ItemGroup>
 </Project>

@@ -24,12 +24,23 @@
         <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
         
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
-        
+
         <TreeView Name="TreeViewStructure" Margin="15,34,590,31" ItemsSource="{Binding Items}">
-            <!-- {Binding Items} -->
+
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                </Style>
+            </TreeView.ItemContainerStyle>
+
             <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding SubItems}">
-                    <TextBlock Text="{Binding Title}"/>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Margin="3" 
+                                    Source="{Binding ImageName,
+                                        Converter={x:Static local:HeaderToImageConverter.Instance}}" />
+                        <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
+                    </StackPanel>
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>

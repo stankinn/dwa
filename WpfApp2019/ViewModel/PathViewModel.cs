@@ -1,21 +1,35 @@
 ﻿using Prism.Events;
 using System;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Input;
 using WpfApp2019.Model;
 using WpfApp2019.Stores;
+using WpfApp2019.TreeView;
 
 namespace WpfApp2019.ViewModel
 {
     internal class PathViewModel : ObservableObject, IViewModel
     {
-    
+        /// <summary>
+        /// A list of all directories on the machine
+        /// </summary>
+        public ObservableCollection<TreeViewItemViewModel> Items { get; set; }
+
         IEventAggregator _ea;
         NavigationStore _navigationStore;
         public PathViewModel()
         {
             _ea = ApplicationService.Instance.EventAggregator;
+
+            // Get the logical drives
+            var children = TreeViewStructure.GetLogicalDrives();
+
+            // Create the view models from the data
+            this.Items = new ObservableCollection<TreeViewItemViewModel>(
+                children.Select(drive => new TreeViewItemViewModel(drive.FullPath, TreeViewItemType.Drive)));
         }
 
         private ICommand _changeTextCommand;
