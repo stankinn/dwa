@@ -9,23 +9,35 @@
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:vml = "clr-namespace:WpfApp2019.VML" 
              vml:ViewModelLocator.AutoHookedUpViewModel = "True"
-             
              >
 
-    <Grid>
-        <TextBox x:Name="SearchBar"  HorizontalAlignment="Right" Margin="0,8,10,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="116" Height="19"/>
-        
-        <Button x:Name="btnOpen"  Content="Open File" HorizontalAlignment="Left" Margin="20,7,0,0" VerticalAlignment="Top" Width="88" Command="{Binding Path=ChangeTextCommand}"/>
-        <Button Content="Add Entity" HorizontalAlignment="Left" Margin="113,7,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="93" Command="{Binding Path=Navigate}"/>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="100*" />
+            <RowDefinition Height="16"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="88" />
+            <ColumnDefinition Width="88" />
+            <ColumnDefinition Width="33" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="88" />
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="0" Content="Open File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Command="{Binding Path=ChangeTextCommand}"/>
+        <Button Grid.Row="0" Grid.Column="1" Content="Add Entity" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Command="{Binding Path=Navigate}"/>
         <!--Click="Button_Navigate_Add"-->
 
-        <TextBox x:Name="FilePath" HorizontalAlignment="Left" Margin="249,8,0,0" TextWrapping="Wrap" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }" VerticalAlignment="Top" Width="420" Height="19"/>
-        <TextBlock HorizontalAlignment="Left" Height="17" Margin="216,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"><Run Language="de-de" Text="Path:"/></TextBlock>
-        <StatusBar Height="16" Margin="5,0,15,10" VerticalAlignment="Bottom" Grid.Row="0"/>
-        
-        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Height="369" Margin="211,34,684,0" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
+            <Run Language="de-de" Text="Path:"/>
+        </TextBlock>
+        <TextBox x:Name="FilePath" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }"/>
+        <TextBox x:Name="SearchBar" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" TextWrapping="NoWrap" Text="Search" VerticalAlignment="Center"/>
 
-        <TreeView Name="TreeViewStructure" Margin="15,34,590,31" ItemsSource="{Binding Items}">
+        
+        <TreeView Name="TreeViewStructure" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
 
             <TreeView.ItemContainerStyle>
                 <Style TargetType="{x:Type TreeViewItem}">
@@ -45,6 +57,9 @@
             </TreeView.ItemTemplate>
         </TreeView>
 
-        <local:FileListView/>
+        <local:FileListView Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"/>
+
+        <StatusBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
     </Grid>
 </UserControl>
