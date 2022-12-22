@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
 
@@ -122,6 +123,8 @@ namespace WpfApp2019.TreeView
             var children = TreeViewStructure.GetDirectoryContents(this.FullPath);
             this.Children = new ObservableCollection<TreeViewItemViewModel>(
                                 children.Select(content => new TreeViewItemViewModel(content.FullPath, content.Type)));
+
+            Trace.WriteLine(this.Children.Count + " Children");
         }
     }
 }

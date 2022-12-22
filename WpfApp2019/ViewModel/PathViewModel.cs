@@ -1,7 +1,9 @@
 ﻿using Prism.Events;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -111,6 +113,16 @@ namespace WpfApp2019.ViewModel
                 _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
                 Trace.WriteLine("click: " + FilePathText.FPath);
 
+
+                // change TreeView Root-Item
+
+                var curItem = new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder };
+                var items = new List<TreeViewItem>();
+
+                items.Add(curItem);
+
+                Items = new ObservableCollection<TreeViewItemViewModel>(
+                items.Select(folder => new TreeViewItemViewModel(folder.FullPath, TreeViewItemType.Folder)));
             }
         }
 
