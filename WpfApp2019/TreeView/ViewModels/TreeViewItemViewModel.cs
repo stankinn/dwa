@@ -2,13 +2,14 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
+using WpfApp2019.Model;
 
 namespace WpfApp2019.TreeView
 {
     /// <summary>
     /// A view model for each directory item
     /// </summary>
-    public class TreeViewItemViewModel : TreeViewBase
+    public class TreeViewItemViewModel : ObservableObject
     {
         #region Public Properties
 
@@ -32,7 +33,22 @@ namespace WpfApp2019.TreeView
         /// <summary>
         /// A list of all children contained inside this item
         /// </summary>
-        public ObservableCollection<TreeViewItemViewModel> Children { get; set; }
+        //public ObservableCollection<TreeViewItemViewModel> Children { get; set; }
+
+        private ObservableCollection<TreeViewItemViewModel> _children = new ObservableCollection<TreeViewItemViewModel>();
+        public ObservableCollection<TreeViewItemViewModel> Children
+        {
+
+            get => _children;
+            set
+            {
+                if (_children != value)
+                {
+                    _children = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// Indicates if this item can be expanded
@@ -57,6 +73,8 @@ namespace WpfApp2019.TreeView
                 // If the UI tells us to close
                 else
                     this.ClearChildren();
+
+                OnPropertyChanged();
             }
         }
 

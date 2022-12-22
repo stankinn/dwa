@@ -15,10 +15,6 @@ namespace WpfApp2019.ViewModel
 {
     internal class PathViewModel : ObservableObject, IViewModel
     {
-        /// <summary>
-        /// A list of all directories on the machine
-        /// </summary>
-        public ObservableCollection<TreeViewItemViewModel> Items { get; set; }
 
         IEventAggregator _ea;
         NavigationStore _navigationStore;
@@ -85,6 +81,21 @@ namespace WpfApp2019.ViewModel
                 if (_filePathText != value)
                 {
                     _filePathText = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private ObservableCollection<TreeViewItemViewModel> _items;
+        public ObservableCollection<TreeViewItemViewModel> Items
+        {
+
+            get => _items;
+            set
+            {
+                if (_items != value)
+                {
+                    _items = value;
                     OnPropertyChanged();
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using WpfApp2019.ViewModel;
 
 namespace WpfApp2019.View
 {
