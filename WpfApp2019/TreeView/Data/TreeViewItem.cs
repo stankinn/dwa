@@ -1,39 +1,25 @@
 ﻿namespace WpfApp2019.TreeView
 {
-    /// <summary>
-    /// Information about a directory item such as a drive, a file or a folder
-    /// </summary>
+    // Information about a directory item such as a drive, a file or a folder
     public class TreeViewItem
     {
-        /// <summary>
-        /// The type of this item
-        /// </summary>
+        // The type of this item
         public TreeViewItemType Type { get; set; }
 
-        /// <summary>
-        /// The absolute path to this item
-        /// </summary>
+        // The absolute path to this item
         public string FullPath { get; set; }
 
-        /// <summary>
-        /// The name of this directory item
-        /// </summary>
+        // The name of this directory item
         public string Name { get { return this.Type == TreeViewItemType.Drive ? this.FullPath : TreeViewStructure.GetFileFolderName(this.FullPath); } }
     }
 
     public enum TreeViewItemType
     {
-        /// <summary>
-        /// A logical drive
-        /// </summary>
+        // A logical drive
         Drive,
-        /// <summary>
-        /// A phyiscal file
-        /// </summary>
+        // A phyiscal file
         File,
-        /// <summary>
-        /// A folder
-        /// </summary>
+        // A folder
         Folder
     }
 }

@@ -8,9 +8,7 @@ using System.Windows.Media.Imaging;
 
 namespace WpfApp2019.View
 {
-    /// <summary>
-    /// Converts a full path to a specific image type of a drive, folder or file
-    /// </summary>
+    // Converts a full path to a specific image type of a drive, folder or file
     [ValueConversion(typeof(TreeView.TreeViewItemType), typeof(BitmapImage))]
     public class HeaderToImageConverter : IValueConverter
     {

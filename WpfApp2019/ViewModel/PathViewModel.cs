@@ -55,22 +55,6 @@ namespace WpfApp2019.ViewModel
 
         }
 
-        private ICommand _openChild;
-        public ICommand OpenChild
-        {
-            get
-            {
-                if (_openChild == null)
-                {
-                    _openChild = new RelayCommand(
-                        param => this.changePath(param as TreeViewItem)
-                    );
-                }
-                return _openChild;
-            }
-
-        }
-
         public void GoToAddEntity()
         {
             _navigationStore = NavigationStore.Instance;
@@ -109,13 +93,8 @@ namespace WpfApp2019.ViewModel
             }
         }
 
-        public void changePath(TreeViewItem item)
+        public void changePath(string sPath)
         {
-            string sPath = item.FullPath;
-
-            Trace.WriteLine("ITEM: " + item);
-            Trace.WriteLine("PATH: " + sPath);
-
             FilePathText = new PathText
             {
                 FPath = sPath

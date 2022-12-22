@@ -8,34 +8,23 @@ using WpfApp2019.ViewModel;
 
 namespace WpfApp2019.TreeView
 {
-    /// <summary>
-    /// A view model for each directory item
-    /// </summary>
+    // A view model for each directory item
     public class TreeViewItemViewModel : ObservableObject
     {
         #region Public Properties
 
-        /// <summary>
-        /// The type of this item
-        /// </summary>
+        // The type of this item
         public TreeViewItemType Type { get; set; }
 
         public string ImageName => Type == TreeViewItemType.Drive ? "drive" : (Type == TreeViewItemType.File ? "file" : (IsExpanded ? "folder-open" : "folder-closed"));
 
-        /// <summary>
-        /// The full path to the item
-        /// </summary>
+        // The full path to the item
         public string FullPath { get; set; }
 
-        /// <summary>
-        /// The name of this directory item
-        /// </summary>
+        // The name of this directory item
         public string Name { get { return this.Type == TreeViewItemType.Drive ? this.FullPath : TreeViewStructure.GetFileFolderName(this.FullPath); } }
 
-        /// <summary>
-        /// A list of all children contained inside this item
-        /// </summary>
-        //public ObservableCollection<TreeViewItemViewModel> Children { get; set; }
+        // A list of all children contained inside this item
 
         private ObservableCollection<TreeViewItemViewModel> _children = new ObservableCollection<TreeViewItemViewModel>();
         public ObservableCollection<TreeViewItemViewModel> Children
@@ -52,14 +41,10 @@ namespace WpfApp2019.TreeView
             }
         }
 
-        /// <summary>
-        /// Indicates if this item can be expanded
-        /// </summary>
+        // Indicates if this item can be expanded
         public bool CanExpand { get { return this.Type != TreeViewItemType.File; } }
 
-        /// <summary>
-        /// Indicates if the current item is expanded or not
-        /// </summary>
+        // Indicates if the current item is expanded or not
         public bool IsExpanded
         {
             get
@@ -80,6 +65,22 @@ namespace WpfApp2019.TreeView
             }
         }
 
+        private bool isSelected;
+        public bool IsSelected
+        {
+            get { return this.isSelected; }
+            set
+            {
+                if (value != this.isSelected)
+                {
+                    this.isSelected = value;
+
+                    PathViewModel pathvm = new PathViewModel();
+                    pathvm.changePath(this.FullPath);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Commands
@@ -93,12 +94,8 @@ namespace WpfApp2019.TreeView
 
         #region Constructor
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
         /// <param name="fullPath">The full path of this item</param>
         /// <param name="type">The type of item</param>
-
         public TreeViewItemViewModel(string fullPath, TreeViewItemType type)
         {
             // Create commands
@@ -110,24 +107,13 @@ namespace WpfApp2019.TreeView
 
             // Setup the children as needed
             this.ClearChildren();
-
-            //PathText _filePath = PathViewModel.FilePathText;
-
-            // DoppelClick öffnet in ListView
-            //Trace.WriteLine("PATH: " + fullPath);
-
-            //PathViewModel pathvm = new PathViewModel();
-
-            //pathvm.changePath(fullPath);
         } 
 
         #endregion
 
         #region Helper Methods
 
-        /// <summary>
-        /// Removes all children from the list, adding a dummy item to show the expand icon if required
-        /// </summary>
+        // Removes all children from the list, adding a dummy item to show the expand icon if required
         private void ClearChildren()
         {
             // Clear items
@@ -140,9 +126,7 @@ namespace WpfApp2019.TreeView
 
         #endregion
 
-        /// <summary>
-        ///  Expands this directory and finds all children
-        /// </summary>
+        //  Expands this directory and finds all children
         private void Expand()
         {
             // We cannot expand a file
@@ -153,8 +137,6 @@ namespace WpfApp2019.TreeView
             var children = TreeViewStructure.GetDirectoryContents(this.FullPath);
             this.Children = new ObservableCollection<TreeViewItemViewModel>(
                                 children.Select(content => new TreeViewItemViewModel(content.FullPath, content.Type)));
-
-            Trace.WriteLine(this.Children.Count + " Children");
         }
     }
 }

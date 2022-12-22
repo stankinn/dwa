@@ -3,34 +3,25 @@ using System.Windows.Input;
 
 namespace WpfApp2019.TreeView
 {
-    /// <summary>
-    /// A basic command that runs an Action
-    /// </summary>
+    // A basic command that runs an Action
     public class TreeViewRelayCommand : ICommand
     {
         #region Private Members
 
-        /// <summary>
-        /// The action to run
-        /// </summary>
+        // The action to run
         private Action mAction;
 
         #endregion
 
         #region Public Events
 
-        /// <summary>
         /// The event thats fired when the <see cref="CanExecute(object)"/> value has changed
-        /// </summary>
         public event EventHandler CanExecuteChanged = (sender, e) => { };
 
         #endregion
 
         #region Constructor
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
         public TreeViewRelayCommand(Action action)
         {
             mAction = action;
@@ -40,9 +31,7 @@ namespace WpfApp2019.TreeView
 
         #region Command Methods
 
-        /// <summary>
-        /// A relay command can always execute
-        /// </summary>
+        // A relay command can always execute
         /// <param name="parameter"></param>
         /// <returns></returns>
         public bool CanExecute(object parameter)
@@ -50,9 +39,7 @@ namespace WpfApp2019.TreeView
             return true;
         }
 
-        /// <summary>
-        /// Executes the commands Action
-        /// </summary>
+        // Executes the commands Action
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {

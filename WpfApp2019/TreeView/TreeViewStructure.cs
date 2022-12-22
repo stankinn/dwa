@@ -4,24 +4,11 @@ using System.Linq;
 
 namespace WpfApp2019.TreeView
 {
-    /// <summary>
-    /// A helper class to query information about directories
-    /// </summary>
+    // A helper class to query information about directories
     public static class TreeViewStructure
     {
-        /// <summary>
-        /// Gets all logical drives on the computer
-        /// </summary>
-        /// <returns></returns>
-        public static List<TreeViewItem> GetLogicalDrives()
-        {
-            // Get every logical drive on the machine
-            return Directory.GetLogicalDrives().Select(drive => new TreeViewItem { FullPath = drive, Type = TreeViewItemType.Drive }).ToList();
-        }
 
-        /// <summary>
-        /// Gets the directories top-level content
-        /// </summary>
+        // Gets the directories top-level content
         /// <param name="fullPath">The full path to the directory</param>
         /// <returns></returns>
         public static List<TreeViewItem> GetDirectoryContents(string fullPath)
@@ -64,9 +51,7 @@ namespace WpfApp2019.TreeView
 
         #region Helpers
 
-        /// <summary>
-        /// Find the file or folder name from a full path
-        /// </summary>
+        // Find the file or folder name from a full path
         /// <param name="path">The full path</param>
         /// <returns></returns>
         public static string GetFileFolderName(string path)

@@ -27,14 +27,6 @@
             <ColumnDefinition Width="88" />
         </Grid.ColumnDefinitions>
 
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="MouseLeftButtonUp">
-                <i:InvokeCommandAction 
-                        Command="{Binding OpenChild}"
-                        CommandParameter="{Binding ElementName=TreeView, Path=SelectedItem}"/>
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-
         <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="0" Content="Open File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Command="{Binding Path=ChangeTextCommand}"/>
         <Button Grid.Row="0" Grid.Column="1" Content="Add Entity" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Command="{Binding Path=Navigate}"/>
         <!--Click="Button_Navigate_Add"-->
@@ -50,6 +42,7 @@
 
             <TreeView.ItemContainerStyle>
                 <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected}" />
                     <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
                 </Style>
             </TreeView.ItemContainerStyle>
