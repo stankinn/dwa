@@ -21,13 +21,6 @@ namespace WpfApp2019.ViewModel
         public PathViewModel()
         {
             _ea = ApplicationService.Instance.EventAggregator;
-
-            // Get the logical drives
-            var children = TreeViewStructure.GetLogicalDrives();
-
-            // Create the view models from the data
-            this.Items = new ObservableCollection<TreeViewItemViewModel>(
-                children.Select(drive => new TreeViewItemViewModel(drive.FullPath, TreeViewItemType.Drive)));
         }
 
         private ICommand _changeTextCommand;
@@ -62,12 +55,27 @@ namespace WpfApp2019.ViewModel
 
         }
 
+        private ICommand _openChild;
+        public ICommand OpenChild
+        {
+            get
+            {
+                if (_openChild == null)
+                {
+                    _openChild = new RelayCommand(
+                        param => this.changePath(param as TreeViewItem)
+                    );
+                }
+                return _openChild;
+            }
+
+        }
+
         public void GoToAddEntity()
         {
             _navigationStore = NavigationStore.Instance;
             
             _navigationStore.CurrViewModel = new AddEntityViewModel();
-
 
         }
 
@@ -99,6 +107,22 @@ namespace WpfApp2019.ViewModel
                     OnPropertyChanged();
                 }
             }
+        }
+
+        public void changePath(TreeViewItem item)
+        {
+            string sPath = item.FullPath;
+
+            Trace.WriteLine("ITEM: " + item);
+            Trace.WriteLine("PATH: " + sPath);
+
+            FilePathText = new PathText
+            {
+                FPath = sPath
+            };
+
+            _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
+            Trace.WriteLine("updated: " + FilePathText.FPath);
         }
 
         public void SearchFiles()

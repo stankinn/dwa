@@ -7,6 +7,7 @@
              xmlns:vm="clr-namespace:WpfApp2019.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:vml = "clr-namespace:WpfApp2019.VML" 
              vml:ViewModelLocator.AutoHookedUpViewModel = "True"
              >
@@ -26,6 +27,14 @@
             <ColumnDefinition Width="88" />
         </Grid.ColumnDefinitions>
 
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonUp">
+                <i:InvokeCommandAction 
+                        Command="{Binding OpenChild}"
+                        CommandParameter="{Binding ElementName=TreeView, Path=SelectedItem}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+
         <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="0" Content="Open File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Command="{Binding Path=ChangeTextCommand}"/>
         <Button Grid.Row="0" Grid.Column="1" Content="Add Entity" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Command="{Binding Path=Navigate}"/>
         <!--Click="Button_Navigate_Add"-->
@@ -36,8 +45,8 @@
         <TextBox x:Name="FilePath" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }"/>
         <TextBox x:Name="SearchBar" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" TextWrapping="NoWrap" Text="Search" VerticalAlignment="Center"/>
 
-        
-        <TreeView Name="TreeViewStructure" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
+
+        <TreeView Name="TreeView" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
 
             <TreeView.ItemContainerStyle>
                 <Style TargetType="{x:Type TreeViewItem}">

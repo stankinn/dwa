@@ -1,8 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using Prism.Events;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
-using WpfApp2019.Model;
+
+using WpfApp2019.ViewModel;
 
 namespace WpfApp2019.TreeView
 {
@@ -96,6 +98,7 @@ namespace WpfApp2019.TreeView
         /// </summary>
         /// <param name="fullPath">The full path of this item</param>
         /// <param name="type">The type of item</param>
+
         public TreeViewItemViewModel(string fullPath, TreeViewItemType type)
         {
             // Create commands
@@ -107,7 +110,16 @@ namespace WpfApp2019.TreeView
 
             // Setup the children as needed
             this.ClearChildren();
-        }
+
+            //PathText _filePath = PathViewModel.FilePathText;
+
+            // DoppelClick öffnet in ListView
+            //Trace.WriteLine("PATH: " + fullPath);
+
+            //PathViewModel pathvm = new PathViewModel();
+
+            //pathvm.changePath(fullPath);
+        } 
 
         #endregion
 
