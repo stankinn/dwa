@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp2019.View"
              xmlns:vm="clr-namespace:WpfApp2019.ViewModel"
+             xmlns:textBox="clr-namespace:PlaceholderTextBoxControl;assembly=PlaceholderTextBoxControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
@@ -12,33 +13,37 @@
              vml:ViewModelLocator.AutoHookedUpViewModel = "True"
              >
 
-    <Grid Margin="5">
+    <Grid Margin="0 5 0 0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="19" />
-            <RowDefinition Height="2" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="4" />
             <RowDefinition Height="100*" />
-            <RowDefinition Height="16"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="88" />
-            <ColumnDefinition Width="88" />
-            <ColumnDefinition Width="33" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="90" />
+            <ColumnDefinition Width="90" />
+            <ColumnDefinition Width="4" />
+            <ColumnDefinition Width="40" />
             <ColumnDefinition Width="100*" />
-            <ColumnDefinition Width="88" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="115" />
+            <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="0" Content="Open File" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Command="{Binding Path=ChangeTextCommand}"/>
-        <Button Grid.Row="0" Grid.Column="1" Content="Add Entity" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Command="{Binding Path=Navigate}"/>
+        <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="1" Content="Open File" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=ChangeTextCommand}"/>
+        <Button Grid.Row="0" Grid.Column="2" Content="Add Entity" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=Navigate}"/>
         <!--Click="Button_Navigate_Add"-->
 
-        <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
+        <TextBlock Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
             <Run Language="de-de" Text="Path:"/>
         </TextBlock>
-        <TextBox x:Name="FilePath" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }"/>
-        <TextBox x:Name="SearchBar" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch" TextWrapping="NoWrap" Text="Search" VerticalAlignment="Center"/>
+        <TextBox x:Name="FilePath" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }"/>
+        <textBox:PlaceholderTextBox Placeholder="Search" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2"/>
 
-
-        <TreeView Name="TreeView" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
+            
+        <TreeView Name="TreeView" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
 
             <TreeView.ItemContainerStyle>
                 <Style TargetType="{x:Type TreeViewItem}">
@@ -50,7 +55,7 @@
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Children}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="20" Margin="3" 
+                        <Image Width="15" Margin="3" 
                                     Source="{Binding ImageName,
                                         Converter={x:Static local:HeaderToImageConverter.Instance}}" />
                         <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
@@ -59,9 +64,9 @@
             </TreeView.ItemTemplate>
         </TreeView>
 
-        <local:FileListView Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"/>
+        <local:FileListView Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4"/>
 
-        <StatusBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <StatusBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
     </Grid>
 </UserControl>

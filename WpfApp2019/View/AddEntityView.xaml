@@ -6,23 +6,55 @@
              xmlns:local="clr-namespace:WpfApp2019.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:textBox="clr-namespace:PlaceholderTextBoxControl;assembly=PlaceholderTextBoxControl"
              xmlns:vml = "clr-namespace:WpfApp2019.VML" 
              vml:ViewModelLocator.AutoHookedUpViewModel = "True"
              >
-    <Grid>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="13,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="52"  Height="27" Command="{Binding Path=GoBackCommand}"/>
-        <Button x:Name="AddEntity" Content="Add Entity" HorizontalAlignment="Left" Margin="223,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding Path=AddEntityCommand}" Click="AddEntity_Click" ToolTip="Add Entry with name and price"/>
-        <TextBox x:Name ="EntityName" HorizontalAlignment="Left" Height="64" Margin="10,49,0,0" TextWrapping="Wrap" Text="Entity Name" VerticalAlignment="Top" Width="196"/>
-        <TextBox x:Name ="AttributeNames" HorizontalAlignment="Left" Height="64" Margin="10,118,0,0" TextWrapping="Wrap" Text="Attribute Name" VerticalAlignment="Top" Width="196"/>
-        <TextBox x:Name ="AttributeType" HorizontalAlignment="Left" Height="64" Margin="10,187,0,0" TextWrapping="Wrap" Text="Attribute Type" VerticalAlignment="Top" Width="196"/>
-        <TextBox x:Name ="AttributeDataType" HorizontalAlignment="Left" Height="64" Margin="10,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Text="Attribute Data Type"/>
-        <Button x:Name="DeleteEntityByName" Content="Delete Entity" HorizontalAlignment="Left" Margin="223,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="DeleteEntity_Click" ToolTip="Delete by name"/>
-        <Button x:Name="AlterEntityRename" Content="Alter Entity" HorizontalAlignment="Left" Margin="223,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AlterEntityRename_Click" ToolTip="Rename product"/>
-        <Button x:Name="DeleteEntityByPrice" Content="Delete Entity" HorizontalAlignment="Left" Margin="340,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="DeleteEntityByPrice_Click" ToolTip="Delete by price"/>
-        <Button x:Name="DeleteEntityById" Content="Delete Entity" HorizontalAlignment="Left" Margin="454,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.01,-0.48" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="DeleteEntityById_Click" ToolTip="Delete by Id"/>
-        <Button x:Name="AlterEntityChangePrice" Content="Alter Entity" HorizontalAlignment="Left" Margin="340,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AlterEntityChangePrice_Click" ToolTip="Change price"/>
-        <Button x:Name="AlterEntityChangeCalories" Content="Alter Entity" HorizontalAlignment="Left" Margin="454,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AlterEntityChangeCalories_Click" ToolTip="Change calories"/>
-        <Button x:Name="AlterEntityChangeDiameter_Copy" Content="Alter Entity" HorizontalAlignment="Left" Margin="568,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AlterEntityChangeDiameter_Click" ToolTip="Change diameter"/>
-        <Button x:Name="AddEntityAll" Content="Add Entity" HorizontalAlignment="Left" Margin="340,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,-0.424" Width="95"  Height="27" Command="{Binding AddEntityCommand}" Click="AddEntityAll_Click" ToolTip="Add entry with name, price, calories and diameter"/>
+    <Grid Margin="10 5 10 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="25*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+
+
+        <Button Content="Back" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="12 4" Command="{Binding Path=GoBackCommand}"/>
+
+        <!-- TextWrap = Wrap-->
+
+        <textBox:PlaceholderTextBox x:Name ="EntityName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="4" Placeholder="Entity Name" />
+        <Button x:Name="AddEntity" Content="Add Entity" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding Path=AddEntityCommand}" Click="AddEntity_Click" ToolTip="Add Entry with name and price"/>
+        <Button x:Name="AddEntityAll" Content="Add Entity" Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding AddEntityCommand}" Click="AddEntityAll_Click" ToolTip="Add entry with name, price, calories and diameter"/>
+
+        <textBox:PlaceholderTextBox x:Name ="AttributeNames" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="4" Placeholder="Attribute Name"/>
+        <Button x:Name="AlterEntityRename" Content="Alter Entity" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding AddEntityCommand}" Click="AlterEntityRename_Click" ToolTip="Rename product"/>
+        <Button x:Name="AlterEntityChangePrice" Content="Alter Entity" Grid.Row="4" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding AddEntityCommand}" Click="AlterEntityChangePrice_Click" ToolTip="Change price"/>
+        <Button x:Name="AlterEntityChangeCalories" Content="Alter Entity" Grid.Row="4" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding AddEntityCommand}" Click="AlterEntityChangeCalories_Click" ToolTip="Change calories"/>
+        <Button x:Name="AlterEntityChangeDiameter_Copy" Content="Alter Entity" Grid.Row="4" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding AddEntityCommand}" Click="AlterEntityChangeDiameter_Click" ToolTip="Change diameter"/>
+
+        <textBox:PlaceholderTextBox x:Name ="AttributeType" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="4" Placeholder="Attribute Type" />
+
+        <textBox:PlaceholderTextBox x:Name ="AttributeDataType" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="4" Placeholder="Attribute Data Type"/>
+        <Button x:Name="DeleteEntityByName" Content="Delete Entity" Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding AddEntityCommand}" Click="DeleteEntity_Click" ToolTip="Delete by name"/>
+        <Button x:Name="DeleteEntityByPrice" Content="Delete Entity" Grid.Row="8" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding AddEntityCommand}" Click="DeleteEntityByPrice_Click" ToolTip="Delete by price"/>
+        <Button x:Name="DeleteEntityById" Content="Delete Entity" Grid.Row="8" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="14 4" Command="{Binding AddEntityCommand}" Click="DeleteEntityById_Click" ToolTip="Delete by Id"/>
     </Grid>
 </UserControl>

@@ -19,7 +19,6 @@ namespace WpfApp2019.ViewModel
             //LoadObjects();
         }
 
-
         public ObservableCollection<Item> Items { get; set; }
 
         //Änderung/Aktualisierung der Attribute

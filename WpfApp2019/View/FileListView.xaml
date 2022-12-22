@@ -16,70 +16,70 @@
 
     <Grid>
 
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <ListView Name="FileList" ItemsSource="{Binding Path= Files}">
 
-        <ListView Name="FileList" ItemsSource="{Binding Path= Files}">
+                <ListView.Resources>
+                    <MenuItem x:Key="RenameMenu" Header="Rename" Command="{Binding RenameCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
+                    <MenuItem x:Key="CreateMarkdownMenu" Header="Create .md and .sql" Command="{Binding CreateMDCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
+                </ListView.Resources>
 
-            <ListView.Resources>
-                <MenuItem x:Key="RenameMenu" Header="Rename" Command="{Binding RenameCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
-                <MenuItem x:Key="CreateMarkdownMenu" Header="Create .md and .sql" Command="{Binding CreateMDCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
-            </ListView.Resources>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction 
+                            Command="{Binding OpenFile}"
+                            CommandParameter="{Binding ElementName=FileList, Path=SelectedItem}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
 
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction 
-                        Command="{Binding OpenFile}"
-                        CommandParameter="{Binding ElementName=FileList, Path=SelectedItem}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <StaticResource ResourceKey="RenameMenu"/>
+                        <StaticResource ResourceKey="CreateMarkdownMenu"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
 
-            <ListView.ContextMenu>
-                <ContextMenu>
-                    <StaticResource ResourceKey="RenameMenu"/>
-                    <StaticResource ResourceKey="CreateMarkdownMenu"/>
-                </ContextMenu>
-            </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
 
-            <ListView.View>
-                <GridView>
+                        <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Name , Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="110">
+                            <GridViewColumnHeader Tag="Name">
+                                <!--Click="ColumnHeader_Click"-->
+                                Name
+                            </GridViewColumnHeader>
+                        </GridViewColumn>
 
-                    <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Name , Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
-                        <GridViewColumnHeader Tag="Name" >
-                            <!--Click="ColumnHeader_Click"-->
-                            Name
-                        </GridViewColumnHeader>
-                    </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = Type, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                            <GridViewColumnHeader Tag="Type" >
+                                <!--Click="ColumnHeader_Click"-->
+                                Type
+                            </GridViewColumnHeader>
+                        </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Type, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
-                        <GridViewColumnHeader Tag="Type" >
-                            <!--Click="ColumnHeader_Click"-->
-                            Type
-                        </GridViewColumnHeader>
-                    </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = ModificationTime, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150">
+                            <GridViewColumnHeader Tag="ModificationTime" >
+                                <!--Click="ColumnHeader_Click"-->
+                                Modification Time
+                            </GridViewColumnHeader>
+                        </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = ModificationTime, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
-                        <GridViewColumnHeader Tag="ModificationTime" >
-                            <!--Click="ColumnHeader_Click"-->
-                            Modification Time
-                        </GridViewColumnHeader>
-                    </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = Owner, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                            <GridViewColumnHeader Tag="Owner" >
+                                <!--Click="ColumnHeader_Click"-->
+                                Owner
+                            </GridViewColumnHeader>
+                        </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Owner, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
-                        <GridViewColumnHeader Tag="Owner" >
-                            <!--Click="ColumnHeader_Click"-->
-                            Owner
-                        </GridViewColumnHeader>
-                    </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path =  Description, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="110">
+                            <GridViewColumnHeader Tag="Description" >
+                                <!--Click="ColumnHeader_Click"-->
+                                Description
+                            </GridViewColumnHeader>
+                        </GridViewColumn>
 
-                    <GridViewColumn DisplayMemberBinding="{Binding Path =  Description, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
-                        <GridViewColumnHeader Tag="Description" >
-                            <!--Click="ColumnHeader_Click"-->
-                            Description
-                        </GridViewColumnHeader>
-                    </GridViewColumn>
-
-                </GridView>
-            </ListView.View>
-        </ListView>
-
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
     </Grid>
 </UserControl>

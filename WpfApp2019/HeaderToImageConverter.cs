@@ -16,6 +16,7 @@ namespace WpfApp2019.View
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            Trace.WriteLine("VALUE: " + value);
             return new BitmapImage(new Uri(@"pack://application:,,,/Images/" + value + ".png"));
         }
 
