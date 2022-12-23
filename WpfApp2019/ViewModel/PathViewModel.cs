@@ -23,6 +23,7 @@ namespace WpfApp2019.ViewModel
             _ea = ApplicationService.Instance.EventAggregator;
         }
 
+
         private ICommand _changeTextCommand;
         public ICommand ChangeTextCommand
         {

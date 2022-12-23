@@ -10,6 +10,7 @@
              xmlns:vml = "clr-namespace:WpfApp2019.VML" 
              vml:ViewModelLocator.AutoHookedUpViewModel = "True"
              >
+    
     <Grid Margin="10 5 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />

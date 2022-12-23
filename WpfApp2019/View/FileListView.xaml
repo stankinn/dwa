@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:vm ="clr-namespace:WpfApp2019.ViewModel"
+      xmlns:gridViewColumn="clr-namespace:WpfApp2019.GridViewRangeColumn"       
       xmlns:local ="clr-namespace:WpfApp2019.View"
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
@@ -17,7 +18,7 @@
     <Grid>
 
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <ListView Name="FileList" ItemsSource="{Binding Path= Files}">
+            <ListView Name="FileList" ItemsSource="{Binding Path= Files}" gridViewColumn:ListViewLayoutManager.Enabled="true">
 
                 <ListView.Resources>
                     <MenuItem x:Key="RenameMenu" Header="Rename" Command="{Binding RenameCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
@@ -42,35 +43,40 @@
                 <ListView.View>
                     <GridView>
 
-                        <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Name , Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="110">
+                        <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Name , Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                        Width="110" gridViewColumn:RangeColumn.MinWidth="50">
                             <GridViewColumnHeader Tag="Name">
                                 <!--Click="ColumnHeader_Click"-->
                                 Name
                             </GridViewColumnHeader>
                         </GridViewColumn>
 
-                        <GridViewColumn DisplayMemberBinding="{Binding Path = Type, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = Type, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="100" gridViewColumn:RangeColumn.MinWidth="40">
                             <GridViewColumnHeader Tag="Type" >
                                 <!--Click="ColumnHeader_Click"-->
                                 Type
                             </GridViewColumnHeader>
                         </GridViewColumn>
 
-                        <GridViewColumn DisplayMemberBinding="{Binding Path = ModificationTime, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = ModificationTime, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="150" gridViewColumn:RangeColumn.MinWidth="110">
                             <GridViewColumnHeader Tag="ModificationTime" >
                                 <!--Click="ColumnHeader_Click"-->
                                 Modification Time
                             </GridViewColumnHeader>
                         </GridViewColumn>
 
-                        <GridViewColumn DisplayMemberBinding="{Binding Path = Owner, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = Owner, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="100" gridViewColumn:RangeColumn.MinWidth="45">
                             <GridViewColumnHeader Tag="Owner" >
                                 <!--Click="ColumnHeader_Click"-->
                                 Owner
                             </GridViewColumnHeader>
                         </GridViewColumn>
 
-                        <GridViewColumn DisplayMemberBinding="{Binding Path =  Description, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="110">
+                        <GridViewColumn DisplayMemberBinding="{Binding Path =  Description, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="110" gridViewColumn:RangeColumn.MinWidth="75">
                             <GridViewColumnHeader Tag="Description" >
                                 <!--Click="ColumnHeader_Click"-->
                                 Description
