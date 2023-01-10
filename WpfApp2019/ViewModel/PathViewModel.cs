@@ -56,10 +56,43 @@ namespace WpfApp2019.ViewModel
 
         }
 
+        private ICommand _navigateBack;
+        public ICommand NavigateBack
+        {
+            get
+            {
+                if (_navigateBack == null)
+                {
+                    _navigateBack = new RelayCommand(
+                        param => this.GoBack()
+                    );
+                }
+                return _navigateBack;
+            }
+
+        }
+
+        public void GoBack()
+        {
+
+            if (FilePathText != null)
+            {
+                string oldPath = FilePathText.FPath;
+                int index = oldPath.LastIndexOf('\\');
+                if (index >= 0)
+                {
+                    oldPath = oldPath.Substring(0, index);
+                }
+
+                changePath(oldPath);
+            }
+
+        }
+
         public void GoToAddEntity()
         {
             _navigationStore = NavigationStore.Instance;
-            
+
             _navigationStore.CurrViewModel = new AddEntityViewModel();
 
         }

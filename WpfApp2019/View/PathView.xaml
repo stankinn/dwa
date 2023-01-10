@@ -34,11 +34,15 @@
 
         <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="1" Content="Open File" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=ChangeTextCommand}"/>
         <Button Grid.Row="0" Grid.Column="2" Content="Add Entity" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=Navigate}"/>
-        <!--Click="Button_Navigate_Add"-->
 
-        <TextBlock Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
+        <!--<TextBlock Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
             <Run Language="de-de" Text="Path:"/>
-        </TextBlock>
+        </TextBlock>-->
+        <Button Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Path=NavigateBack}">
+            <Button.Content>
+                <Image Source="/Images/back_icon.png" Width="20" Height="15" Margin="3"/>
+            </Button.Content>
+        </Button>
         <TextBox x:Name="FilePath" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }"/>
         <textBox:PlaceholderTextBox Placeholder="Search" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2"/>
 

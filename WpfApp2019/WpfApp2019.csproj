@@ -20,6 +20,7 @@
     <Compile Remove="Entity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Images\back_icon.png" />
     <None Remove="Images\drive.png" />
     <None Remove="Images\file.png" />
     <None Remove="Images\folder-closed.png" />
@@ -60,6 +61,9 @@
     <ProjectReference Include="..\Repository\Repository.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\back_icon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\drive.png" />
     <Resource Include="Images\file.png" />
     <Resource Include="Images\folder-closed.png" />
