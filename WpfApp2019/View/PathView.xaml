@@ -47,7 +47,7 @@
         <textBox:PlaceholderTextBox Placeholder="Search" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2"/>
 
             
-        <TreeView Name="TreeView" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
+        <TreeView Name="TreeView" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Items}" Loaded="TreeView_Loaded">
 
             <TreeView.ItemContainerStyle>
                 <Style TargetType="{x:Type TreeViewItem}">
