@@ -19,6 +19,7 @@ namespace WpfApp2019.Database
             //öffne Verbindung zur Datenbank
             
             string conString = null;
+            //Verbindungsschlüssel
             conString = @"Data Source=localhost;Initial Catalog=TestDatabase;Integrated Security=True";
             sqlConn = new SqlConnection(conString);
             sqlConn.Open();

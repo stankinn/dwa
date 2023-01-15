@@ -17,11 +17,6 @@ namespace WpfApp2019.View
             InitializeComponent();
         }
 
-        private void TreeView_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-            DatabaseConnection databaseConnection = new DatabaseConnection();
-            //databaseConnection.GetTableContent("Products");
-            databaseConnection.GetDataType("Products");
-        }
+
     }
 }

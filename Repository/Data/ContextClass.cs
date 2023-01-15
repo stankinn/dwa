@@ -21,7 +21,7 @@ namespace Repository.Data
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        {  //Verbindungsschlüssel
             optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=TestDatabase;Integrated Security=True");
         }
 
