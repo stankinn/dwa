@@ -7,6 +7,7 @@ using System.Linq;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace WpfApp2019.Database
 {
@@ -68,7 +69,7 @@ namespace WpfApp2019.Database
             MessageBox.Show(res);*/
         }
 
-        public List<string> GetDataType(string tablename)
+        public List<List<string>> GetDataType(string tablename)
         {
             string sqlQuery = null;
             sqlQuery = "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tablename+ "'";
@@ -80,8 +81,50 @@ namespace WpfApp2019.Database
             DataTable dtData = new DataTable();
             dscmd.Fill(dtData);
             string res = string.Join(Environment.NewLine, dtData.Rows.OfType<DataRow>().Select(x => string.Join(" ; ", x.ItemArray)));
-            MessageBox.Show(res);
-            return new List<string>();
+            //MessageBox.Show(res);
+
+            var lines = res.Split(Environment.NewLine);
+
+            List<string> list = new List<string>();
+            foreach (String line in lines)
+            {
+                list.Add(line);
+            }
+            List<string> dataTypes = new List<string>();
+            List<string> dataNames = new List<string>();
+            bool bla = false;
+            foreach (string line in list)
+            {
+                var values = line.Split(';');
+                foreach (var item in values)
+                {
+                    if (!bla)
+                    {
+                        dataNames.Add(item);
+                        bla = true;
+                    }
+                    else
+                    {
+                        dataTypes.Add(item);
+                        bla=false;
+                    }
+                }
+            }
+
+            List<List<string>> Datatypes_Names = new List<List<string>>();
+            Datatypes_Names.Add(dataTypes);
+            Datatypes_Names.Add(dataNames);
+            for(int i = 0; i < Datatypes_Names.Count; i++)
+            {
+                for( int j = 0; j < Datatypes_Names[i].Count; j++)
+                {
+                    Trace.Write(Datatypes_Names[i][j]);
+                }
+
+            }
+
+            
+            return Datatypes_Names;
         }
 
     }
