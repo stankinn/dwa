@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfApp2019.Model;
 
-namespace WpfApp2019
+namespace WpfApp2019.AppServices
 {
     internal class PathChangedEvent : PubSubEvent<PathText>
     {

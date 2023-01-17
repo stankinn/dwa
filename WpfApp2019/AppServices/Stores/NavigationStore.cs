@@ -16,9 +16,9 @@ namespace WpfApp2019.Stores
 
         internal static NavigationStore Instance { get { return _instance; } }
 
-        private IViewModel _currViewModel;
+        private object _currViewModel;
 
-        public IViewModel CurrViewModel
+        public object CurrViewModel
         {
             get => _currViewModel;
             set

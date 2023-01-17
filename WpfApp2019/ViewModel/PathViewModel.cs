@@ -7,13 +7,14 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Input;
+using WpfApp2019.AppServices;
 using WpfApp2019.Model;
 using WpfApp2019.Stores;
 using WpfApp2019.TreeView;
 
 namespace WpfApp2019.ViewModel
 {
-    internal class PathViewModel : ObservableObject, IViewModel
+    internal class PathViewModel : ViewModelBase
     {
 
         IEventAggregator _ea;
@@ -24,21 +25,43 @@ namespace WpfApp2019.ViewModel
         }
 
 
-        private ICommand _changeTextCommand;
-        public ICommand ChangeTextCommand
+        private ICommand _openFiles;
+        public ICommand OpenFiles
         {
             get
             {
-                if (_changeTextCommand == null)
+                if (_openFiles == null)
                 {
-                    _changeTextCommand = new RelayCommand(
+                    _openFiles = new RelayCommand(
                         param => this.SearchFiles()
                     );
                 }
-                return _changeTextCommand;
+                return _openFiles;
             }
 
         }
+
+        private ICommand _openDialogCommand;
+        public ICommand OpenDialogCommand
+        {
+            get
+            {
+                if (_openDialogCommand == null)
+                {
+                    _openDialogCommand = new RelayCommand(
+                        param => this.OnOpenDialog()
+                    );
+                }
+                return _openDialogCommand;
+            }
+
+        }
+
+        public void OnOpenDialog()
+        {
+
+        }
+        
 
         private ICommand _navigate;
         public ICommand Navigate

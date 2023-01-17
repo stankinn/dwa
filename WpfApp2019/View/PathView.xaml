@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp2019.View"
              xmlns:vm="clr-namespace:WpfApp2019.ViewModel"
+             xmlns:converter="clr-namespace:WpfApp2019.AppServices"
              xmlns:textBox="clr-namespace:PlaceholderTextBoxControl;assembly=PlaceholderTextBoxControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
@@ -32,7 +33,7 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="1" Content="Open File" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=ChangeTextCommand}"/>
+        <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="1" Content="Open File" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=OpenFiles}"/>
         <Button Grid.Row="0" Grid.Column="2" Content="Add Entity" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=Navigate}"/>
 
         <!--<TextBlock Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
@@ -61,7 +62,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Image Width="15" Margin="3" 
                                     Source="{Binding ImageName,
-                                        Converter={x:Static local:HeaderToImageConverter.Instance}}" />
+                                        Converter={x:Static converter:HeaderToImageConverter.Instance}}" />
                         <TextBlock VerticalAlignment="Center" Text="{Binding Name}" />
                     </StackPanel>
                 </HierarchicalDataTemplate>

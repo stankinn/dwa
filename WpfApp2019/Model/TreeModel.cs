@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp2019.AppServices;
 
 namespace WpfApp2019.Model
 {
@@ -11,7 +12,7 @@ namespace WpfApp2019.Model
     {
 
     }
-    public class Item : ObservableObject
+    public class Item : ViewModelBase
     {
         private string _Title;
         public string Title

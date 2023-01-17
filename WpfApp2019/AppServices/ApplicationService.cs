@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Prism.Events;
 
-namespace WpfApp2019
+namespace WpfApp2019.AppServices
 {
     internal sealed class ApplicationService
     {

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:View = "clr-namespace:WpfApp2019.View"
-        xmlns:viewModel = "clr-namespace:WpfApp2019.ViewModel" 
+        xmlns:viewModel ="clr-namespace:WpfApp2019.ViewModel" 
         xmlns:local="clr-namespace:WpfApp2019.View"
         mc:Ignorable="d"
         Title="DWA" Height="450" Width="800">

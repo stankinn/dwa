@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WpfApp2019
+namespace WpfApp2019.AppServices
 {
     /// <summary>
     /// A command whose sole purpose is to 

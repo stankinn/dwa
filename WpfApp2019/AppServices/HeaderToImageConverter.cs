@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 
-namespace WpfApp2019.View
+namespace WpfApp2019.AppServices
 {
     // Converts a full path to a specific image type of a drive, folder or file
     [ValueConversion(typeof(TreeView.TreeViewItemType), typeof(BitmapImage))]

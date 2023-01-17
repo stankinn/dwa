@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp2019
+namespace WpfApp2019.AppServices.Dialogs.DialogService
 {
-    internal interface IViewModel
+    public enum DialogResult
     {
+        Undefined, 
+        OK, 
+        Cancel
     }
 }

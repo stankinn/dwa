@@ -3,13 +3,13 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
-
+using WpfApp2019.AppServices;
 using WpfApp2019.ViewModel;
 
 namespace WpfApp2019.TreeView
 {
     // A view model for each directory item
-    public class TreeViewItemViewModel : ObservableObject
+    public class TreeViewItemViewModel : ViewModelBase
     {
         #region Public Properties
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WpfApp2019
+namespace WpfApp2019.AppServices
 {
     public class lego
     {

@@ -1,9 +1,10 @@
 ﻿using System.Windows.Input;
+using WpfApp2019.AppServices;
 using WpfApp2019.Stores;
 
 namespace WpfApp2019.ViewModel
 {
-    internal class AddEntityViewModel:ObservableObject, IViewModel
+    internal class AddEntityViewModel: ViewModelBase
     {
 
         NavigationStore _navigationStore;

@@ -7,11 +7,12 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WpfApp2019.AppServices;
 using WpfApp2019.Model;
 
 namespace WpfApp2019.ViewModel
 {
-    internal class FileListViewModel : ObservableObject, IViewModel
+    internal class FileListViewModel : ViewModelBase
     {
         public FileListViewModel( )
         {
