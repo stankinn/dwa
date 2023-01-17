@@ -20,6 +20,8 @@
         // A phyiscal file
         File,
         // A folder
-        Folder
+        Folder,
+        // A table
+        Table
     }
 }

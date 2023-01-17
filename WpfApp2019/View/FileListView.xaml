@@ -12,7 +12,6 @@
       xmlns:debug="clr-namespace:System.Diagnostics;assembly=System"
       xmlns:vml = "clr-namespace:WpfApp2019.VML" 
       vml:ViewModelLocator.AutoHookedUpViewModel = "True"
-
       >
 
     <Grid>

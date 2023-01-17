@@ -25,6 +25,7 @@
     <None Remove="Images\file.png" />
     <None Remove="Images\folder-closed.png" />
     <None Remove="Images\folder-open.png" />
+    <None Remove="Images\table.png" />
     <None Remove="TemplateLegoThemeMD.txt" />
     <None Remove="TextFile1.txt" />
     <None Remove="TextFile2.txt" />
@@ -68,6 +69,7 @@
     <Resource Include="Images\file.png" />
     <Resource Include="Images\folder-closed.png" />
     <Resource Include="Images\folder-open.png" />
+    <Resource Include="Images\table.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppServices\Dialogs\DialogResult\" />

@@ -16,7 +16,7 @@ namespace WpfApp2019.TreeView
         // The type of this item
         public TreeViewItemType Type { get; set; }
 
-        public string ImageName => Type == TreeViewItemType.Drive ? "drive" : (Type == TreeViewItemType.File ? "file" : (IsExpanded ? "folder-open" : "folder-closed"));
+        public string ImageName => Type == TreeViewItemType.Drive ? "drive" : (Type == TreeViewItemType.Table ? "table" : (Type == TreeViewItemType.File ? "file" : (IsExpanded ? "folder-open" : "folder-closed")));
 
         // The full path to the item
         public string FullPath { get; set; }
@@ -42,7 +42,7 @@ namespace WpfApp2019.TreeView
         }
 
         // Indicates if this item can be expanded
-        public bool CanExpand { get { return this.Type != TreeViewItemType.File; } }
+        public bool CanExpand { get { return (this.Type != TreeViewItemType.File || this.Type != TreeViewItemType.Table); } }
 
         // Indicates if the current item is expanded or not
         public bool IsExpanded
@@ -132,6 +132,14 @@ namespace WpfApp2019.TreeView
             // We cannot expand a file
             if (this.Type == TreeViewItemType.File)
                 return;
+            else if (this.Type == TreeViewItemType.Table)
+            {
+                GridViewModel gvm = new GridViewModel();
+                //openTable();
+                Trace.WriteLine("open table " + this.Name);
+                gvm.LoadTable(this.Name);
+                return;
+            }
 
             // Find all children
             var children = TreeViewStructure.GetDirectoryContents(this.FullPath);

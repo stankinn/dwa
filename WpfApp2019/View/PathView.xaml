@@ -70,6 +70,7 @@
         </TreeView>
 
         <local:FileListView Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4"/>
+        <!-- <local:GridView Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4"/> -->
 
         <StatusBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 

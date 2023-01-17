@@ -48,7 +48,7 @@ namespace WpfApp2019.Database
 
         }
 
-        public void GetTableContent(String tablename)
+        public DataTable GetTableContent(String tablename)
         {
             string sqlQuery = null;
             sqlQuery = "SELECT *FROM "+tablename;
@@ -67,6 +67,8 @@ namespace WpfApp2019.Database
             /*
             string res = string.Join(Environment.NewLine, dtData.Rows.OfType<DataRow>().Select(x => string.Join(" ; ", x.ItemArray)));
             MessageBox.Show(res);*/
+
+            return dtData;
         }
 
         public List<List<string>> GetDataType(string tablename)
@@ -112,17 +114,17 @@ namespace WpfApp2019.Database
             }
 
             List<List<string>> Datatypes_Names = new List<List<string>>();
-            Datatypes_Names.Add(dataTypes);
             Datatypes_Names.Add(dataNames);
-            for(int i = 0; i < Datatypes_Names.Count; i++)
-            {
-                for( int j = 0; j < Datatypes_Names[i].Count; j++)
-                {
-                    Trace.Write(Datatypes_Names[i][j]);
-                }
+            Datatypes_Names.Add(dataTypes);
 
-            }
+            //for(int i = 0; i < Datatypes_Names.Count; i++)
+            //{
+            //    for( int j = 0; j < Datatypes_Names[i].Count; j++)
+            //    {
+            //        Trace.Write(Datatypes_Names[i][j]);
+            //    }
 
+            //}
             
             return Datatypes_Names;
         }

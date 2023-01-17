@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Input;
 using WpfApp2019.AppServices;
+using WpfApp2019.Database;
 using WpfApp2019.Model;
 using WpfApp2019.Stores;
 using WpfApp2019.TreeView;
@@ -185,15 +186,30 @@ namespace WpfApp2019.ViewModel
                 Trace.WriteLine("click: " + FilePathText.FPath);
 
 
-                // change TreeView Root-Item
+                // change TreeView Root - Item Folder
 
-                var curItem = new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder };
                 var items = new List<TreeViewItem>();
 
-                items.Add(curItem);
+                items.Add(new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder });
 
                 Items = new ObservableCollection<TreeViewItemViewModel>(
-                items.Select(folder => new TreeViewItemViewModel(folder.FullPath, TreeViewItemType.Folder)));
+                items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
+
+
+                //// change TreeView Root-Item Database
+
+                //DatabaseConnection dbc = new DatabaseConnection();
+                //List<string> tables = dbc.GetTableNames();
+
+                //var items = new List<TreeViewItem>();
+
+                //for (int i = 0; i < tables.Count; i++)
+                //{
+                //    items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
+                //}
+
+                //Items = new ObservableCollection<TreeViewItemViewModel>(
+                //items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
             }
         }
 
