@@ -47,7 +47,7 @@
         <TextBox x:Name="FilePath" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }"/>
         <textBox:PlaceholderTextBox Placeholder="Search" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2"/>
 
-            
+
         <TreeView Name="TreeView" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
 
             <TreeView.ItemContainerStyle>
