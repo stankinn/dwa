@@ -107,7 +107,7 @@ namespace WpfApp2019.TreeView
 
             // Setup the children as needed
             this.ClearChildren();
-        } 
+        }
 
         #endregion
 
