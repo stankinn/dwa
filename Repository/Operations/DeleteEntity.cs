@@ -14,6 +14,18 @@ namespace Repository.Operations
 
         ContextClass context = new ContextClass();
 
+        public bool doesExist(string name)
+        {
+
+            if (!context.Products.Any(p => p.Name == name))
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
         public void deleteByName(string name)
         {
 
