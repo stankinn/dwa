@@ -172,20 +172,15 @@ namespace WpfApp2019.TreeView
 
         public void ChangeVisibility(bool show)
         {
-            //GridViewModel gvm = new GridViewModel();
             if (show)
             {
-                Trace.WriteLine("show Grid");
-                    //gvm.GridVisibility = Visibility.Visible;
-                    GridV = new GridVisible { Visible = Visibility.Visible };
-                    _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
+                GridV = new GridVisible { Visible = Visibility.Visible };
+                _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
             }
             else
             {
-                Trace.WriteLine("hide Grid");
-                    //gvm.GridVisibility = Visibility.Hidden;
-                    GridV = new GridVisible { Visible =  Visibility.Hidden };
-                    _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
+                GridV = new GridVisible { Visible =  Visibility.Hidden };
+                _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
             }
         }
 
