@@ -20,6 +20,7 @@
     <Compile Remove="Entity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="AppServices\NewFile1.txt" />
     <None Remove="Images\back_icon.png" />
     <None Remove="Images\drive.png" />
     <None Remove="Images\file.png" />

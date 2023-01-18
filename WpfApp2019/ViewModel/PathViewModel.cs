@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using WpfApp2019.AppServices;
@@ -162,6 +163,7 @@ namespace WpfApp2019.ViewModel
             Trace.WriteLine("updated: " + FilePathText.FPath);
         }
 
+        private bool even = true;
         public void SearchFiles()
         {
             Trace.WriteLine("clicked!");
@@ -185,31 +187,47 @@ namespace WpfApp2019.ViewModel
                 _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
                 Trace.WriteLine("click: " + FilePathText.FPath);
 
-
                 // change TreeView Root - Item Folder
-
-                var items = new List<TreeViewItem>();
-
-                items.Add(new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder });
-
-                Items = new ObservableCollection<TreeViewItemViewModel>(
-                items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
-
-
-                //// change TreeView Root-Item Database
-
-                //DatabaseConnection dbc = new DatabaseConnection();
-                //List<string> tables = dbc.GetTableNames();
-
-                //var items = new List<TreeViewItem>();
-
-                //for (int i = 0; i < tables.Count; i++)
+                //if (even)
                 //{
-                //    items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
+                    var items = new List<TreeViewItem>();
+
+                    items.Add(new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder });
+
+                    Items = new ObservableCollection<TreeViewItemViewModel>(
+                    items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
+
+                    TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Folder);
+                    Trace.WriteLine("Open & change");
+                    tvivm.ChangeVisibility(false);
+                    even = false;
                 //}
 
-                //Items = new ObservableCollection<TreeViewItemViewModel>(
-                //items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
+
+
+
+                // change TreeView Root-Item Database
+                //else
+                //{
+                //    DatabaseConnection dbc = new DatabaseConnection();
+                //    List<string> tables = dbc.GetTableNames();
+
+                //    var items = new List<TreeViewItem>();
+
+                //    for (int i = 0; i < tables.Count; i++)
+                //    {
+                //        items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
+                //    }
+
+                //    Items = new ObservableCollection<TreeViewItemViewModel>(
+                //    items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
+
+                //    TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Table);
+                //    Trace.WriteLine("Open & change");
+                //    tvivm.ChangeVisibility(true);
+                //    even = true;
+                //}
+
             }
         }
 

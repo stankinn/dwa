@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows.Input;
 using WpfApp2019.AppServices;
 using WpfApp2019.ViewModel;
+using WpfApp2019.Model;
+using System.Windows;
 
 namespace WpfApp2019.TreeView
 {
@@ -36,6 +38,34 @@ namespace WpfApp2019.TreeView
                 if (_children != value)
                 {
                     _children = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private Table _tablename;
+        public Table TableName
+        {
+            get => _tablename;
+            set
+            {
+                if (_tablename != value)
+                {
+                    _tablename = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private GridVisible _gridV;
+        public GridVisible GridV
+        {
+            get => _gridV;
+            set
+            {
+                if (_gridV != value)
+                {
+                    _gridV = value;
                     OnPropertyChanged();
                 }
             }
@@ -74,9 +104,22 @@ namespace WpfApp2019.TreeView
                 if (value != this.isSelected)
                 {
                     this.isSelected = value;
-
                     PathViewModel pathvm = new PathViewModel();
-                    pathvm.changePath(this.FullPath);
+
+                    Trace.WriteLine("Select: " + this.Type);
+
+                    if (this.Type == TreeViewItemType.Table)
+                    {
+                        ChangeVisibility(true);
+                        TableName = new Table { Name = this.Name };
+                        pathvm.changePath(TableName.Name);
+                        _ea.GetEvent<TNameChangedEvent>().Publish(TableName);
+                    }
+                    else
+                    {
+                        ChangeVisibility(false);
+                        pathvm.changePath(this.FullPath);
+                    }
                 }
             }
         }
@@ -94,13 +137,16 @@ namespace WpfApp2019.TreeView
 
         #region Constructor
 
+        IEventAggregator _ea;
+
         /// <param name="fullPath">The full path of this item</param>
         /// <param name="type">The type of item</param>
         public TreeViewItemViewModel(string fullPath, TreeViewItemType type)
         {
+            _ea = ApplicationService.Instance.EventAggregator;
             // Create commands
             this.ExpandCommand = new TreeViewRelayCommand(Expand);
-
+            
             // Set path and type
             this.FullPath = fullPath;
             this.Type = type;
@@ -124,22 +170,33 @@ namespace WpfApp2019.TreeView
                 this.Children.Add(null);
         }
 
+        public void ChangeVisibility(bool show)
+        {
+            //GridViewModel gvm = new GridViewModel();
+            if (show)
+            {
+                Trace.WriteLine("show Grid");
+                    //gvm.GridVisibility = Visibility.Visible;
+                    GridV = new GridVisible { Visible = Visibility.Visible };
+                    _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
+            }
+            else
+            {
+                Trace.WriteLine("hide Grid");
+                    //gvm.GridVisibility = Visibility.Hidden;
+                    GridV = new GridVisible { Visible =  Visibility.Hidden };
+                    _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
+            }
+        }
+
         #endregion
 
         //  Expands this directory and finds all children
         private void Expand()
         {
-            // We cannot expand a file
-            if (this.Type == TreeViewItemType.File)
+            // We cannot expand a file or table
+            if (this.Type == TreeViewItemType.File || this.Type == TreeViewItemType.Table)
                 return;
-            else if (this.Type == TreeViewItemType.Table)
-            {
-                GridViewModel gvm = new GridViewModel();
-                //openTable();
-                Trace.WriteLine("open table " + this.Name);
-                gvm.LoadTable(this.Name);
-                return;
-            }
 
             // Find all children
             var children = TreeViewStructure.GetDirectoryContents(this.FullPath);

@@ -10,7 +10,11 @@ namespace WpfApp2019.AppServices
 {
     internal class PathChangedEvent : PubSubEvent<PathText>
     {
-
-
+    }
+    internal class TNameChangedEvent : PubSubEvent<Table>
+    {
+    }
+    internal class GVisibilityChangedEvent : PubSubEvent<GridVisible>
+    {
     }
 }

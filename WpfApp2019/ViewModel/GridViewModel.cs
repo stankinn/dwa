@@ -18,8 +18,24 @@ namespace WpfApp2019.ViewModel
     {
         public GridViewModel()
         {
-            //ApplicationService.Instance.EventAggregator.GetEvent<PathChangedEvent>().Subscribe(LoadObjects);
-            //LoadTable("themes");
+            ApplicationService.Instance.EventAggregator.GetEvent<TNameChangedEvent>().Subscribe(LoadTable);
+            ApplicationService.Instance.EventAggregator.GetEvent<GVisibilityChangedEvent>().Subscribe(LoadVisibility);
+            GridVisibility = Visibility.Hidden;
+        }
+
+        private Visibility _gridVisibility = new Visibility();
+        public Visibility GridVisibility
+        {
+            get => _gridVisibility;
+            set
+            {
+                if (_gridVisibility != value)
+                {
+                    _gridVisibility = value;
+                    OnPropertyChanged();
+                    Trace.WriteLine("GridVisi updated");
+                }
+            }
         }
 
         private DataTable _table = new DataTable();
@@ -36,21 +52,18 @@ namespace WpfApp2019.ViewModel
             } 
         }
 
-        public void LoadTable(string tableName)
+        public void LoadTable(Table table)
         {
+            string tableName = table.Name;
             DatabaseConnection dbc = new DatabaseConnection();
-            _table = new DataTable();
+            Table = new DataTable();
 
-            List<string> tableHeader = dbc.GetDataType(tableName)[0];
+            Table = dbc.GetTableContent(tableName);
+        }
 
-            for (int i = 0; i < tableHeader.Count; i++)
-            {
-                _table.Columns.Add(tableHeader[i]);
-                Trace.WriteLine(tableHeader[i]);
-            }
-
-            _table = dbc.GetTableContent(tableName);
-            Trace.WriteLine("Table " + tableName + " loaded");
+        public void LoadVisibility(GridVisible gridV)
+        {
+            GridVisibility = gridV.Visible;
         }
     }
 }
