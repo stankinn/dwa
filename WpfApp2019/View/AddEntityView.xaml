@@ -14,42 +14,40 @@
     <Grid Margin="10 5 10 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
-            <RowDefinition Height="4" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="25*" />
-            <RowDefinition Height="4" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="25*" />
-            <RowDefinition Height="4" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="25*" />
-            <RowDefinition Height="4" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="25*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="140" />
+            <ColumnDefinition Width="50" />
             <ColumnDefinition Width="100*" />
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="50" />
         </Grid.ColumnDefinitions>
 
 
         <Button Content="Back" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="12 4" Command="{Binding Path=GoBackCommand}"/>
 
-        <!-- TextWrap = Wrap-->
+        <ComboBox x:Name="ComboBoxSelect" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Top" Height="25" Initialized="ComboBoxSelect_Initialized" SelectionChanged="ComboBoxSelect_SelectionChanged"/>
+        <ComboBox x:Name="ComboBoxAlter" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Bottom" Height="25" SelectionChanged="ComboBoxAlter_SelectionChanged"/>
 
-        <textBox:PlaceholderTextBox x:Name ="EntityName" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Padding="4" Placeholder="" Margin="0,30,0,4" Grid.RowSpan="2" />
+        <textBox:PlaceholderTextBox x:Name ="EntityName" Grid.Row="2" Grid.Column="4" Padding="4" Placeholder=""/>
 
-        <textBox:PlaceholderTextBox x:Name ="AttributeNames" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Padding="4" Placeholder="" Margin="0,30,0,0"/>
+        <textBox:PlaceholderTextBox x:Name ="AttributeNames" Grid.Row="4" Grid.Column="4" Padding="4" Placeholder=""/>
 
-        <textBox:PlaceholderTextBox x:Name ="AttributeType" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Padding="4" Placeholder="" Margin="0,30,0,0" />
+        <textBox:PlaceholderTextBox x:Name ="AttributeType" Grid.Row="6" Grid.Column="4" Padding="4" Placeholder=""/>
 
-        <textBox:PlaceholderTextBox x:Name ="AttributeDataType" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Padding="4" Placeholder="" Margin="0,30,0,0"/>
-        <ComboBox x:Name="ComboBoxSelect" Grid.Column="1" HorizontalAlignment="Left" Margin="0,3,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Initialized="ComboBoxSelect_Initialized" SelectionChanged="ComboBoxSelect_SelectionChanged"/>
-        <Button x:Name="AllButton" Grid.Column="9" Content="Execute Request" HorizontalAlignment="Left" Margin="0,64,0,0" Grid.Row="8" VerticalAlignment="Top" Click="AllButton_Click"/>
-        <ComboBox x:Name="ComboBoxAlter" Grid.Column="1" HorizontalAlignment="Left" Margin="125,3,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxAlter_SelectionChanged"/>
+        <textBox:PlaceholderTextBox x:Name ="AttributeDataType" Grid.Row="8" Grid.Column="4" Padding="4" Placeholder=""/>
+        
+        <Button x:Name="AllButton" Grid.Column="6" Content="Execute Request" HorizontalAlignment="Stretch" Grid.Row="8" VerticalAlignment="Center" Height="25" Click="AllButton_Click"/>
     </Grid>
 </UserControl>

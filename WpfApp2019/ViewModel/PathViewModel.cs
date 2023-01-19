@@ -133,6 +133,7 @@ namespace WpfApp2019.ViewModel
                 {
                     _filePathText = value;
                     OnPropertyChanged();
+                    Trace.WriteLine("Path PropertyChanged");
                 }
             }
         }
@@ -198,35 +199,33 @@ namespace WpfApp2019.ViewModel
                     items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
 
                     TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Folder);
-                    Trace.WriteLine("Open & change");
                     tvivm.ChangeVisibility(false);
-                    even = false;
-                //}
+            //        even = false;
+            //}
 
 
 
 
-                // change TreeView Root-Item Database
-                //else
-                //{
-                //    DatabaseConnection dbc = new DatabaseConnection();
-                //    List<string> tables = dbc.GetTableNames();
+            // change TreeView Root-Item Database
+            //else
+            //    {
+            //        DatabaseConnection dbc = new DatabaseConnection();
+            //        List<string> tables = dbc.GetTableNames();
 
-                //    var items = new List<TreeViewItem>();
+            //        var items = new List<TreeViewItem>();
 
-                //    for (int i = 0; i < tables.Count; i++)
-                //    {
-                //        items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
-                //    }
+            //        for (int i = 0; i < tables.Count; i++)
+            //        {
+            //            items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
+            //        }
 
-                //    Items = new ObservableCollection<TreeViewItemViewModel>(
-                //    items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
+            //        Items = new ObservableCollection<TreeViewItemViewModel>(
+            //        items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
 
-                //    TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Table);
-                //    Trace.WriteLine("Open & change");
-                //    tvivm.ChangeVisibility(true);
-                //    even = true;
-                //}
+            //        TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Table);
+            //        tvivm.ChangeVisibility(true);
+            //        even = true;
+            //    }
 
             }
         }

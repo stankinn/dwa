@@ -33,7 +33,6 @@ namespace WpfApp2019.ViewModel
                 {
                     _gridVisibility = value;
                     OnPropertyChanged();
-                    Trace.WriteLine("GridVisi updated");
                 }
             }
         }

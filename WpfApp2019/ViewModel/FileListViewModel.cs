@@ -1,4 +1,5 @@
-﻿using RazorEngineCore;
+﻿using Prism.Events;
+using RazorEngineCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -114,7 +115,6 @@ namespace WpfApp2019.ViewModel
 
                 }
                 Files = items;
-
             }
             else
             {
@@ -320,26 +320,26 @@ namespace WpfApp2019.ViewModel
         public void LoadObjects(PathText path)
         {
             string sPath = "";
-            //Trace.WriteLine("LOADING OBJECTS");
 
             if (path != null)
             {
                 sPath = path.FPath;
 
             }
-            Trace.WriteLine("pp: " + sPath);
             try
             {
                
                 var files = Directory.EnumerateFileSystemEntries(sPath);
                 ObservableCollection<ObjectAttributes> items = new ObservableCollection<ObjectAttributes>();
                 ObservableCollection<Item> treeItems = new ObservableCollection<Item>();
+
+                #region comment
                 //foreach (var d in files)
                 //{
                 //    var accessControl = new FileInfo(d).GetAccessControl();
 
                 //    IRazorEngine razorEngine = new RazorEngine();
-                    
+
                 //    string templateTextMD = File.ReadAllText("..\\..\\..\\TemplateLegoMD.txt");
 
                 //    if (Path.GetFileName(d).Contains(".csv"))
@@ -429,8 +429,8 @@ namespace WpfApp2019.ViewModel
                 //                        Debug.WriteLine(dataTypes.Count + " " + values.Length);
                 //                        throw;
                 //                    }
-                                    
-                                    
+
+
                 //                }
                 //                j++;
                 //            }
@@ -460,7 +460,7 @@ namespace WpfApp2019.ViewModel
                 //            IRazorEngineCompiledTemplate templateMD = razorEngine.Compile(templateTextMD);
                 //            var resultTextMD = templateMD.Run(model);
                 //            File.WriteAllText($"{sPath}\\LegoSetMD.md", resultTextMD);
-                            
+
                 //        }        
                 //    }
 
@@ -482,7 +482,7 @@ namespace WpfApp2019.ViewModel
                 //    // cmd.ExecuteNonQuery();
                 //    // con.Close();
                 //}                //    IRazorEngine razorEngine = new RazorEngine();
-                    
+
                 //    string templateTextMD = File.ReadAllText("..\\..\\..\\TemplateLegoMD.txt");
 
                 //    if (Path.GetFileName(d).Contains(".csv"))
@@ -572,8 +572,8 @@ namespace WpfApp2019.ViewModel
                 //                        Debug.WriteLine(dataTypes.Count + " " + values.Length);
                 //                        throw;
                 //                    }
-                                    
-                                    
+
+
                 //                }
                 //                j++;
                 //            }
@@ -603,7 +603,7 @@ namespace WpfApp2019.ViewModel
                 //            IRazorEngineCompiledTemplate templateMD = razorEngine.Compile(templateTextMD);
                 //            var resultTextMD = templateMD.Run(model);
                 //            File.WriteAllText($"{sPath}\\LegoSetMD.md", resultTextMD);
-                            
+
                 //        }        
                 //    }
 
@@ -625,6 +625,8 @@ namespace WpfApp2019.ViewModel
                 //    // cmd.ExecuteNonQuery();
                 //    // con.Close();
                 //}
+
+                #endregion
 
                 foreach (var d in files)
                 {
