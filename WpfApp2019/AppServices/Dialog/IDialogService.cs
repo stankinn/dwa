@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp2019.AppServices.Dialogs.DialogService
+namespace WpfApp2019.AppServices.Dialog
 {
-    public enum DialogResult
+    public interface IDialogService
     {
-        Undefined, 
-        OK, 
-        Cancel
+        T OpenDialog<T>(DialogViewModelBase<T> vm);
     }
 }

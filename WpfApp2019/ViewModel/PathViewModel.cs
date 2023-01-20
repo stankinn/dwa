@@ -13,16 +13,20 @@ using WpfApp2019.Database;
 using WpfApp2019.Model;
 using WpfApp2019.Stores;
 using WpfApp2019.TreeView;
+using DialogResult = System.Windows.Forms.DialogResult;
+using DialogService = WpfApp2019.AppServices.Dialog.DialogService;
+using IDialogService = WpfApp2019.AppServices.Dialog.IDialogService;
 
 namespace WpfApp2019.ViewModel
 {
     internal class PathViewModel : ViewModelBase
     {
-
+        private IDialogService _dialogService;
         IEventAggregator _ea;
         NavigationStore _navigationStore;
         public PathViewModel()
         {
+            _dialogService = new DialogService();
             _ea = ApplicationService.Instance.EventAggregator;
         }
 
@@ -61,7 +65,8 @@ namespace WpfApp2019.ViewModel
 
         public void OnOpenDialog()
         {
-
+            var dialog = new DBDialogViewModel();
+            var result = _dialogService.OpenDialog(dialog);
         }
         
 

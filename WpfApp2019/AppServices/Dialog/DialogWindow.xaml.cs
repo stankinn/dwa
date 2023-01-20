@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp2019.View
+namespace WpfApp2019.AppServices.Dialog
 {
     /// <summary>
-    /// Interaktionslogik für DBDialogView.xaml
+    /// Interaktionslogik für DialogWindow.xaml
     /// </summary>
-    public partial class DBDialogView : UserControl
+    public partial class DialogWindow : Window, IDialogWindow
     {
-        public DBDialogView()
+        public DialogWindow()
         {
             InitializeComponent();
         }
+
     }
 }

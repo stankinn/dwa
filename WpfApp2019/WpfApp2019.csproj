@@ -72,7 +72,4 @@
     <Resource Include="Images\folder-open.png" />
     <Resource Include="Images\table.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppServices\Dialogs\DialogResult\" />
-  </ItemGroup>
 </Project>
