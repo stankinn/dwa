@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Repository.Data;
 
 namespace WpfApp2019.Database
 {
@@ -21,7 +22,8 @@ namespace WpfApp2019.Database
             
             string conString = null;
             //Verbindungsschlüssel
-            conString = @"Data Source=localhost;Initial Catalog=TestDatabase;Integrated Security=True";
+            ConnectionString con = new ConnectionString();
+            conString = con.getConnectionString();
             sqlConn = new SqlConnection(conString);
             sqlConn.Open();
             

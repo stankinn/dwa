@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WpfApp2019.AppServices.Dialog
 {
-    public abstract class DialogViewModelBase<T>
+    public abstract class DialogViewModelBase<T> : INotifyPropertyChanged
     {
         public string Title { get; set; }
         public string Message { get; set; }
@@ -31,6 +33,11 @@ namespace WpfApp2019.AppServices.Dialog
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
     }
 }

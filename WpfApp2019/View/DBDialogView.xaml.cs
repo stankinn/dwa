@@ -24,5 +24,7 @@ namespace WpfApp2019.View
         {
             InitializeComponent();
         }
+
+
     }
 }

@@ -18,11 +18,15 @@ namespace Repository.Data
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<OrderDetail> Orderdetails { get; set; } = null!;
 
-
-
+        ConnectionString conString = new();
+        
+        
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {  //Verbindungsschlüssel
-            optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=TestDatabase;Integrated Security=True");
+            ConnectionString conString = new ConnectionString();
+            
+            optionsBuilder.UseSqlServer(conString.getConnectionString());
         }
 
     }

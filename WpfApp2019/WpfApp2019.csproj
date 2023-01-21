@@ -27,6 +27,8 @@
     <None Remove="Images\folder-closed.png" />
     <None Remove="Images\folder-open.png" />
     <None Remove="Images\table.png" />
+    <None Remove="Model\DB" />
+    <None Remove="Model\NewFile1.txt" />
     <None Remove="TemplateLegoThemeMD.txt" />
     <None Remove="TextFile1.txt" />
     <None Remove="TextFile2.txt" />

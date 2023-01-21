@@ -21,6 +21,39 @@ namespace WpfApp2019.ViewModel
         private ICommand _okCommand;
         private ICommand _cancelCommand;
 
+
+        private ServerNameModel _server;
+        public ServerNameModel Server
+        {
+
+            get => _server;
+            set
+            {
+                if (_server != value)
+                {
+                    _server = value;
+                    OnPropertyChanged();
+                    Trace.WriteLine("server changed??");
+                }
+            }
+        }
+
+        private DatabaseModel _database;
+        public DatabaseModel Database
+        {
+
+            get => _database;
+            set
+            {
+                if (_database != value)
+                {
+                    _database = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
         public ICommand CancelCommand
         {
             get
@@ -52,7 +85,11 @@ namespace WpfApp2019.ViewModel
 
         private void OKButton(IDialogWindow window)
         {
+
+            Trace.Write("Servername: " + Server);
             CloseDialogWithResult(window, DialogResults.OK);
+           
+
             //Trace.WriteLine(DialogResult);
         }
         private void CancelButton(IDialogWindow window)
