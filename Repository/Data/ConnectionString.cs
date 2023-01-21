@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Repository.Data
 {
     public class ConnectionString
     {
+
         public  string servername = "";
         public void setServername(string name)
         {

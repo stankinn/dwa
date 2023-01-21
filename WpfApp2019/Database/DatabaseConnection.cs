@@ -16,25 +16,29 @@ namespace WpfApp2019.Database
     {
         private SqlConnection sqlConn;
 
-        public void OpenConnection()
+        public void OpenConnection(string conString)
         {
             //öffne Verbindung zur Datenbank
             
-            string conString = null;
+            //string conString = null;
             //Verbindungsschlüssel
-            ConnectionString con = new ConnectionString();
-            conString = con.getConnectionString();
+            //ConnectionString con = new ConnectionString();
+            //conString = con.getConnectionString();
+
+            Trace.WriteLine("Connection: " + conString);
+
+
             sqlConn = new SqlConnection(conString);
             sqlConn.Open();
             
-
         }
 
         public List<string> GetTableNames() 
         {
             //Rückgabe der Tabellennamen ohne Migration History
             if(sqlConn.State != ConnectionState.Open){
-               OpenConnection();
+               string con = new ConnectionString().getConnectionString();
+               OpenConnection(con);
             }
             DataTable schema = sqlConn.GetSchema("Tables");
             List<string> TableNames = new List<string>();
@@ -56,7 +60,8 @@ namespace WpfApp2019.Database
             sqlQuery = "SELECT *FROM "+tablename;
             if (sqlConn == null || sqlConn.State != ConnectionState.Open )
             {
-                OpenConnection();
+                string con = new ConnectionString().getConnectionString();
+                OpenConnection(con);
             }
             SqlDataAdapter dscmd = new SqlDataAdapter(sqlQuery, sqlConn);
             DataTable dtData = new DataTable();
@@ -79,7 +84,8 @@ namespace WpfApp2019.Database
             sqlQuery = "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tablename+ "'";
             if (sqlConn == null || sqlConn.State != ConnectionState.Open)
             {
-                OpenConnection();
+                string con = new ConnectionString().getConnectionString();
+                OpenConnection(con);
             }
             SqlDataAdapter dscmd = new SqlDataAdapter(sqlQuery, sqlConn);
             DataTable dtData = new DataTable();

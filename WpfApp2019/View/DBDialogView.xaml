@@ -24,8 +24,8 @@
         
         <Label Content="Servername:" Grid.Row="0" Grid.Column="0" Margin="30, 35, 0, 0" />
         <Label Content="Database:" Grid.Row="1" Grid.Column="0" Margin="30, 35, 0, 0" />
-        <TextBox x:Name="servernameTextBox" Width="300" Height="25" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Server, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox x:Name="databaseTextbox" Width="300" Height="25" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Database, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="servernameTextBox" Width="300" Height="25" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Server.ServerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="databaseTextbox" Width="300" Height="25" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Database.DatabaseName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Button Grid.Row="2" Grid.Column="2" Content="OK" Name="OkButton" Height ="25" Width="100" Margin="0,30,0,0" Command="{Binding OKCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}"/>
         <Button Grid.Row="2" Grid.Column="1"  Content="Cancel" Name="CancelButton" Height ="25" Width="100" Margin="0,30,0,0" Command="{Binding CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}" ></Button>

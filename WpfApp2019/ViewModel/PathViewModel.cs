@@ -196,41 +196,41 @@ namespace WpfApp2019.ViewModel
                 // change TreeView Root - Item Folder
                 //if (even)
                 //{
-                    var items = new List<TreeViewItem>();
+                    //var items = new List<TreeViewItem>();
 
-                    items.Add(new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder });
+                    //items.Add(new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder });
 
-                    Items = new ObservableCollection<TreeViewItemViewModel>(
-                    items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
+                    //Items = new ObservableCollection<TreeViewItemViewModel>(
+                    //items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
 
-                    TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Folder);
-                    tvivm.ChangeVisibility(false);
-            //        even = false;
-            //}
-
-
+                    //TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Folder);
+                    //tvivm.ChangeVisibility(false);
+                //        even = false;
+                //}
 
 
-            // change TreeView Root-Item Database
-            //else
-            //    {
-            //        DatabaseConnection dbc = new DatabaseConnection();
-            //        List<string> tables = dbc.GetTableNames();
 
-            //        var items = new List<TreeViewItem>();
 
-            //        for (int i = 0; i < tables.Count; i++)
-            //        {
-            //            items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
-            //        }
+                // change TreeView Root-Item Database
+                //else
+                //    {
+                DatabaseConnection dbc = new DatabaseConnection();
+                List<string> tables = dbc.GetTableNames();
 
-            //        Items = new ObservableCollection<TreeViewItemViewModel>(
-            //        items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
+                var items = new List<TreeViewItem>();
 
-            //        TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Table);
-            //        tvivm.ChangeVisibility(true);
-            //        even = true;
-            //    }
+                for (int i = 0; i < tables.Count; i++)
+                {
+                    items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
+                }
+
+                Items = new ObservableCollection<TreeViewItemViewModel>(
+                items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
+
+                TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Table);
+                tvivm.ChangeVisibility(true);
+                //        even = true;
+                //    }
 
             }
         }

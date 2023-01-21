@@ -17,4 +17,10 @@ namespace WpfApp2019.AppServices
     internal class GVisibilityChangedEvent : PubSubEvent<GridVisible>
     {
     }
+    internal class ServerChangedEvent : PubSubEvent<ServerNameModel>
+    {
+    }
+    internal class DatabaseChangedEvent : PubSubEvent<DatabaseModel>
+    {
+    }
 }

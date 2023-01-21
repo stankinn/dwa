@@ -13,6 +13,6 @@ namespace WpfApp2019.Model
 
     public class DatabaseModel
     {
-        private string DatabaseName { get; set; } 
+        public string DatabaseName { get; set; } 
     }
 }

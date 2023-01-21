@@ -1,4 +1,5 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
 using System;
@@ -12,17 +13,25 @@ using WpfApp2019.AppServices;
 using WpfApp2019.AppServices.Dialog;
 using WpfApp2019.Model;
 using IDialogWindow = WpfApp2019.AppServices.Dialog.IDialogWindow;
+using Repository.Data;
+using WpfApp2019.Database;
 
 namespace WpfApp2019.ViewModel
 {
     internal class DBDialogViewModel : DialogViewModelBase<DialogResults>
     {
+        private ServerNameModel _server;
+        private DatabaseModel _database;
 
         private ICommand _okCommand;
         private ICommand _cancelCommand;
 
-
-        private ServerNameModel _server;
+        public DBDialogViewModel()
+        {
+            _server = new ServerNameModel();
+            _database = new DatabaseModel();
+        }
+        
         public ServerNameModel Server
         {
 
@@ -32,13 +41,11 @@ namespace WpfApp2019.ViewModel
                 if (_server != value)
                 {
                     _server = value;
-                    OnPropertyChanged();
-                    Trace.WriteLine("server changed??");
+                    OnPropertyChanged(nameof(Server));
                 }
             }
         }
-
-        private DatabaseModel _database;
+       
         public DatabaseModel Database
         {
 
@@ -48,7 +55,7 @@ namespace WpfApp2019.ViewModel
                 if (_database != value)
                 {
                     _database = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(Database));
                 }
             }
         }
@@ -86,16 +93,27 @@ namespace WpfApp2019.ViewModel
         private void OKButton(IDialogWindow window)
         {
 
-            Trace.Write("Servername: " + Server);
-            CloseDialogWithResult(window, DialogResults.OK);
-           
+            ConnectionString conString = new ConnectionString();
+            DatabaseConnection con = new DatabaseConnection();
+            conString.setServername(Server.ServerName);
+            conString.setDatabase(Database.DatabaseName);
 
-            //Trace.WriteLine(DialogResult);
+            try {
+                
+                con.OpenConnection(conString.getConnectionString());
+
+                 CloseDialogWithResult(window, DialogResults.OK);
+            
+            } catch { Trace.WriteLine("Connection couldn't be opened"); }
+            
+
+            //Trace.WriteLine("Connectionstring: " + con.getConnectionString());
+           
         }
         private void CancelButton(IDialogWindow window)
         {
+           
             CloseDialogWithResult(window, DialogResults.Cancel);
-            //Trace.WriteLine(DialogResult);
 
         }
 
