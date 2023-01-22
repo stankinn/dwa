@@ -68,7 +68,7 @@ namespace WpfApp2019.ViewModel
             var dialog = new DBDialogViewModel();
             _dialogService.OpenDialog(dialog);
         }
-        
+
 
         private ICommand _navigate;
         public ICommand Navigate
@@ -154,7 +154,7 @@ namespace WpfApp2019.ViewModel
                 {
                     _items = value;
                     OnPropertyChanged();
-                    
+
                 }
             }
         }
@@ -191,7 +191,7 @@ namespace WpfApp2019.ViewModel
                 //};
                 changePath(sPath);
                 //_ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
-               
+
 
                 // change TreeView Root - Item Folder
                 //if (even)
@@ -202,39 +202,34 @@ namespace WpfApp2019.ViewModel
 
                 Items = new ObservableCollection<TreeViewItemViewModel>(
                 items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
-                
-               
+
+
                 TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Folder);
                 tvivm.ChangeVisibility(false);
-                //        even = false;
-                //}
-
-
-
-
-                // change TreeView Root-Item Database
-                //else
-                //    {
-                //DatabaseConnection dbc = new DatabaseConnection();
-                //List<string> tables = dbc.GetTableNames();
-
-                //var items = new List<TreeViewItem>();
-
-                //for (int i = 0; i < tables.Count; i++)
-                //{
-                //    items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
-                //}
-
-                //Items = new ObservableCollection<TreeViewItemViewModel>(
-                //items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
-
-                //TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Table);
-                //tvivm.ChangeVisibility(true);
-                //        even = true;
-                //    }
 
             }
         }
 
+        public void OpenDatabase(string conString)
+        {
+
+            DatabaseConnection dbc = new DatabaseConnection();
+            List<string> tables = dbc.GetTableNames(conString);
+
+            var items = new List<TreeViewItem>();
+
+            for (int i = 0; i < tables.Count; i++)
+            {
+                items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
+            }
+
+            Items = new ObservableCollection<TreeViewItemViewModel>(
+            items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
+
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Trace.WriteLine("Item " + i + ": " + Items[i].FullPath);
+            }
+        }
     }
 }

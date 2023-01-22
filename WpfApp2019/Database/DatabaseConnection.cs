@@ -25,7 +25,7 @@ namespace WpfApp2019.Database
             //ConnectionString con = new ConnectionString();
             //conString = con.getConnectionString();
 
-            Trace.WriteLine("Connection: " + conString);
+            Trace.WriteLine("Connection HALLO: " + conString);
 
 
             sqlConn = new SqlConnection(conString);
@@ -33,12 +33,12 @@ namespace WpfApp2019.Database
             
         }
 
-        public List<string> GetTableNames() 
+        public List<string> GetTableNames(string conString) 
         {
+            sqlConn = new SqlConnection(conString);
             //Rückgabe der Tabellennamen ohne Migration History
             if(sqlConn.State != ConnectionState.Open){
-               string con = new ConnectionString().getConnectionString();
-               OpenConnection(con);
+               OpenConnection(conString);
             }
             DataTable schema = sqlConn.GetSchema("Tables");
             List<string> TableNames = new List<string>();
