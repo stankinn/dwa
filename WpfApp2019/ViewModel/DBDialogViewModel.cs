@@ -95,13 +95,14 @@ namespace WpfApp2019.ViewModel
 
             ConnectionString conString = new ConnectionString();
             DatabaseConnection con = new DatabaseConnection();
+            PathViewModel pvm = new PathViewModel();
             conString.setServername(Server.ServerName);
             conString.setDatabase(Database.DatabaseName);
 
             try {
                 
                 con.OpenConnection(conString.getConnectionString());
-
+                pvm.SearchFiles();
                  CloseDialogWithResult(window, DialogResults.OK);
             
             } catch { Trace.WriteLine("Connection couldn't be opened"); }

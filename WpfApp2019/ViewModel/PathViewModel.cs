@@ -39,7 +39,7 @@ namespace WpfApp2019.ViewModel
                 if (_openFiles == null)
                 {
                     _openFiles = new RelayCommand(
-                        param => this.SearchFiles()
+                        param => SearchFiles()
                     );
                 }
                 return _openFiles;
@@ -55,7 +55,7 @@ namespace WpfApp2019.ViewModel
                 if (_openDialogCommand == null)
                 {
                     _openDialogCommand = new RelayCommand(
-                        param => this.OnOpenDialog()
+                        param => OnOpenDialog()
                     );
                 }
                 return _openDialogCommand;
@@ -66,7 +66,7 @@ namespace WpfApp2019.ViewModel
         public void OnOpenDialog()
         {
             var dialog = new DBDialogViewModel();
-            var result = _dialogService.OpenDialog(dialog);
+            _dialogService.OpenDialog(dialog);
         }
         
 
@@ -78,7 +78,7 @@ namespace WpfApp2019.ViewModel
                 if (_navigate == null)
                 {
                     _navigate = new RelayCommand(
-                        param => this.GoToAddEntity()
+                        param => GoToAddEntity()
                     );
                 }
                 return _navigate;
@@ -94,7 +94,7 @@ namespace WpfApp2019.ViewModel
                 if (_navigateBack == null)
                 {
                     _navigateBack = new RelayCommand(
-                        param => this.GoBack()
+                        param => GoBack()
                     );
                 }
                 return _navigateBack;
@@ -138,7 +138,7 @@ namespace WpfApp2019.ViewModel
                 {
                     _filePathText = value;
                     OnPropertyChanged();
-                    Trace.WriteLine("Path PropertyChanged");
+                    Trace.WriteLine("Path PropertyChanged: " + value.FPath);
                 }
             }
         }
@@ -166,13 +166,11 @@ namespace WpfApp2019.ViewModel
             };
 
             _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
-            Trace.WriteLine("updated: " + FilePathText.FPath);
         }
 
         private bool even = true;
         public void SearchFiles()
         {
-            Trace.WriteLine("clicked!");
             FolderBrowserDialog folderDialog = new FolderBrowserDialog
             {
                 ShowNewFolderButton = false,
@@ -185,26 +183,27 @@ namespace WpfApp2019.ViewModel
             {
                 string sPath = folderDialog.SelectedPath;
 
-                FilePathText = new PathText
-                {
-                    FPath = sPath
-                };
-
-                _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
-                Trace.WriteLine("click: " + FilePathText.FPath);
+                //FilePathText = new PathText
+                //{
+                //    FPath = sPath
+                //};
+                changePath(sPath);
+                //_ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
+               
 
                 // change TreeView Root - Item Folder
                 //if (even)
                 //{
-                    //var items = new List<TreeViewItem>();
+                var items = new List<TreeViewItem>();
 
-                    //items.Add(new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder });
+                items.Add(new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder });
 
-                    //Items = new ObservableCollection<TreeViewItemViewModel>(
-                    //items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
-
-                    //TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Folder);
-                    //tvivm.ChangeVisibility(false);
+                Items = new ObservableCollection<TreeViewItemViewModel>(
+                items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
+                
+               
+                TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Folder);
+                tvivm.ChangeVisibility(false);
                 //        even = false;
                 //}
 
@@ -214,21 +213,21 @@ namespace WpfApp2019.ViewModel
                 // change TreeView Root-Item Database
                 //else
                 //    {
-                DatabaseConnection dbc = new DatabaseConnection();
-                List<string> tables = dbc.GetTableNames();
+                //DatabaseConnection dbc = new DatabaseConnection();
+                //List<string> tables = dbc.GetTableNames();
 
-                var items = new List<TreeViewItem>();
+                //var items = new List<TreeViewItem>();
 
-                for (int i = 0; i < tables.Count; i++)
-                {
-                    items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
-                }
+                //for (int i = 0; i < tables.Count; i++)
+                //{
+                //    items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
+                //}
 
-                Items = new ObservableCollection<TreeViewItemViewModel>(
-                items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
+                //Items = new ObservableCollection<TreeViewItemViewModel>(
+                //items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
 
-                TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Table);
-                tvivm.ChangeVisibility(true);
+                //TreeViewItemViewModel tvivm = new TreeViewItemViewModel(FilePathText.FPath, TreeViewItemType.Table);
+                //tvivm.ChangeVisibility(true);
                 //        even = true;
                 //    }
 

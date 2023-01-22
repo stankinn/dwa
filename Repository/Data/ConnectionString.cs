@@ -33,7 +33,7 @@ namespace Repository.Data
         public  string conString = "";
         
         public  string getConnectionString() {
-            conString = "@DaData Source = " + getServername() + "; Initial Catalog = " + getDatabase() + "; Integrated Security = True; Timeout = 30";
+            conString = "Data Source = " + getServername() + "; Initial Catalog = " + getDatabase() + "; Integrated Security = True; Timeout = 30";
             return conString;
         }
 

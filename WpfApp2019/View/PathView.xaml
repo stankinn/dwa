@@ -44,7 +44,7 @@
                 <Image Source="/Images/back_icon.png" Width="20" Height="15" Margin="3"/>
             </Button.Content>
         </Button>
-        <TextBox x:Name="FilePath" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged }"/>
+        <TextBox x:Name="FilePath" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2" Text="{Binding FilePathText.FPath, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
         <textBox:PlaceholderTextBox Placeholder="Search" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="2"/>
 
 
