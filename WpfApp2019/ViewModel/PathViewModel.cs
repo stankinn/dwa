@@ -194,8 +194,6 @@ namespace WpfApp2019.ViewModel
 
 
                 // change TreeView Root - Item Folder
-                //if (even)
-                //{
                 var items = new List<TreeViewItem>();
 
                 items.Add(new TreeViewItem { FullPath = FilePathText.FPath, Type = TreeViewItemType.Folder });
@@ -210,11 +208,11 @@ namespace WpfApp2019.ViewModel
             }
         }
 
-        public void OpenDatabase(string conString)
+        public void OpenDatabase()
         {
 
             DatabaseConnection dbc = new DatabaseConnection();
-            List<string> tables = dbc.GetTableNames(conString);
+            List<string> tables = dbc.GetTableNames();
 
             var items = new List<TreeViewItem>();
 

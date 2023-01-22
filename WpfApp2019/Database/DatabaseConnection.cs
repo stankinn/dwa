@@ -19,23 +19,17 @@ namespace WpfApp2019.Database
         public void OpenConnection(string conString)
         {
             //öffne Verbindung zur Datenbank
-            
-            //string conString = null;
-            //Verbindungsschlüssel
-            //ConnectionString con = new ConnectionString();
-            //conString = con.getConnectionString();
-
-            Trace.WriteLine("Connection HALLO: " + conString);
-
 
             sqlConn = new SqlConnection(conString);
             sqlConn.Open();
             
         }
 
-        public List<string> GetTableNames(string conString) 
+        public List<string> GetTableNames() 
         {
+            string conString = App.Current.Properties["SqlConnectionString"].ToString();
             sqlConn = new SqlConnection(conString);
+
             //Rückgabe der Tabellennamen ohne Migration History
             if(sqlConn.State != ConnectionState.Open){
                OpenConnection(conString);
@@ -56,12 +50,14 @@ namespace WpfApp2019.Database
 
         public DataTable GetTableContent(String tablename)
         {
+            string conString = App.Current.Properties["SqlConnectionString"].ToString();
+            sqlConn = new SqlConnection(conString);
+
             string sqlQuery = null;
             sqlQuery = "SELECT *FROM "+tablename;
             if (sqlConn == null || sqlConn.State != ConnectionState.Open )
             {
-                string con = new ConnectionString().getConnectionString();
-                OpenConnection(con);
+                OpenConnection(conString);
             }
             SqlDataAdapter dscmd = new SqlDataAdapter(sqlQuery, sqlConn);
             DataTable dtData = new DataTable();
@@ -80,12 +76,14 @@ namespace WpfApp2019.Database
 
         public List<List<string>> GetDataType(string tablename)
         {
+            string conString = App.Current.Properties["SqlConnectionString"].ToString();
+            sqlConn = new SqlConnection(conString);
+
             string sqlQuery = null;
             sqlQuery = "SELECT COLUMN_NAME, DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + tablename+ "'";
             if (sqlConn == null || sqlConn.State != ConnectionState.Open)
             {
-                string con = new ConnectionString().getConnectionString();
-                OpenConnection(con);
+                OpenConnection(conString);
             }
             SqlDataAdapter dscmd = new SqlDataAdapter(sqlQuery, sqlConn);
             DataTable dtData = new DataTable();
