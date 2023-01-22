@@ -33,8 +33,20 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnOpen" Grid.Row="0" Grid.Column="1" Content="Open File" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=OpenDialogCommand}"/>
-        <Button Grid.Row="0" Grid.Column="2" Content="Add Entity" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=Navigate}"/>
+        <DockPanel Grid.ColumnSpan="4">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="Open" Command="{Binding Path=OpenFiles}" />
+                    <Separator />
+                    <MenuItem Header="Database">
+                        <MenuItem Header="OpenConnection" Command="{Binding Path=OpenDialogCommand}"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Add Entity" Command="{Binding Path=Navigate}"/>
+            </Menu>
+        </DockPanel>
+        <!--<Button x:Name="btnOpen" Grid.Row="0" Grid.Column="1" Content="Open File" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=OpenDialogCommand}"/>-->
+        <!--<Button Grid.Row="0" Grid.Column="2" Content="Add Entity" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=Navigate}"/>-->
 
         <!--<TextBlock Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
             <Run Language="de-de" Text="Path:"/>

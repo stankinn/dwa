@@ -15,6 +15,7 @@ using WpfApp2019.Model;
 using IDialogWindow = WpfApp2019.AppServices.Dialog.IDialogWindow;
 using Repository.Data;
 using WpfApp2019.Database;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace WpfApp2019.ViewModel
 {
@@ -95,17 +96,18 @@ namespace WpfApp2019.ViewModel
 
             ConnectionString conString = new ConnectionString();
             DatabaseConnection con = new DatabaseConnection();
-            PathViewModel pvm = new PathViewModel();
             conString.setServername(Server.ServerName);
             conString.setDatabase(Database.DatabaseName);
 
             try {
                 
                 con.OpenConnection(conString.getConnectionString());
-                pvm.SearchFiles();
-                 CloseDialogWithResult(window, DialogResults.OK);
-            
-            } catch { Trace.WriteLine("Connection couldn't be opened"); }
+                
+                CloseDialogWithResult(window, DialogResults.OK);
+
+            } catch { 
+                Trace.WriteLine("Connection couldn't be opened");
+            }
             
 
             //Trace.WriteLine("Connectionstring: " + con.getConnectionString());

@@ -30,7 +30,9 @@ namespace WpfApp2019.AppServices.Dialog
             if (dialog != null)
             {
                 dialog.DialogResult = true;
+                
             }
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

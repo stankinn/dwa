@@ -17,5 +17,6 @@ namespace WpfApp2019.AppServices.Dialog
 
             return vm.DialogResult;
         }
+
     }
 }

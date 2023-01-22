@@ -154,6 +154,7 @@ namespace WpfApp2019.ViewModel
                 {
                     _items = value;
                     OnPropertyChanged();
+                    
                 }
             }
         }
@@ -166,6 +167,7 @@ namespace WpfApp2019.ViewModel
             };
 
             _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
+            OnPropertyChanged(nameof(FilePathText));
         }
 
         private bool even = true;
