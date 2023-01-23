@@ -33,9 +33,9 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
 
-        <DockPanel Grid.ColumnSpan="4">
+        <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="File">
+                <MenuItem Height="25" Header="File">
                     <MenuItem Header="Open File" Command="{Binding Path=OpenFiles}" />
                     <MenuItem Header="Open Table/s" Command="{Binding Path=OpenDbTables}" IsEnabled="{Binding OpenEnabled}"/>
                     <Separator />
@@ -43,7 +43,7 @@
                         <MenuItem Header="OpenConnection" Command="{Binding Path=OpenDialogCommand}"/>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Add Entity" Command="{Binding Path=Navigate}"/>
+                <MenuItem Height="25" Header="Add Entity" Command="{Binding Path=Navigate}"/>
             </Menu>
         </DockPanel>
         <!--<Button x:Name="btnOpen" Grid.Row="0" Grid.Column="1" Content="Open File" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=OpenDialogCommand}"/>-->

@@ -156,9 +156,13 @@ namespace WpfApp2019.ViewModel
 
         public void GoToAddEntity()
         {
-            _navigationStore = NavigationStore.Instance;
-
-            _navigationStore.CurrViewModel = new AddEntityViewModel();
+            if (App.Current.Properties["SqlConnectionString"] != null)
+            {
+                _navigationStore = NavigationStore.Instance;
+                _navigationStore.CurrViewModel = new AddEntityViewModel();
+            }
+            else
+                MessageBox.Show("Please connect to a database first.");
 
         }
 
