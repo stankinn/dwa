@@ -31,6 +31,7 @@ namespace WpfApp2019.ViewModel
             _dialogService = new DialogService();
             _ea = ApplicationService.Instance.EventAggregator;
             ApplicationService.Instance.EventAggregator.GetEvent<DbConnectionChangedEvent>().Subscribe(ChangeEnabled);
+            ApplicationService.Instance.EventAggregator.GetEvent<DirectoryChangedEvent>().Subscribe(ChangePath);
             OpenEnabled = true;
         }
 
@@ -167,7 +168,7 @@ namespace WpfApp2019.ViewModel
                     oldPath = oldPath.Substring(0, index);
                 }
 
-                changePath(oldPath);
+                ChangePath(oldPath);
             }
 
         }
@@ -196,6 +197,7 @@ namespace WpfApp2019.ViewModel
                     _filePathText = value;
                     OnPropertyChanged();
                     Trace.WriteLine("Path PropertyChanged: " + value.FPath);
+                    _ea.GetEvent<PathChangedEvent>().Publish(_filePathText.FPath);
                 }
             }
         }
@@ -216,16 +218,14 @@ namespace WpfApp2019.ViewModel
             }
         }
 
-        public void changePath(string sPath)
+        public void ChangePath(string sPath)
         {
             FilePathText = new PathText
             {
                 FPath = sPath
-            };
-
-            _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
-            OnPropertyChanged(nameof(FilePathText));
+            }; 
         }
+
         public void SearchFiles()
         {
             FolderBrowserDialog folderDialog = new FolderBrowserDialog
@@ -244,7 +244,7 @@ namespace WpfApp2019.ViewModel
                 //{
                 //    FPath = sPath
                 //};
-                changePath(sPath);
+                ChangePath(sPath);
                 //_ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
 
 

@@ -8,9 +8,13 @@ using WpfApp2019.Model;
 
 namespace WpfApp2019.AppServices
 {
-    internal class PathChangedEvent : PubSubEvent<PathText>
+    internal class PathChangedEvent : PubSubEvent<string>
     {
     }
+    internal class DirectoryChangedEvent : PubSubEvent<string>
+    {
+    }
+
     internal class TNameChangedEvent : PubSubEvent<Table>
     {
     }

@@ -103,19 +103,18 @@ namespace WpfApp2019.TreeView
                 if (value != this.isSelected)
                 {
                     this.isSelected = value;
-                    PathViewModel pathvm = new PathViewModel();
 
                     if (this.Type == TreeViewItemType.Table)
                     {
                         ChangeVisibility(true);
                         TableName = new Table { Name = this.Name };
-                        pathvm.changePath(TableName.Name);
+                        _ea.GetEvent<DirectoryChangedEvent>().Publish(TableName.Name);
                         _ea.GetEvent<TNameChangedEvent>().Publish(TableName);
                     }
                     else
                     {
                         ChangeVisibility(false);
-                        pathvm.changePath(this.FullPath);
+                        _ea.GetEvent<DirectoryChangedEvent>().Publish(this.FullPath);
                     }
                 }
             }

@@ -15,6 +15,7 @@ namespace WpfApp2019.ViewModel
 {
     internal class FileListViewModel : ViewModelBase
     {
+        IEventAggregator _ea = ApplicationService.Instance.EventAggregator;
         public FileListViewModel( )
         {
             ApplicationService.Instance.EventAggregator.GetEvent<PathChangedEvent>().Subscribe(LoadObjects);
@@ -99,23 +100,26 @@ namespace WpfApp2019.ViewModel
             //Navigation bei Dateiordnern, Dateien werden geöffnet
             if (objects.Type == "Dateiordner")
             {
-                var files = Directory.EnumerateFileSystemEntries(path);
-                ObservableCollection<ObjectAttributes> items = new ObservableCollection<ObjectAttributes>();
-                foreach (var d in files)
-                {
-                    var accessControl = new FileInfo(d).GetAccessControl();
-                    items.Add(new ObjectAttributes
-                    {
-                        Name = Path.GetFileName(d),
-                        Type = GetDataType(d),
-                        ModificationTime = Directory.GetLastWriteTime(d),
-                        Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
-                        Description = GetFileDescription(d),
-                        FilePath = Path.GetFullPath(d)
-                    });
+                //var files = Directory.EnumerateFileSystemEntries(path);
+                //ObservableCollection<ObjectAttributes> items = new ObservableCollection<ObjectAttributes>();
+                //foreach (var d in files)
+                //{
+                //    var accessControl = new FileInfo(d).GetAccessControl();
+                //    items.Add(new ObjectAttributes
+                //    {
+                //        Name = Path.GetFileName(d),
+                //        Type = GetDataType(d),
+                //        ModificationTime = Directory.GetLastWriteTime(d),
+                //        Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
+                //        Description = GetFileDescription(d),
+                //        FilePath = Path.GetFullPath(d)
+                //    });
 
-                }
-                Files = items;
+                //}
+                //Files = items;
+
+                _ea.GetEvent<DirectoryChangedEvent>().Publish(path);
+
             }
             else
             {
@@ -347,19 +351,13 @@ namespace WpfApp2019.ViewModel
 
         }
 
-        public void LoadObjects(PathText path)
+        public void LoadObjects(string path)
         {
-            string sPath = "";
-
-            if (path != null)
-            {
-                sPath = path.FPath;
-
-            }
+            
             try
             {
                
-                var files = Directory.EnumerateFileSystemEntries(sPath);
+                var files = Directory.EnumerateFileSystemEntries(path);
                 ObservableCollection<ObjectAttributes> items = new ObservableCollection<ObjectAttributes>();
                 ObservableCollection<Item> treeItems = new ObservableCollection<Item>();
 
