@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,7 @@ using WpfApp2019.TreeView;
 using DialogResult = System.Windows.Forms.DialogResult;
 using DialogService = WpfApp2019.AppServices.Dialog.DialogService;
 using IDialogService = WpfApp2019.AppServices.Dialog.IDialogService;
+using MessageBox = System.Windows.MessageBox;
 
 namespace WpfApp2019.ViewModel
 {
@@ -28,6 +30,8 @@ namespace WpfApp2019.ViewModel
         {
             _dialogService = new DialogService();
             _ea = ApplicationService.Instance.EventAggregator;
+            ApplicationService.Instance.EventAggregator.GetEvent<DbConnectionChangedEvent>().Subscribe(ChangeEnabled);
+            OpenEnabled = true;
         }
 
 
@@ -45,6 +49,21 @@ namespace WpfApp2019.ViewModel
                 return _openFiles;
             }
 
+        }
+
+        private Boolean _openEnabled;
+        public Boolean OpenEnabled
+        {
+            get => _openEnabled; 
+            set
+            {
+                if (_openEnabled != value)
+                {
+                    _openEnabled = value;
+                    OnPropertyChanged();
+                    Trace.WriteLine("PropertyChanged: " + value);
+                }
+            }
         }
 
         private ICommand _openDbTables;
@@ -242,6 +261,16 @@ namespace WpfApp2019.ViewModel
                 TreeViewItemViewModel tvivm = new TreeViewItemViewModel("", TreeViewItemType.Table);
                 tvivm.ChangeVisibility(true);
             }
+            else
+            {
+                MessageBox.Show("Please connect to a database first.");
+            }
+        }
+
+        public void ChangeEnabled(DbConnection con)
+        {
+            Trace.WriteLine("HERE" + con.Connected);
+            OpenEnabled = con.Connected;
         }
     }
 }

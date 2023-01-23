@@ -1,6 +1,5 @@
 ﻿using Prism.Events;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
 using WpfApp2019.AppServices;

@@ -23,4 +23,7 @@ namespace WpfApp2019.AppServices
     internal class DatabaseChangedEvent : PubSubEvent<DatabaseModel>
     {
     }
+    internal class DbConnectionChangedEvent : PubSubEvent<DbConnection>
+    {
+    }
 }

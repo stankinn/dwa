@@ -37,7 +37,7 @@
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="File">
                     <MenuItem Header="Open File" Command="{Binding Path=OpenFiles}" />
-                    <MenuItem Header="Open Table/s" Command="{Binding Path=OpenDbTables}"/>
+                    <MenuItem Header="Open Table/s" Command="{Binding Path=OpenDbTables}" IsEnabled="{Binding OpenEnabled}"/>
                     <Separator />
                     <MenuItem Header="Database">
                         <MenuItem Header="OpenConnection" Command="{Binding Path=OpenDialogCommand}"/>

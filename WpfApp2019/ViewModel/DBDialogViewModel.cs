@@ -16,6 +16,8 @@ using IDialogWindow = WpfApp2019.AppServices.Dialog.IDialogWindow;
 using Repository.Data;
 using WpfApp2019.Database;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace WpfApp2019.ViewModel
 {
@@ -27,10 +29,13 @@ namespace WpfApp2019.ViewModel
         private ICommand _okCommand;
         private ICommand _cancelCommand;
 
+        IEventAggregator _ea;
+
         public DBDialogViewModel()
         {
             _server = new ServerNameModel();
             _database = new DatabaseModel();
+            _ea = ApplicationService.Instance.EventAggregator;
         }
         
         public ServerNameModel Server
@@ -91,6 +96,20 @@ namespace WpfApp2019.ViewModel
 
         }
 
+        private DbConnection _dbCon;
+        public DbConnection DbCon
+        {
+            get => _dbCon;
+            set
+            {
+                if (_dbCon != value)
+                {
+                    _dbCon = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         private void OKButton(IDialogWindow window)
         {
 
@@ -105,6 +124,9 @@ namespace WpfApp2019.ViewModel
 
                 string sqlString = conString.getConnectionString();
                 App.Current.Properties["SqlConnectionString"] = sqlString;
+
+                DbCon = new DbConnection { Connected = true };
+                _ea.GetEvent<DbConnectionChangedEvent>().Publish(DbCon);
 
                 CloseDialogWithResult(window, DialogResults.OK);
 
