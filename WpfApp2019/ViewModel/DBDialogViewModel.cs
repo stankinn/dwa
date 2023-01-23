@@ -18,6 +18,10 @@ using WpfApp2019.Database;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Windows.Controls;
 using System.Windows;
+using System.IO;
+using System.Windows.Shapes;
+using System.Data.SqlTypes;
+using System.Data;
 
 namespace WpfApp2019.ViewModel
 {
@@ -124,6 +128,7 @@ namespace WpfApp2019.ViewModel
 
                 string sqlString = conString.getConnectionString();
                 App.Current.Properties["SqlConnectionString"] = sqlString;
+                SaveConTxt(sqlString);
 
                 DbCon = new DbConnection { Connected = true };
                 _ea.GetEvent<DbConnectionChangedEvent>().Publish(DbCon);
@@ -136,6 +141,44 @@ namespace WpfApp2019.ViewModel
             }
 
         }
+         private void SaveConTxt(string con)
+        {
+            string strAssemblyPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var values = strAssemblyPath.Split(@"\bin");
+            string fileName = values[0] + @"\Database\ConnectionString.txt";
+
+            try
+            {
+                // Check if file already exists. If yes, delete it.     
+                if (File.Exists(fileName))
+                {
+                    File.Delete(fileName);
+                }
+
+                // Create a new file     
+                using (FileStream fs = File.Create(fileName))
+                {
+                    // Add some text to file    
+                    Byte[] connection = new UTF8Encoding(true).GetBytes(con);
+                    fs.Write(connection, 0, connection.Length);
+                }
+
+                // Open the stream and read it back.    
+                using (StreamReader sr = File.OpenText(fileName))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.ToString());
+            }
+        }
+
         private void CancelButton(IDialogWindow window)
         {
            
