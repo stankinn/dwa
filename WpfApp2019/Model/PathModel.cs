@@ -18,5 +18,10 @@ namespace WpfApp2019.Model
     {
         public string FPath{ get; set; }
     }
+    public class SearchParameters
+    {
+        public string SearchInput { get; set; }
+        public PathText Path { get; set; }
 
+    }
 }

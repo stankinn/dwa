@@ -18,6 +18,7 @@ namespace WpfApp2019.ViewModel
         public FileListViewModel( )
         {
             ApplicationService.Instance.EventAggregator.GetEvent<PathChangedEvent>().Subscribe(LoadObjects);
+            ApplicationService.Instance.EventAggregator.GetEvent<SearchChangedEvent>().Subscribe(Search);
             //LoadObjects();
         }
 
@@ -129,6 +130,35 @@ namespace WpfApp2019.ViewModel
 
         }
 
+        public void Search(SearchParameters search)
+        {
+
+            string path = search.Path.FPath;
+            string sString = search.SearchInput.ToLower();
+            var files = Directory.EnumerateFileSystemEntries(path);
+            ObservableCollection<ObjectAttributes> items = new ObservableCollection<ObjectAttributes>();
+            foreach (var d in files)
+            {
+                var accessControl = new FileInfo(d).GetAccessControl();
+
+
+                if (Path.GetFileName(d).ToLower().Contains(sString) || GetDataType(d).ToLower().Contains(sString) || accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString().ToLower().Contains(sString))
+                {
+                    items.Add(new ObjectAttributes
+                    {
+                        Name = Path.GetFileName(d),
+                        Type = GetDataType(d),
+                        ModificationTime = Directory.GetLastWriteTime(d),
+                        Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
+                        Description = GetFileDescription(d),
+                        FilePath = Path.GetFullPath(d)
+                    });
+                }
+
+            }
+            Files = items;
+
+        }
 
         private ICommand _createMDCommand;
         public ICommand CreateMDCommand

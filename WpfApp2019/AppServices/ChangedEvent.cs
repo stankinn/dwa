@@ -26,4 +26,7 @@ namespace WpfApp2019.AppServices
     internal class DbConnectionChangedEvent : PubSubEvent<DbConnection>
     {
     }
+    internal class SearchChangedEvent : PubSubEvent<SearchParameters>
+    {
+    }
 }

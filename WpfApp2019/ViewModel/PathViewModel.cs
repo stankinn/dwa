@@ -34,6 +34,24 @@ namespace WpfApp2019.ViewModel
             OpenEnabled = true;
         }
 
+        private string _search;
+
+        public string Search
+        {
+
+            get => _search;
+
+            set
+            {
+                if (_search != value)
+                {
+                    _search = value;
+                    OnPropertyChanged();
+                    _ea.GetEvent<SearchChangedEvent>().Publish(new SearchParameters { SearchInput = _search, Path = FilePathText });
+                }
+            }
+
+        }
 
         private ICommand _openFiles;
         public ICommand OpenFiles
