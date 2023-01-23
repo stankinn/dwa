@@ -47,6 +47,22 @@ namespace WpfApp2019.ViewModel
 
         }
 
+        private ICommand _openDbTables;
+        public ICommand OpenDbTables
+        {
+            get
+            {
+                if (_openDbTables == null)
+                {
+                    _openDbTables = new RelayCommand(
+                        param => OpenTables()
+                    );
+                }
+                return _openDbTables;
+            }
+
+        }
+
         private ICommand _openDialogCommand;
         public ICommand OpenDialogCommand
         {
@@ -169,8 +185,6 @@ namespace WpfApp2019.ViewModel
             _ea.GetEvent<PathChangedEvent>().Publish(FilePathText);
             OnPropertyChanged(nameof(FilePathText));
         }
-
-        private bool even = true;
         public void SearchFiles()
         {
             FolderBrowserDialog folderDialog = new FolderBrowserDialog
@@ -208,25 +222,25 @@ namespace WpfApp2019.ViewModel
             }
         }
 
-        public void OpenDatabase()
+        public void OpenTables()
         {
-
-            DatabaseConnection dbc = new DatabaseConnection();
-            List<string> tables = dbc.GetTableNames();
-
-            var items = new List<TreeViewItem>();
-
-            for (int i = 0; i < tables.Count; i++)
+            if (App.Current.Properties["SqlConnectionString"] != null)
             {
-                items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
-            }
+                var items = new List<TreeViewItem>();
+                DatabaseConnection dbc = new DatabaseConnection();
+                List<string> tables = dbc.GetTableNames();
 
-            Items = new ObservableCollection<TreeViewItemViewModel>(
-            items.Select(table => new TreeViewItemViewModel(table.FullPath, TreeViewItemType.Table)));
 
-            for (int i = 0; i < Items.Count; i++)
-            {
-                Trace.WriteLine("Item " + i + ": " + Items[i].FullPath);
+                for (int i = 0; i < tables.Count; i++)
+                {
+                    items.Add(new TreeViewItem { FullPath = tables[i], Type = TreeViewItemType.Table });
+                }
+
+                Items = new ObservableCollection<TreeViewItemViewModel>(
+                items.Select(folder => new TreeViewItemViewModel(folder.FullPath, folder.Type)));
+
+                TreeViewItemViewModel tvivm = new TreeViewItemViewModel("", TreeViewItemType.Table);
+                tvivm.ChangeVisibility(true);
             }
         }
     }

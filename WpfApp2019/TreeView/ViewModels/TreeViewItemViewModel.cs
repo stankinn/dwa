@@ -106,8 +106,6 @@ namespace WpfApp2019.TreeView
                     this.isSelected = value;
                     PathViewModel pathvm = new PathViewModel();
 
-                    Trace.WriteLine("Select: " + this.Type);
-
                     if (this.Type == TreeViewItemType.Table)
                     {
                         ChangeVisibility(true);
@@ -175,27 +173,13 @@ namespace WpfApp2019.TreeView
             GridViewModel gvm = new GridViewModel();
             if (show)
             {
-                if(gvm.GridVisibility == Visibility.Hidden)
-                {
-                    GridV = new GridVisible { Visible = Visibility.Visible };
-                    _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
-                }
-                else
-                {
-                    return;
-                }
+                GridV = new GridVisible { Visible = Visibility.Visible };
+                _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
             }
             else
             {
-                if (gvm.GridVisibility == Visibility.Visible)
-                {
-                    GridV = new GridVisible { Visible = Visibility.Hidden };
-                    _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
-                }
-                else
-                {
-                    return;
-                }
+                GridV = new GridVisible { Visible = Visibility.Hidden };
+                _ea.GetEvent<GVisibilityChangedEvent>().Publish(GridV);
             }
         }
 

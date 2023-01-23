@@ -105,7 +105,6 @@ namespace WpfApp2019.ViewModel
 
                 string sqlString = conString.getConnectionString();
                 App.Current.Properties["SqlConnectionString"] = sqlString;
-                pvm.OpenDatabase();
 
                 CloseDialogWithResult(window, DialogResults.OK);
 
