@@ -7,10 +7,12 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Shapes;
 using WpfApp2019.AppServices;
 using WpfApp2019.Model;
+using MessageBox = System.Windows.MessageBox;
 using Path = System.IO.Path;
 
 namespace WpfApp2019.ViewModel
@@ -24,6 +26,19 @@ namespace WpfApp2019.ViewModel
             ApplicationService.Instance.EventAggregator.GetEvent<SearchChangedEvent>().Subscribe(Search);
             //LoadObjects();
         }
+
+        private bool _isEditable;
+        public bool IsEditable
+        {
+            get { return _isEditable; }
+            set
+            {
+                _isEditable = value;
+                OnPropertyChanged();
+                Trace.WriteLine("Is now editable: " + value);
+            }
+        }
+
 
         public ObservableCollection<Item> Items { get; set; }
 
@@ -73,6 +88,65 @@ namespace WpfApp2019.ViewModel
             }
 
         }
+        private ICommand _delete;
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                if (_delete == null)
+                {
+                    _delete = new RelayCommand(
+                        param => this.Delete(param as ObjectAttributes)
+                    );
+                }
+                return _delete;
+            }
+
+        }
+
+        public void Delete(ObjectAttributes obj)
+        {
+            File.Delete(obj.FilePath);
+            Files.Remove(obj);
+            Trace.WriteLine("File deleted: " + obj.Name);
+        }
+
+        private ICommand _copy;
+        public ICommand CopyCommand
+        {
+            get
+            {
+                if (_copy == null)
+                {
+                    _copy = new RelayCommand(
+                        param => this.Copy(param as ObjectAttributes)
+                    );
+                }
+                return _copy;
+            }
+
+        }
+
+        public void Copy(ObjectAttributes obj)
+        {
+            
+            var dialog = new FolderBrowserDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                // Copy the selected file to the destination folder
+                if (Path.Combine(dialog.SelectedPath, obj.Name + obj.Type) == null)
+                {
+                    File.Copy(obj.FilePath, Path.Combine(dialog.SelectedPath, obj.Name + obj.Type));
+                }
+                else {
+
+                    File.Copy(obj.FilePath, Path.Combine(dialog.SelectedPath, obj.Name + "_copy" +obj.Type));
+                }
+
+            }
+            Trace.WriteLine(obj.FilePath);
+            LoadObjects(obj.FilePath.Replace(obj.Name+obj.Type, ""));
+        }
 
         private ICommand _rename;
         public ICommand RenameCommand
@@ -93,6 +167,7 @@ namespace WpfApp2019.ViewModel
         public void Rename(ObjectAttributes obj)
         {
             string name = obj.Name;
+            IsEditable = true;
             Trace.WriteLine("Rename this" + name);
         }
 
@@ -153,7 +228,7 @@ namespace WpfApp2019.ViewModel
                 {
                     items.Add(new ObjectAttributes
                     {
-                        Name = Path.GetFileName(d),
+                        Name = Path.GetFileName(d).Replace(GetDataType(d), ""),
                         Type = GetDataType(d),
                         ModificationTime = Directory.GetLastWriteTime(d),
                         Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
@@ -337,7 +412,7 @@ namespace WpfApp2019.ViewModel
                 var accessControl = new FileInfo(d).GetAccessControl();
                 items.Add(new ObjectAttributes
                 {
-                    Name = Path.GetFileName(d),
+                    Name = Path.GetFileName(d).Replace(GetDataType(d), ""),
                     Type = GetDataType(d),
                     ModificationTime = Directory.GetLastWriteTime(d),
                     Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),
@@ -664,7 +739,7 @@ namespace WpfApp2019.ViewModel
                     var accessControl = new FileInfo(d).GetAccessControl();
                     items.Add(new ObjectAttributes
                     {
-                        Name = Path.GetFileName(d),
+                        Name = Path.GetFileName(d).Replace(GetDataType(d), ""),
                         Type = GetDataType(d),
                         ModificationTime = Directory.GetLastWriteTime(d),
                         Owner = accessControl.GetOwner(typeof(System.Security.Principal.NTAccount)).ToString(),

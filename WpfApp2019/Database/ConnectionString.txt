@@ -1,1 +1,1 @@
-Data Source = ANNESLENOVO\MSSQLSERVER01; Initial Catalog = TestDatabase; Integrated Security = True; Timeout = 30
+Data Source = DESKTOP-0LQ89AE\LOCALHOSTSQL; Initial Catalog = LegoDatenBank; Integrated Security = True; Timeout = 30

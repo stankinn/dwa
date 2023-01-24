@@ -46,12 +46,7 @@
                 <MenuItem Height="25" Header="Add Entity" Command="{Binding Path=Navigate}"/>
             </Menu>
         </DockPanel>
-        <!--<Button x:Name="btnOpen" Grid.Row="0" Grid.Column="1" Content="Open File" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=OpenDialogCommand}"/>-->
-        <!--<Button Grid.Row="0" Grid.Column="2" Content="Add Entity" VerticalAlignment="Stretch" Width="80" Command="{Binding Path=Navigate}"/>-->
 
-        <!--<TextBlock Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
-            <Run Language="de-de" Text="Path:"/>
-        </TextBlock>-->
         <Button Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding Path=NavigateBack}">
             <Button.Content>
                 <Image Source="/Images/back_icon.png" Width="20" Height="15" Margin="3"/>
