@@ -14,6 +14,7 @@ using WpfApp2019.Database;
 using WpfApp2019.Model;
 using WpfApp2019.Stores;
 using WpfApp2019.TreeView;
+using static System.Net.WebRequestMethods;
 using DialogResult = System.Windows.Forms.DialogResult;
 using DialogService = WpfApp2019.AppServices.Dialog.DialogService;
 using IDialogService = WpfApp2019.AppServices.Dialog.IDialogService;
@@ -32,6 +33,7 @@ namespace WpfApp2019.ViewModel
             _ea = ApplicationService.Instance.EventAggregator;
             ApplicationService.Instance.EventAggregator.GetEvent<DbConnectionChangedEvent>().Subscribe(ChangeEnabled);
             ApplicationService.Instance.EventAggregator.GetEvent<DirectoryChangedEvent>().Subscribe(ChangePath);
+            ApplicationService.Instance.EventAggregator.GetEvent<StatusChangedEvent>().Subscribe(ChangeStatus);
             OpenEnabled = true;
         }
 
@@ -52,6 +54,28 @@ namespace WpfApp2019.ViewModel
                 }
             }
 
+        }
+        private string _status;
+
+        public string Status
+        {
+
+            get => _status;
+
+            set
+            {
+                if (_status != value)
+                {
+                    _status = value;
+                    OnPropertyChanged();
+                }
+            }
+
+        }
+
+        private void ChangeStatus(int elementCount)
+        {
+            Status = $"{elementCount} Elements";
         }
 
         private ICommand _openFiles;

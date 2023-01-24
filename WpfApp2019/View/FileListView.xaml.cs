@@ -8,7 +8,6 @@ namespace WpfApp2019.View
         public FileListView()
         {
             InitializeComponent();
-            
         }
 
 

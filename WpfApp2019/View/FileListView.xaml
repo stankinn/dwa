@@ -16,9 +16,10 @@
 
     <Grid>
 
+      
+        
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <ListView Name="FileList" ItemsSource="{Binding Path= Files}" gridViewColumn:ListViewLayoutManager.Enabled="true">
-
                 <ListView.Resources>
                     <MenuItem x:Key="RenameMenu" Header="Rename" Command="{Binding RenameCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
                     <MenuItem x:Key="CreateMarkdownMenu" Header="Create .md and .sql" Command="{Binding CreateMDCommand}" CommandParameter="{Binding Source={x:Reference FileList}, Path= SelectedItem}"/>
@@ -41,8 +42,7 @@
 
                 <ListView.View>
                     <GridView>
-
-                        <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Name , Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        <GridViewColumn x:Name="NameBox" DisplayMemberBinding="{Binding Path = Name, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         Width="110" gridViewColumn:RangeColumn.MinWidth="50">
                             <GridViewColumnHeader Tag="Name">
                                 <!--Click="ColumnHeader_Click"-->
@@ -53,7 +53,6 @@
                         <GridViewColumn DisplayMemberBinding="{Binding Path = Type, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         Width="100" gridViewColumn:RangeColumn.MinWidth="40">
                             <GridViewColumnHeader Tag="Type" >
-                                <!--Click="ColumnHeader_Click"-->
                                 Type
                             </GridViewColumnHeader>
                         </GridViewColumn>

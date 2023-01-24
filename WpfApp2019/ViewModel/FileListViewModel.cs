@@ -8,8 +8,10 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Shapes;
 using WpfApp2019.AppServices;
 using WpfApp2019.Model;
+using Path = System.IO.Path;
 
 namespace WpfApp2019.ViewModel
 {
@@ -52,6 +54,7 @@ namespace WpfApp2019.ViewModel
                 {
                     _files = value;
                     OnPropertyChanged();
+                    _ea.GetEvent<StatusChangedEvent>().Publish(_files.Count);
                 }
             }
         }

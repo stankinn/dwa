@@ -14,6 +14,9 @@ namespace WpfApp2019.AppServices
     internal class DirectoryChangedEvent : PubSubEvent<string>
     {
     }
+    internal class StatusChangedEvent : PubSubEvent<int>
+    {
+    }
 
     internal class TNameChangedEvent : PubSubEvent<Table>
     {

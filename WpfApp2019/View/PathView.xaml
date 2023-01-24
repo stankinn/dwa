@@ -85,7 +85,10 @@
         <local:FileListView Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4"/>
         <local:GridView Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4" Visibility="{Binding GridVisibility}"/>
 
-        <StatusBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
+        <StatusBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Name="FileStatus" Text="{Binding Status}"  Grid.Column="1" Margin="1,0" />
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </UserControl>
