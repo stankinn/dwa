@@ -134,15 +134,9 @@ namespace WpfApp2019.ViewModel
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Copy the selected file to the destination folder
-                if (Path.Combine(dialog.SelectedPath, obj.Name + obj.Type) == null)
-                {
-                    File.Copy(obj.FilePath, Path.Combine(dialog.SelectedPath, obj.Name + obj.Type));
-                }
-                else {
-
+               
                     File.Copy(obj.FilePath, Path.Combine(dialog.SelectedPath, obj.Name + "_copy" +obj.Type));
-                }
-
+                
             }
             Trace.WriteLine(obj.FilePath);
             LoadObjects(obj.FilePath.Replace(obj.Name+obj.Type, ""));
@@ -260,7 +254,7 @@ namespace WpfApp2019.ViewModel
         public void CreateMD(ObjectAttributes obj)
         {
 
-            string directoryPath = obj.FilePath.Replace($"\\{obj.Name}", "");
+            string directoryPath = obj.FilePath.Replace($"\\{obj.Name}{obj.Type}", "");
 
             if (obj.Type == ".csv")
             {
@@ -271,7 +265,7 @@ namespace WpfApp2019.ViewModel
 
                 string templateTextMD = File.ReadAllText("..\\..\\..\\TemplateLegoMD.txt");
 
-                if (obj.Name.Contains(".csv"))
+                if (obj.Type == ".csv")
                 {
                     List<string> dataTypes = new List<string>();
                     List<string> dataNames = new List<string>();
